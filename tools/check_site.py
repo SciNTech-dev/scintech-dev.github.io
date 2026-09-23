@@ -5,7 +5,9 @@ Prints one token per check; a check that fails prints <NAME>_FAIL plus the reaso
 Exit code is 1 if any check fails, but grep the tokens: exit 0 is not a pass.
 
   SITE_LINKS_OK n=<internal links> pending=<k> external=<e>
-  SITE_NOEMAIL_OK files=<n>
+  SITE_NOEMAIL_OK files=<n> allowed=<k>
+      (owner 2026-09-23 "email on privacy pages only": the one CONTACT_EMAIL may appear only
+      in the contact/deletion section of the two app privacy policies, and must appear there)
   SITE_META_OK pages=<n>
   SITE_A11Y_OK pages=<n>
   SITE_THEME_OK tokens=<n> blocks=<b>
@@ -35,6 +37,23 @@ MIN_CONTRAST = 4.5
 TEXT_EXT = {".html", ".css", ".js", ".txt", ".xml", ".md", ".json", ".svg", ".py"}
 EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}")
 MAILTO = "mail" + "to:"
+CONTACT_EMAIL = "scintech.dev" + "@" + "gmail.com"   # concatenated: tools/ is scanned too
+# page -> the contact/deletion section of its policy: from the heading that opens it (after
+# id="policy") to the </section> that closes the policy. The email is legal only in there.
+EMAIL_PAGES = ("watermark-remover/privacy/index.html", "seamless-video-looper/privacy/index.html")
+CONTACT_HEAD_RE = re.compile(r"<h[23][^>]*>Contact and deletion requests</h[23]>")
+
+
+def email_region(txt):
+    """(start, end) of the allowed contact section, or None if the page lacks one."""
+    pol = txt.find('id="policy"')
+    if pol < 0:
+        return None
+    m = CONTACT_HEAD_RE.search(txt, pol)
+    if not m:
+        return None
+    end = txt.find("</section>", m.end())
+    return (m.start(), end) if end > 0 else None
 LIGHTHOUSE = ["npx", "-y", "lighthouse@13.5.0"]
 
 
@@ -399,7 +418,8 @@ def main():
             r = resolve(root, rel, href)
             if r is None:
                 n_ext += 1
-                if not href.startswith(("https://", "http://")):
+                mail_ok = href.lower().startswith(MAILTO) and href[len(MAILTO):].split("?")[0] == CONTACT_EMAIL
+                if not (href.startswith(("https://", "http://")) or mail_ok):  # where: SITE_NOEMAIL
                     fails.append(f"{rel}: unsupported link scheme {href}")
                 continue
             n_int += 1
@@ -418,18 +438,35 @@ def main():
     if pend_used:
         print("  pending (owned by later chunks): " + ", ".join(f"{k} [{pending[k]}]" for k in sorted(pend_used)))
 
-    # ---- no email anywhere
-    fails, nfiles = [], 0
+    # ---- no email anywhere, except the privacy policies' contact sections
+    fails, nfiles, nallowed = [], 0, 0
     for rel in walk(root, SKIP_DIRS - {"tools"}):
         if os.path.splitext(rel)[1] not in TEXT_EXT:
             continue
         nfiles += 1
         txt = open(os.path.join(root, rel), encoding="utf-8", errors="replace").read()
+        if rel.replace(os.sep, "/") in EMAIL_PAGES:
+            reg = email_region(txt)
+            if not reg:
+                fails.append(f"{rel}: no 'Contact and deletion requests' section after id=policy")
+            else:
+                inner = txt[reg[0]:reg[1]]
+                found = EMAIL_RE.findall(inner)
+                if not found:
+                    fails.append(f"{rel}: contact section does not show {CONTACT_EMAIL}")
+                for e in found:
+                    if e != CONTACT_EMAIL:
+                        fails.append(f"{rel}: contact section has {e}, only {CONTACT_EMAIL} is allowed")
+                for mm in re.finditer(re.escape(MAILTO) + r"([^\"'?>\s]*)", inner, re.I):
+                    if mm.group(1) != CONTACT_EMAIL:
+                        fails.append(f"{rel}: contact section {MAILTO} to {mm.group(1)!r}")
+                nallowed += len(found)
+                txt = txt[:reg[0]] + txt[reg[1]:]
         if MAILTO in txt.lower():
             fails.append(f"{rel}: contains {MAILTO}")
         for m in EMAIL_RE.finditer(txt):
             fails.append(f"{rel}: email-like string {m.group(0)}")
-    report("SITE_NOEMAIL", fails, f"SITE_NOEMAIL_OK files={nfiles}")
+    report("SITE_NOEMAIL", fails, f"SITE_NOEMAIL_OK files={nfiles} allowed={nallowed}")
 
     # ---- meta
     fails, titles, descs = [], {}, {}

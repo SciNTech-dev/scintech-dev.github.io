@@ -111,7 +111,18 @@
       system records about the kill (importance, memory usage, description, timestamp). They
       also include the phone's memory state when the report is prepared at the next launch
       (total and available memory, whether the system is low on memory, and the app's own
-      memory use). No image data. Automatic sharing can be disabled in Settings.</li>
+      memory use), and, for an interrupted job, which stage of the job was running. When the
+      same crash repeats within a few hours, only the first is sent and the next report
+      carries how many repeats were not sent. No image data. Automatic sharing can be disabled
+      in Settings.</li>
+      <li><strong>Removal failure reports:</strong> when a watermark removal or learning step
+      fails inside the app, it sends which stage failed (for example learning, locating the
+      mark, or filling), the processing engine, the number of pictures and their dimensions in
+      pixels, the memory state at the time, how long the step ran, and the type of error with
+      the app's own code locations. Never the picture, its name or location, and never the
+      error's text. Repeats of the same failure within a few hours are counted rather than
+      sent again. Sent under the same Settings switch as crash reports, and can be disabled
+      there.</li>
       <li><strong>Hardware Test reports:</strong> device facts (model, manufacturer, chipset,
       Android version, RAM, app version, and whether this build includes the on-device AI
       model) and timing/prediction measurements from the on-device hardware check. No image
@@ -123,9 +134,13 @@
       whether the system is low on memory, and the app's own memory use), the device's thermal
       state, the hardware-check device facts (such as chipset and RAM), how the app's previous
       sessions ended (the exit reason, memory use and timestamp, and the system's short
-      description of the exit), pass/fail for each step, and quality scores measured on
+      description of the exit), pass/fail for each step (and, if the app's model-checking
+      helper stops unexpectedly, which built-in model and which phase it was in), and quality
+      scores measured on
       <em>test images built into the app</em>. It also records that it started, with a small
-      report sent before the tests run, so a run that is interrupted is still visible. It
+      report sent before the tests run, so a run that is interrupted is still visible. It runs
+      only while the app is open; if you leave the app, it stops and continues the next time you
+      open it. It
       also includes a random identifier created once for this installation, so results from
       the same device on different days can be compared. None of your photos, and
       nothing derived from them, is measured or sent. Controlled by its own Settings toggle;
@@ -156,7 +171,7 @@
 
     <h3>Your controls</h3>
     <ul>
-      <li>Disable crash and out-of-memory reporting in Settings.</li>
+      <li>Disable crash, out-of-memory and removal-failure reporting in Settings.</li>
       <li>Disable Hardware Test reporting in Settings.</li>
       <li>Disable daily self-test reporting in Settings.</li>
       <li>Review feedback fields, including the "Image details" checkbox, and remove an
@@ -164,15 +179,14 @@
     </ul>
 
     <h3 id="delete">Contact and deletion requests</h3>
-    <p>Privacy questions and requests concerning submitted data go through the app: tap the
-    feedback button in the corner of the screen, or open Settings → Send feedback. This site and
-    the app publish no email address.</p>
+    <p>Email <a href="mailto:scintech.dev@gmail.com">scintech.dev@gmail.com</a> for privacy questions and
+    requests concerning submitted data.</p>
     <p>To have the data Watermark Remover collected about you deleted:</p>
     <ol>
-      <li>Send feedback from the app with the words "Watermark Remover data deletion".</li>
-      <li>Nothing else is needed: the request carries the same Android ID as your earlier
-      reports, so they can be matched without an account. If the app is no longer installed,
-      install it again to send the request.</li>
+      <li>Email <a href="mailto:scintech.dev@gmail.com?subject=Watermark%20Remover%20data%20deletion">scintech.dev@gmail.com</a>
+      with the subject "Watermark Remover data deletion".</li>
+      <li>Include the approximate date(s) you sent feedback and your device model, so the
+      reports can be matched — the app shows no account or identifier to quote.</li>
     </ol>
     <p>What is deleted: every feedback, crash and hardware-test report stored under that
     identifier (device model, OS and app version, diagnostics, free-text feedback, image

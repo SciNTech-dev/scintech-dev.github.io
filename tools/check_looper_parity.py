@@ -9,10 +9,13 @@ allow-list of differences is permitted (spec 0069 §4.6):
   - nav, footer, breadcrumbs        -- outside <main>, or the breadcrumb element inside it;
                                         both are stripped from the comparison entirely.
   - canonical / OG URLs             -- <head> is never compared, only <main>.
-  - removed the site's one mail-to link -- decision 9 drops the contact email; the two
-                                        sentences this touches are listed in MAILTO_EDITS below
+  - the glance page's contact line  -- owner decision 2026-09-23 "email on privacy pages
+                                        only": the address stays in the policy's contact and
+                                        deletion section (restored verbatim, no allowance), but
+                                        the glance checklist line that also carried it is
+                                        rewritten; that ONE sentence is listed in MAILTO_EDITS
                                         and rewritten in the OLD text before diffing, so any
-                                        OTHER difference around them still fails the check.
+                                        OTHER difference around it still fails the check.
   - the merged privacy page         -- the old /privacy/ and /privacy/policy/ pages are
                                         concatenated in that order before diffing against the
                                         new merged page (its own h1 -> h2#policy retitle is
@@ -23,13 +26,18 @@ allow-list of differences is permitted (spec 0069 §4.6):
 Anything else that differs is a real content change and FAILS the check; this is deliberately
 not a fuzzy diff.
 
-Usage: python3 tools/check_looper_parity.py [--old-root DIR]
+The old site is a set of redirect shells since spec 0069 S6, so the OLD text is read from
+git history of the old repo at OLD_REF (the last content commit before the cutover), not
+from its working tree. --old-ref '' reads the working tree instead.
+
+Usage: python3 tools/check_looper_parity.py [--old-root DIR] [--old-ref REF]
 """
-import argparse, difflib, os, re, sys
+import argparse, difflib, os, re, subprocess, sys
 from html.parser import HTMLParser
 
 NEW_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_OLD_ROOT = os.path.normpath(os.path.join(NEW_ROOT, "..", "seamlessvideolooper.github.io"))
+OLD_REF = "544df9d"  # seamlessvideolooper.github.io main before the S6 redirect shells
 
 # (old page path(s) relative to --old-root, new page path relative to the site root)
 PAGES = [
@@ -40,8 +48,9 @@ PAGES = [
     (["privacy/index.html", "privacy/policy/index.html"], "seamless-video-looper/privacy/index.html"),
 ]
 
-# Decision 9 (spec 0069 §1 row 9): the site publishes no email address. These are the exact
-# sentences that changed on the OLD pages to remove the mail-to link; rewriting them in the
+# Owner decision 2026-09-23 ("email on privacy pages only", narrowing §1 row 9): the address
+# appears only in the policy's contact/deletion section. This is the one glance-page sentence
+# that changed to drop it; rewriting it in the
 # OLD text before diffing is the only content-level allowance this checker makes. The address
 # is built by concatenation so this file itself never contains it as a literal string (this
 # script lives under tools/, which SITE_NOEMAIL's scan does not exempt).
@@ -50,11 +59,6 @@ MAILTO_EDITS = [
     (
         "Contact " + _OLD_EMAIL + " with privacy or deletion requests.",
         "Use the app’s Settings → Send feedback for privacy or deletion requests.",
-    ),
-    (
-        "Use Send Feedback in the app or email " + _OLD_EMAIL + " for privacy questions "
-        "and requests concerning submitted data.",
-        "Use Send Feedback in the app for privacy questions and requests concerning submitted data.",
     ),
 ]
 
@@ -120,10 +124,20 @@ def read(path):
         return fh.read()
 
 
+def read_old(root, ref, rel):
+    if not ref:
+        return read(os.path.join(root, rel))
+    r = subprocess.run(["git", "-C", root, "show", f"{ref}:{rel}"], capture_output=True, text=True)
+    if r.returncode != 0:
+        raise SystemExit(f"LOOPER_PARITY_FAIL cannot read {ref}:{rel}: {r.stderr.strip()}")
+    return r.stdout
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--old-root", default=DEFAULT_OLD_ROOT)
     ap.add_argument("--new-root", default=NEW_ROOT)
+    ap.add_argument("--old-ref", default=OLD_REF, help="git ref of the old repo ('' = working tree)")
     args = ap.parse_args()
 
     if not os.path.isdir(args.old_root):
@@ -133,7 +147,7 @@ def main():
     total_diff_lines = 0
     any_fail = False
     for old_rel_list, new_rel in PAGES:
-        old_text = " ".join(extract(read(os.path.join(args.old_root, p))) for p in old_rel_list)
+        old_text = " ".join(extract(read_old(args.old_root, args.old_ref, p)) for p in old_rel_list)
         for old_s, new_s in MAILTO_EDITS:
             old_text = old_text.replace(old_s, new_s)
         new_text = extract(read(os.path.join(args.new_root, new_rel)))

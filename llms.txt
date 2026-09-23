@@ -2,7 +2,7 @@
 
 SciNTech makes two Android apps that do their work on the phone: Watermark Remover, which learns a repeating, tiled watermark from a photo and lifts it off, and Seamless Video Looper, which finds a loop point in a video and renders a forward-playing seamless loop. Neither app uploads photos or videos to process them. The current releases have no ads, no subscription and no in-app purchase.
 
-Support: each app's Settings → Send feedback. The site publishes no email address.
+Support: each app's Settings → Send feedback. Privacy and data-deletion requests: the contact section of each app's privacy policy.
 
 ## Pages
 
