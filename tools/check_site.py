@@ -28,6 +28,9 @@ SKIP_DIRS = {".git", ".review", "tools", "__pycache__", "node_modules"}
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
 BUDGET = {"html_kb": 60, "css_kb": 40, "js_kb": 6, "atf_img_kb": 250, "page_kb": 600,
           "lcp_ms": 2500, "cls": 0.1, "a11y": 0.95}
+# Spec 0069 §5.5: every page <= 600 KB except the examples gallery, <= 2.5 MB with
+# lazy-loaded cards. Applies to both the static byte count and Lighthouse's transfer.
+PAGE_KB_OVERRIDE = {"watermark-remover/examples/index.html": 2500}
 MIN_CONTRAST = 4.5
 TEXT_EXT = {".html", ".css", ".js", ".txt", ".xml", ".md", ".json", ".svg", ".py"}
 EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}")
@@ -44,6 +47,8 @@ class Page(HTMLParser):
         self.ids = []
         self.links = []          # (attr, value)
         self.imgs = []           # attrs dicts
+        self.lazy_links = set()  # hrefs of loading="lazy" images and their <source>s
+        self._pic = None
         self.meta = {}
         self.canonical = None
         self.title = ""
@@ -80,13 +85,21 @@ class Page(HTMLParser):
                 self.canonical = a["href"]
         elif tag == "script" and "src" in a:
             self.links.append(("script", a["src"]))
+        elif tag == "picture":
+            self._pic = []
         elif tag == "img":
             self.imgs.append(a)
             if "src" in a:
                 self.links.append(("img", a["src"]))
+            if a.get("loading") == "lazy":
+                # the img and every <source> candidate of its <picture> load lazily
+                self.lazy_links.update(([a["src"]] if "src" in a else []) + (self._pic or []))
         elif tag == "source" and "srcset" in a:
             for part in a["srcset"].split(","):
-                self.links.append(("source", part.strip().split()[0]))
+                href = part.strip().split()[0]
+                self.links.append(("source", href))
+                if self._pic is not None:
+                    self._pic.append(href)
         elif tag == "meta":
             key = a.get("property") or a.get("name")
             if key:
@@ -111,6 +124,8 @@ class Page(HTMLParser):
         self.handle_starttag(tag, attrs, selfclosing=True)
 
     def handle_endtag(self, tag):
+        if tag == "picture":
+            self._pic = None
         if tag in VOID:
             self.errors.append(f"{self._pos()} end tag for void <{tag}>")
             return
@@ -576,10 +591,18 @@ def main():
         max_html = max(max_html, h)
         if h > BUDGET["html_kb"]:
             fails.append(f"{rel}: HTML {h:.1f} KB > {BUDGET['html_kb']}")
-        total, atf = h, 0.0
+        total, atf, lazy_kb = h, 0.0, 0.0
+        first_view_only = True  # spec 0069 §5.5 budgets are "on first view" for every page
         for kind, href in set(p.links):
             r = resolve(root, rel, href)
             if not r or not os.path.isfile(os.path.join(root, r[0])) or kind == "href":
+                continue
+            if first_view_only and href in p.lazy_links:
+                # spec 0069 §5.5 "whole page ≤ 600 KB on first view" (examples: "≤ 2.5 MB
+                # with lazy-loaded cards"): loading="lazy" images and their srcset
+                # alternatives are not first-view weight; reported, not budgeted.
+                # Lighthouse's transferred bytes (below) gate what a visit really fetches.
+                lazy_kb += size(r[0]) / 1024
                 continue
             if kind == "link" and not href.endswith((".css",)):
                 continue  # canonical/icon links are not page weight (icon counted by browser lazily)
@@ -591,10 +614,14 @@ def main():
                 atf += size(r[0]) / 1024
         if atf > BUDGET["atf_img_kb"]:
             fails.append(f"{rel}: eager images {atf:.1f} KB > {BUDGET['atf_img_kb']}")
-        if total > BUDGET["page_kb"]:
-            fails.append(f"{rel}: page {total:.1f} KB > {BUDGET['page_kb']}")
+        page_kb = PAGE_KB_OVERRIDE.get(rel, BUDGET["page_kb"])
+        if lazy_kb:
+            print(f"  {rel}: first view {total:.1f} KB (budget {page_kb}); lazy candidates "
+                  f"{lazy_kb:.1f} KB not counted (all srcset alternatives, never all fetched)")
+        if total > page_kb:
+            fails.append(f"{rel}: page {total:.1f} KB > {page_kb}")
         max_page = max(max_page, total)
-    print(f"  static bytes: css={css_kb:.1f}KB js={js_kb:.1f}KB html_max={max_html:.1f}KB page_max={max_page:.1f}KB (all sources counted, png fallback not webp)")
+    print(f"  static bytes: css={css_kb:.1f}KB js={js_kb:.1f}KB html_max={max_html:.1f}KB page_max={max_page:.1f}KB (first view: eager sources all counted, lazy images excluded)")
     if args.no_lighthouse:
         if fails:
             report("SITE_BUDGET", fails, "")
@@ -617,8 +644,9 @@ def main():
                     fails.append(f"{r['path']}: CLS {r['cls']:.3f} > {BUDGET['cls']}")
                 if r["a11y"] < BUDGET["a11y"]:
                     fails.append(f"{r['path']}: Lighthouse accessibility {r['a11y']:.2f} < {BUDGET['a11y']}")
-                if r["bytes"] / 1024 > BUDGET["page_kb"]:
-                    fails.append(f"{r['path']}: transferred {r['bytes']/1024:.1f} KB > {BUDGET['page_kb']}")
+                page_kb = PAGE_KB_OVERRIDE.get(r["path"].lstrip("/") + "index.html", BUDGET["page_kb"])
+                if r["bytes"] / 1024 > page_kb:
+                    fails.append(f"{r['path']}: transferred {r['bytes']/1024:.1f} KB > {page_kb}")
             report("SITE_BUDGET", fails,
                    f"SITE_BUDGET_OK pages={len(rows)} max_kb={max(r['bytes'] for r in rows)/1024:.1f} "
                    f"lcp_ms={max(r['lcp_ms'] for r in rows):.0f} cls={max(r['cls'] for r in rows):.3f} "

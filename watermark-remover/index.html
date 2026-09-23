@@ -22,6 +22,7 @@
   <link rel="icon" href="/assets/img/scintech-mark.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/img/scintech-mark-512.png">
   <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/examples.css">
   <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
   <script src="/assets/site.js" defer></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://scintech-dev.github.io/#organization","name":"SciNTech","url":"https://scintech-dev.github.io/","logo":"https://scintech-dev.github.io/assets/img/scintech-mark-512.png","sameAs":["https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android","https://play.google.com/store/apps/details?id=com.watermarkremover.android"]},{"@type":"WebSite","@id":"https://scintech-dev.github.io/#website","name":"SciNTech","url":"https://scintech-dev.github.io/","inLanguage":"en","publisher":{"@id":"https://scintech-dev.github.io/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SciNTech","item":"https://scintech-dev.github.io/"},{"@type":"ListItem","position":2,"name":"Watermark Remover","item":"https://scintech-dev.github.io/watermark-remover/"}]},{"@type":"MobileApplication","@id":"https://scintech-dev.github.io/watermark-remover/#app","name":"Watermark Remover","url":"https://scintech-dev.github.io/watermark-remover/","description":"Removes repeating, tiled watermarks from photos on an Android phone: it learns the mark from the photo itself and lifts it off without uploading the photo.","operatingSystem":"Android 8.0 and later","applicationCategory":"MultimediaApplication","downloadUrl":"https://play.google.com/store/apps/details?id=com.watermarkremover.android","image":"https://scintech-dev.github.io/assets/img/wmr/og-wmr.jpg","screenshot":["https://scintech-dev.github.io/assets/img/wmr/shot-02-pick-photo.jpg","https://scintech-dev.github.io/assets/img/wmr/shot-03-learning-progress.jpg","https://scintech-dev.github.io/assets/img/wmr/shot-05-paint.jpg","https://scintech-dev.github.io/assets/img/wmr/shot-06-result.jpg"],"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@id":"https://scintech-dev.github.io/#organization"},"publisher":{"@id":"https://scintech-dev.github.io/#organization"}},{"@type":"HowTo","name":"Remove a repeating watermark with Watermark Remover","step":[{"@type":"HowToStep","position":1,"name":"Pick","text":"Pick a photo with a repeating watermark, from the Android picker or by sharing it to the app.","image":"https://scintech-dev.github.io/assets/img/wmr/shot-02-pick-photo.jpg"},{"@type":"HowToStep","position":2,"name":"Learn","text":"The app learns the repeating mark from the photo itself, on the phone.","image":"https://scintech-dev.github.io/assets/img/wmr/shot-03-learning-progress.jpg"},{"@type":"HowToStep","position":3,"name":"Preview and paint","text":"Check what will be removed, and paint over any spot the app missed.","image":"https://scintech-dev.github.io/assets/img/wmr/shot-05-paint.jpg"},{"@type":"HowToStep","position":4,"name":"Save","text":"Check the result, then save it to the gallery as JPEG or PNG, or share it.","image":"https://scintech-dev.github.io/assets/img/wmr/shot-06-result.jpg"}]}]}</script>
@@ -90,11 +91,38 @@
           <p class="section-intro">Examples use test images whose clean original is known, so every result can be scored over the whole picture. No score on this site comes from a real photo.</p>
         </div>
         <!-- examples:begin (chunk S4 rewrites this region with one before/after slider) -->
-        <div class="slot">
-          <p>The before/after example with its measured score is being prepared. The gallery will show the input, the app’s result and the true clean image side by side, including the cases where the app declines or does damage.</p>
-          <a class="button secondary" href="/watermark-remover/examples/">Go to the examples page</a>
-        </div>
-        <!-- examples:end -->
+<p class="ex-summary-line">On the current measured set of 10 repeating marks: 0 ended closer to the true picture, 6 further from it, and 4 were declined. Below is the best-scoring one the app processed, with its score as measured.</p>
+<div class="heat-legend" id="heat-legend">
+  <span class="heat-bar" aria-hidden="true"></span>
+  <p>Heat map: brighter = further from the true image; same scale on every example. Dark means
+  the pixel matches the true picture; full amber means it is off by 32 or more of 255 levels in
+  some colour channel.</p>
+</div>
+<p class="fine ex-note">Every example is synthetic. Scores are whole-picture PSNR in dB against the true clean image; higher is closer. Engine: Watermark Remover v0.2.4, commit <code>81c6725</code>.</p>
+<article class="ex-card" id="ex-home">
+<h3>Tiled embossed text</h3>
+<p class="ex-badge worse">Further from the true picture than the input (−7.12 dB).</p>
+<div class="cmp-wrap"><fieldset class="cmp-layer" aria-describedby="heat-legend">
+<legend>Show</legend>
+<label><input type="radio" name="layer-ex-home" value="output" checked> Output</label>
+<label><input type="radio" name="layer-ex-home" value="clean"> Clean</label>
+<label><input type="radio" name="layer-ex-home" value="heat"> Heat map</label>
+</fieldset>
+<figure class="cmp" data-cmp><div class="cmp-frame"><div class="cmp-stage">
+<div class="cmp-before"><span class="cmp-tag">Input</span><picture><source type="image/avif" srcset="/assets/examples/c09-in-512.avif 512w,/assets/examples/c09-in-1024.avif 1024w" sizes="(min-width:1000px) 560px,100vw"><source type="image/webp" srcset="/assets/examples/c09-in-512.webp 512w,/assets/examples/c09-in-1024.webp 1024w" sizes="(min-width:1000px) 560px,100vw"><img src="/assets/examples/c09-in-512.jpg" width="1024" height="1024" alt="Synthetic test picture with tiled embossed text at about 20%–50% opacity." loading="lazy"></picture></div>
+<div class="cmp-after"><span class="cmp-tag">Restored</span><picture class="l-output"><source type="image/avif" srcset="/assets/examples/c09-out-512.avif 512w,/assets/examples/c09-out-1024.avif 1024w" sizes="(min-width:1000px) 560px,100vw"><source type="image/webp" srcset="/assets/examples/c09-out-512.webp 512w,/assets/examples/c09-out-1024.webp 1024w" sizes="(min-width:1000px) 560px,100vw"><img src="/assets/examples/c09-out-512.jpg" width="1024" height="1024" alt="The app&#x27;s result: further from the true picture than the input; look for ghosted lines and smudged texture." loading="lazy"></picture><picture class="l-clean"><source type="image/avif" srcset="/assets/examples/clean-512.avif 512w,/assets/examples/clean-1024.avif 1024w" sizes="(min-width:1000px) 560px,100vw"><source type="image/webp" srcset="/assets/examples/clean-512.webp 512w,/assets/examples/clean-1024.webp 1024w" sizes="(min-width:1000px) 560px,100vw"><img src="/assets/examples/clean-512.jpg" width="1024" height="1024" alt="The true clean picture, with no mark." loading="lazy"></picture><picture class="l-heat"><source type="image/avif" srcset="/assets/examples/c09-heat-512.avif"><source type="image/webp" srcset="/assets/examples/c09-heat-512.webp"><img src="/assets/examples/c09-heat-512.jpg" width="1024" height="1024" alt="Heat map of the difference from the true picture: dark where it matches, amber where it differs." loading="lazy"></picture></div>
+</div></div>
+<div class="cmp-controls" hidden><input class="cmp-range" type="range" min="0" max="100" value="50" aria-label="Reveal restored image"><button class="cmp-zoom" type="button" aria-pressed="false">Zoom to 100 %</button></div>
+<figcaption><dl class="ex-facts">
+<div><dt>Input vs clean</dt><dd>24.58 dB</dd></div>
+<div><dt>Output vs clean</dt><dd>17.46 dB</dd></div>
+<div><dt>Change</dt><dd>−7.12 dB</dd></div>
+<div><dt>Declined</dt><dd>no</dd></div>
+<div><dt>Mark</dt><dd>repeating, 20%–50% opacity</dd></div>
+</dl></figcaption></figure></div>
+</article>
+<p class="ex-more"><a class="button secondary" href="/watermark-remover/examples/">See every example, failures included</a></p>
+<!-- examples:end -->
       </div>
     </section>
 

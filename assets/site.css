@@ -13,7 +13,8 @@
      .button.primary|.secondary[data-cta="wmr|looper"]   50 px CTAs (§5.4 cmp-cta)
      .card, .app-card, .value, .note-band, .callout, .faq, .table-wrap, .breadcrumb
      .site-footer .footer-rights   ownership line F1 — Watermark Remover pages only
-   The before/after slider and heat-map toggle (cmp-compare, cmp-layer) belong to S4. */
+   .ex-card/.cmp/.cmp-layer   measured examples: in assets/examples.css, linked only by the
+                              two pages that show examples, so no other page pays for it (S4) */
 
 :root {
   color-scheme: light;
