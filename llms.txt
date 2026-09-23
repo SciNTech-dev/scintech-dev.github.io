@@ -1,6 +1,6 @@
 # SciNTech
 
-SciNTech uses science to make useful Android tools that work offline. Its apps do their core work on the phone, without a connection, and their core features are free. Current apps: Watermark Remover, which learns a repeating, tiled watermark from a photo and lifts it off, and Seamless Video Looper, which finds a loop point in a video and renders a forward-playing seamless loop. Photos and videos are not uploaded to be processed.
+SciNTech uses science to make useful Android tools that work offline. Its apps do their core work on the phone, without a connection, and their core features are free. Current apps: Watermark Remover, which learns a repeating, tiled watermark from two or more photos carrying the same mark and lifts it off, and Seamless Video Looper, which finds a loop point in a video and renders a forward-playing seamless loop. Photos and videos are not uploaded to be processed.
 
 Support: each app's Settings → Send feedback. Privacy and data-deletion requests: the contact section of each app's privacy policy.
 
