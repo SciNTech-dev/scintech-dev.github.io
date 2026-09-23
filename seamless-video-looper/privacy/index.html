@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>How Seamless Video Looper Handles Your Videos and Data</title>
+  <meta name="description" content="How Seamless Video Looper processes videos locally and handles feedback, diagnostics, shared-result data, and permissions.">
+  <link rel="canonical" href="https://scintech-dev.github.io/seamless-video-looper/privacy/">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f4ef">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#15161a">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="SciNTech">
+  <meta property="og:title" content="How Seamless Video Looper Handles Your Videos and Data">
+  <meta property="og:description" content="How Seamless Video Looper processes videos locally and handles feedback, diagnostics, shared-result data, and permissions.">
+  <meta property="og:url" content="https://scintech-dev.github.io/seamless-video-looper/privacy/">
+  <meta property="og:image" content="https://scintech-dev.github.io/assets/img/looper/og-looper.jpg">
+  <meta property="og:image:width" content="1729">
+  <meta property="og:image:height" content="910">
+  <meta property="og:image:alt" content="A small explorer robot following a glowing loop through a cinematic landscape.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/scintech-mark.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/scintech-mark-512.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <script src="/assets/site.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://scintech-dev.github.io/seamless-video-looper/privacy/#webpage","url":"https://scintech-dev.github.io/seamless-video-looper/privacy/","name":"How Seamless Video Looper Handles Your Videos and Data","description":"How Seamless Video Looper processes videos locally and handles feedback, diagnostics, shared-result data, and permissions.","isPartOf":{"@id":"https://scintech-dev.github.io/#website"},"about":{"@id":"https://scintech-dev.github.io/seamless-video-looper/#app"},"publisher":{"@id":"https://scintech-dev.github.io/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SciNTech","item":"https://scintech-dev.github.io/"},{"@type":"ListItem","position":2,"name":"Seamless Video Looper","item":"https://scintech-dev.github.io/seamless-video-looper/"},{"@type":"ListItem","position":3,"name":"Privacy","item":"https://scintech-dev.github.io/seamless-video-looper/privacy/"}]},{"@type":"Organization","@id":"https://scintech-dev.github.io/#organization","name":"SciNTech","url":"https://scintech-dev.github.io/","logo":"https://scintech-dev.github.io/assets/img/scintech-mark-512.png","sameAs":["https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android","https://play.google.com/store/apps/details?id=com.watermarkremover.android"]},{"@type":"WebSite","@id":"https://scintech-dev.github.io/#website","name":"SciNTech","url":"https://scintech-dev.github.io/","inLanguage":"en","publisher":{"@id":"https://scintech-dev.github.io/#organization"}}]}</script>
+</head>
+<body data-app="looper">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="/"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#29292e"/><rect x="12" y="12" width="25" height="25" rx="3" fill="none" stroke="#89d99f" stroke-width="5"/><circle cx="39.5" cy="39.5" r="12.5" fill="none" stroke="#f69536" stroke-width="5"/></svg><span>SciNTech</span></a>
+      <div class="nav-links">
+        <a class="nav-app" data-app-link="wmr" href="/watermark-remover/">Watermark Remover</a>
+        <a class="nav-app" data-app-link="looper" href="/seamless-video-looper/">Seamless Video Looper</a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a href="/about/">About</a>
+        <a href="/changelog/">Changelog</a>
+        <a href="/compatibility/">Compatibility</a>
+        <a href="/privacy/">Privacy</a>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" hidden><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M5.3 18.7 7 17M17 7l1.7-1.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">Dark theme</span></button>
+    </nav>
+  </header>
+  <nav class="app-nav" aria-label="Seamless Video Looper" data-app="looper">
+    <div class="wrap">
+      <a href="/seamless-video-looper/">Home</a>
+      <a href="/seamless-video-looper/how-it-works/">How it works</a>
+      <a href="/seamless-video-looper/examples/">Examples</a>
+      <a href="/seamless-video-looper/compatibility/">Compatibility</a>
+      <a href="/seamless-video-looper/privacy/" aria-current="page">Privacy</a>
+      <a class="button primary" data-cta="looper" href="https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dweb%26utm_campaign%3Dsite-cta">Get it on Google Play <span aria-hidden="true">&#8599;</span></a>
+    </div>
+  </nav>
+  <main id="main">
+
+
+    <header class="page-hero">
+      <div class="wrap">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">SciNTech</a></li><li><a href="/seamless-video-looper/">Seamless Video Looper</a></li><li aria-current="page">Privacy</li></ol></nav>
+        <span class="eyebrow">Privacy at a glance</span>
+        <h1>Your videos stay on your phone.</h1>
+        <p class="lede">Loop search, stabilization, blending, audio processing, and rendering all happen on the device. Video files are not uploaded for processing.</p>
+        <div class="facet-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Local media</span><h2>The work happens where the video lives.</h2></div>
+          <p class="section-intro">The app opens only the clip you choose through Android’s picker or share flow. Temporary processing files and the finished render remain on the device.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><span class="kicker">SELECT</span><h3>You choose the clip</h3><p>The app does not request broad read access to your photo and video library.</p></article>
+          <article class="card"><span class="kicker">PROCESS</span><h3>Frames stay local</h3><p>Analysis, motion processing, blending, audio work, and encoding run on the phone.</p></article>
+          <article class="card"><span class="kicker">SHARE</span><h3>You choose the destination</h3><p>The finished MP4 is passed to Android’s share sheet for you to save or send.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section panel">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Network use</span><h2>Reporting is separate from video processing.</h2></div>
+          <p class="section-intro">The app uses Firebase for the following records. Source and rendered video files are not attached.</p>
+        </div>
+        <div class="grid-2">
+          <article class="card"><h3>Feedback</h3><p>When you send feedback, you can review the included app, device, settings, log, and video-metadata context. A screenshot is optional.</p></article>
+          <article class="card"><h3>Crash reports</h3><p>Crash details can be sent automatically to help diagnose failures. Turn this off with Share crash reports in Settings.</p></article>
+          <article class="card"><h3>Failure reports</h3><p>When a render stalls, scores poorly on seam quality, or shows signs of AI melting, the app can report what it measured. This is how a failure you hit becomes a fix — without it, a render that came out wrong is invisible to us. No video, no frames, no screenshots. Turn this off with Report render failures in Settings.</p></article>
+          <article class="card"><h3>Shared-result records</h3><p>When you share a render, the app sends technical metadata about the clip, chosen settings, processing results, device identifiers, and any optional star rating.</p></article>
+        </div>
+        <p style="color:var(--muted);margin-top:24px">Every record above also includes the language the app is showing you. If your device asked for a different language than what's actually displayed — say, a language we don't fully support yet, or you set the app to a different language than your device's default — that's included too. Knowing which of the 25 shipped languages people actually use, and which languages people are asking for that we don't yet ship, is how translation effort goes where users are, and how language-specific problems get caught.</p>
+      </div>
+    </section>
+
+    <section class="section sand">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">See it yourself</span><h2>The reporting screens, unedited.</h2></div>
+          <p class="section-intro">Two screens straight from the app.</p>
+        </div>
+        <div class="shot-grid pair">
+          <figure class="shot"><img src="/assets/img/looper/send-feedback.png" width="1080" height="2340" loading="lazy" decoding="async" alt="The Send Feedback dialog, with an empty feedback text field and an &#8216;Always included: app version, device model&#8217; notice above a collapsed Include app data section."><figcaption><strong>Feedback stays reviewable.</strong> The dialog shows what's always included before anything sends.</figcaption></figure>
+          <figure class="shot"><img src="/assets/img/looper/hardware-check.png" width="1080" height="2340" loading="lazy" decoding="async" alt="The Hardware Test results screen, showing device model, performance tier, and per-component timings."><figcaption><strong>Hardware Test results, in full.</strong> The screen you see is the report that gets shared.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="narrow">
+        <span class="eyebrow">Identifiers and storage</span>
+        <h2>No user account. No advertising profile.</h2>
+        <p class="lede">Firebase creates an anonymous app identifier, used with Android ID to group related reports. The app contains no advertising or general usage-analytics SDK.</p>
+        <p style="color:var(--muted)">Submitted records are stored in Firebase Firestore. Optional feedback screenshots use Firebase Storage; the local screenshot cache expires after 30 days. A fixed server-retention period is not currently published.</p>
+        <p style="color:var(--muted)">Google Play separately handles installation, updates, and store-level data under Google’s policies.</p>
+      </div>
+    </section>
+
+    <section class="section tight">
+      <div class="wrap">
+        <div class="callout">
+          <span class="eyebrow">Your choices</span>
+          <h2>Control what you send.</h2>
+          <ul class="checklist">
+            <li>Turn off crash sharing in Settings.</li>
+            <li>Turn off Hardware Test reporting in Settings.</li>
+            <li>Turn off render failure reporting in Settings.</li>
+            <li>Review feedback fields and remove the optional screenshot before sending.</li>
+            <li>Use the app’s Settings → Send feedback for privacy or deletion requests.</li>
+          </ul>
+          <p style="margin:28px 0 0"><a class="button secondary" href="#policy">Read the full privacy policy</a></p>
+        </div>
+      </div>
+    </section>
+
+  
+
+    <section class="section panel prose narrow" aria-labelledby="policy">
+
+    <h2 id="policy">Privacy Policy</h2>
+    <p class="fine" style="margin-top:16px">Last updated: August 21, 2026</p>
+    <div class="facet-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+    <h2>On-device video processing</h2>
+    <p>Seamless Video Looper analyzes, stabilizes, blends, processes audio, and renders videos on your Android device. Source videos and rendered videos are not uploaded to Firebase for processing or reporting.</p>
+
+    <h2>Video access</h2>
+    <p>You select a video through Android’s system picker, open-file action, or share action. The app receives access to that selected file rather than broad read access to your media library.</p>
+
+    <h2>Reports and shared-result records</h2>
+    <p>The app uses Firebase Anonymous Authentication and Firebase Firestore for feedback, crash reports, Hardware Test reports, failure reports, and technical records submitted when a completed render is shared.</p>
+    <ul>
+      <li><strong>Feedback:</strong> may include app and device details, settings, workflow context, video metadata, quality metrics, and a redacted log. You can remove optional items before sending.</li>
+      <li><strong>Optional screenshot:</strong> feedback may include a screenshot you choose to attach. It can contain a visible frame from the selected video and is stored using Firebase Storage.</li>
+      <li><strong>Crash reports:</strong> may include a stack trace, thread name, and device information. Automatic sharing can be disabled in Settings.</li>
+      <li><strong>Hardware Test reports:</strong> may include component outcomes, timings, device details, and short error information. Reporting can be disabled in Settings.</li>
+      <li><strong>Failure reports:</strong> may include the type of issue the app detected in its own output (stalled progress, low measured seam quality, or suspected AI-interpolation artifacts), the timing and quality measurements behind that finding, the blend method used, and device information. This is the data that lets a render that went wrong on your device become a fix in a later version. No video, frame, or screenshot is included. Reporting can be disabled in Settings.</li>
+      <li><strong>Shared-result records:</strong> may include video dimensions, frame rate, duration, codec and audio presence; cut, score, blend and audio choices; quality and motion results; processing time; app and device information; and an optional rating. The video file is not attached.</li>
+    </ul>
+    <p>Every report above also includes the language the app is currently displaying, as a BCP-47 tag (for example, en-US). When that differs from what your device or the app actually requested — for example, a language this app does not fully support falling back to English, or a separate in-app language override — the requested language and your device's default language are included as well.</p>
+
+    <h2>Identifiers and accounts</h2>
+    <p>No user-created account is required. Firebase creates an anonymous app-account identifier. Records also include Android ID so related submissions can be grouped and de-duplicated. These identifiers are not used as advertising IDs and are not intentionally tied to your name or email.</p>
+
+    <h2>Advertising and analytics</h2>
+    <p>The app does not include advertising SDKs, general usage-analytics SDKs, or tracking pixels. Google Play may separately process store-level data under Google’s privacy policies.</p>
+
+    <h2>Storage and retention</h2>
+    <p>Submitted records are stored in Firebase Firestore. Optional feedback screenshots are stored in Firebase Storage. The local screenshot cache expires after 30 days. A fixed server-retention period is not currently published.</p>
+
+    <h2>Permissions</h2>
+    <p>The app uses foreground-service, notification, network-state, internet, wake-lock, boot-receiver, and Google-services permissions to render in the background and deliver the reporting functions described above. A legacy external-storage write declaration applies only through Android 9. Media selection itself uses Android’s system picker.</p>
+
+    <h2>Your controls</h2>
+    <ul>
+      <li>Disable crash reporting in Settings.</li>
+      <li>Disable Hardware Test reporting in Settings.</li>
+      <li>Disable render failure reporting in Settings.</li>
+      <li>Review feedback fields and remove an optional screenshot before submission.</li>
+    </ul>
+
+    <h2>Contact and deletion requests</h2>
+    <p>Use Send Feedback in the app for privacy questions and requests concerning submitted data.</p>
+  
+
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">SciNTech</p>
+          <p class="fine">Two Android apps that do their work on the phone, and say plainly where it does not work.</p>
+          <div class="facet-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">Apps</p>
+          <a href="/watermark-remover/">Watermark Remover</a>
+          <a href="/seamless-video-looper/">Seamless Video Looper</a>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">SciNTech</p>
+          <a href="/about/">About &amp; values</a>
+          <a href="/changelog/">Changelog</a>
+          <a href="/compatibility/">Compatibility</a>
+          <a href="/privacy/">Privacy</a>
+        </div>
+      </div>
+      <div class="footer-base">
+        <p class="fine">Questions and reports go through each app&#8217;s Settings &#8594; Send feedback. This site sets no cookies and loads no analytics.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -5,5 +5,3 @@
 /watermark-remover/                     S3
 /watermark-remover/beta/                S3
 /watermark-remover/privacy/             S3
-/seamless-video-looper/                 S2
-/seamless-video-looper/privacy/         S2
