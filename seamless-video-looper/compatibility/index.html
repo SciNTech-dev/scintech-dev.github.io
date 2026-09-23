@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Seamless Video Looper — Compatibility and FAQ</title>
+  <meta name="description" content="Android requirements and answers for Seamless Video Looper: formats, watermark, audio, camera movement, quality, storage, and rendering.">
+  <link rel="canonical" href="https://scintech-dev.github.io/seamless-video-looper/compatibility/">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f4ef">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#15161a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SciNTech">
+  <meta property="og:title" content="Seamless Video Looper — Compatibility and FAQ">
+  <meta property="og:description" content="Android requirements and answers for Seamless Video Looper: formats, watermark, audio, camera movement, quality, storage, and rendering.">
+  <meta property="og:url" content="https://scintech-dev.github.io/seamless-video-looper/compatibility/">
+  <meta property="og:image" content="https://scintech-dev.github.io/assets/img/looper/og-looper.jpg">
+  <meta property="og:image:width" content="1729">
+  <meta property="og:image:height" content="910">
+  <meta property="og:image:alt" content="A small explorer robot following a glowing loop through a cinematic landscape.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/scintech-mark.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/scintech-mark-512.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <script src="/assets/site.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type": "FAQPage", "publisher": {"@id": "https://scintech-dev.github.io/#organization"}, "mainEntity": [{"@type": "Question", "name": "Does it work without an internet connection?", "acceptedAnswer": {"@type": "Answer", "text": "Video analysis, loop search, blending, and rendering run on your phone. Network access is used for feedback, crash reports, Hardware Test reports, and a technical result record when you share a render."}}, {"@type": "Question", "name": "Does it add a watermark?", "acceptedAnswer": {"@type": "Answer", "text": "No. Renders do not include an app watermark."}}, {"@type": "Question", "name": "Is it free? Are there ads or purchases?", "acceptedAnswer": {"@type": "Answer", "text": "The current Google Play release is free, with no ads, subscription, or in-app purchase flow."}}, {"@type": "Question", "name": "Does it make boomerang videos?", "acceptedAnswer": {"@type": "Answer", "text": "No. A boomerang reverses the footage. Seamless Video Looper keeps the result moving forward from the chosen end back to the chosen beginning."}}, {"@type": "Question", "name": "Does it find loop points automatically?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Easy mode searches automatically and can prepare up to four candidates. Advanced mode also lets you define a custom cut."}}, {"@type": "Question", "name": "Can it compensate for camera movement or zoom?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Seam alignment can correct horizontal and vertical shift, zoom, or both. Camera drift can be preserved with Dance or reduced with Lock."}}, {"@type": "Question", "name": "Does it preserve audio?", "acceptedAnswer": {"@type": "Answer", "text": "Choose Mute, Crossfade, or Zero-crossing cut. Retained audio is processed and encoded as AAC."}}, {"@type": "Question", "name": "Does it preserve the original quality?", "acceptedAnswer": {"@type": "Answer", "text": "The result is re-encoded as H.264 video, so compression is applied again. Resolution may also be scaled by your settings or device profile."}}, {"@type": "Question", "name": "Why is the seam still visible?", "acceptedAnswer": {"@type": "Answer", "text": "Try another candidate or a shorter blend. Fast crossings, occlusion, lighting changes, and large camera moves can make every possible handoff visible."}}, {"@type": "Question", "name": "Why do moving objects look doubled or distorted?", "acceptedAnswer": {"@type": "Answer", "text": "Crossfades can ghost moving objects. Motion warping and interpolation can bend detail when objects overlap, uncover the background, or move unpredictably."}}, {"@type": "Question", "name": "How much storage does rendering need?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on clip length, resolution, frame rate, and settings. The app creates temporary extracted and synthesized frames as well as the final encoded file."}}, {"@type": "Question", "name": "Where is the rendered file saved?", "acceptedAnswer": {"@type": "Answer", "text": "The result is created in the app\u2019s private cache, then offered through Android\u2019s share sheet. Choose a storage provider or another app as the destination."}}, {"@type": "Question", "name": "What happens if I leave the app during rendering?", "acceptedAnswer": {"@type": "Answer", "text": "Rendering continues as foreground work with a progress notification. You can cancel it from the app or notification."}}, {"@type": "Question", "name": "How can I report a bad result?", "acceptedAnswer": {"@type": "Answer", "text": "Use Send Feedback in the app. You can review the included context and decide whether to attach a screenshot."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SciNTech","item":"https://scintech-dev.github.io/"},{"@type":"ListItem","position":2,"name":"Seamless Video Looper","item":"https://scintech-dev.github.io/seamless-video-looper/"},{"@type":"ListItem","position":3,"name":"Compatibility","item":"https://scintech-dev.github.io/seamless-video-looper/compatibility/"}]},{"@type":"Organization","@id":"https://scintech-dev.github.io/#organization","name":"SciNTech","url":"https://scintech-dev.github.io/","logo":"https://scintech-dev.github.io/assets/img/scintech-mark-512.png","sameAs":["https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android","https://play.google.com/store/apps/details?id=com.watermarkremover.android"]},{"@type":"WebSite","@id":"https://scintech-dev.github.io/#website","name":"SciNTech","url":"https://scintech-dev.github.io/","inLanguage":"en","publisher":{"@id":"https://scintech-dev.github.io/#organization"}}]}</script>
+</head>
+<body data-app="looper">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="/"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#29292e"/><rect x="12" y="12" width="25" height="25" rx="3" fill="none" stroke="#89d99f" stroke-width="5"/><circle cx="39.5" cy="39.5" r="12.5" fill="none" stroke="#f69536" stroke-width="5"/></svg><span>SciNTech</span></a>
+      <div class="nav-links">
+        <a class="nav-app" data-app-link="wmr" href="/watermark-remover/">Watermark Remover</a>
+        <a class="nav-app" data-app-link="looper" href="/seamless-video-looper/">Seamless Video Looper</a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a href="/about/">About</a>
+        <a href="/changelog/">Changelog</a>
+        <a href="/compatibility/">Compatibility</a>
+        <a href="/privacy/">Privacy</a>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" hidden><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M5.3 18.7 7 17M17 7l1.7-1.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">Dark theme</span></button>
+    </nav>
+  </header>
+  <nav class="app-nav" aria-label="Seamless Video Looper" data-app="looper">
+    <div class="wrap">
+      <a href="/seamless-video-looper/">Home</a>
+      <a href="/seamless-video-looper/how-it-works/">How it works</a>
+      <a href="/seamless-video-looper/examples/">Examples</a>
+      <a href="/seamless-video-looper/compatibility/" aria-current="page">Compatibility</a>
+      <a href="/seamless-video-looper/privacy/">Privacy</a>
+      <a class="button primary" data-cta="looper" href="https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dweb%26utm_campaign%3Dsite-cta">Get it on Google Play <span aria-hidden="true">&#8599;</span></a>
+    </div>
+  </nav>
+  <main id="main">
+
+
+    <header class="page-hero">
+      <div class="wrap">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">SciNTech</a></li><li><a href="/seamless-video-looper/">Seamless Video Looper</a></li><li aria-current="page">Compatibility</li></ol></nav>
+        <span class="eyebrow">Before you begin</span>
+        <h1>Built for Android 8.0 and later.</h1>
+        <p class="lede">Media decoding and advanced motion processing also depend on the codecs and hardware available on your phone.</p>
+        <div class="facet-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      </div>
+    </header>
+
+    <section class="section" id="quick-facts">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Quick facts</span><h2>What the app is, stated plainly.</h2></div>
+          <p class="section-intro">Grounded, checkable claims about what the app does and how it behaves — nothing implied, nothing invented.</p>
+        </div>
+        <dl class="grid-3 fact-grid">
+          <div class="card"><dt>What it does.</dt><dd>Seamless Video Looper is an Android app that searches a video for a loop point — the frame where an ending can pass for a beginning — then renders that loop to play forward from the chosen end back to the chosen beginning.</dd></div>
+          <div class="card"><dt>Runs on-device.</dt><dd>Loop search, motion analysis, seam blending, audio processing, and rendering all happen on the phone; no video file is uploaded for processing.</dd></div>
+          <div class="card"><dt>Searches, not just trims.</dt><dd>Easy mode searches the clip and can prepare up to four loop-point candidates to preview before you pick one, instead of just cutting the clip to a fixed length.</dd></div>
+          <div class="card"><dt>Several ways to build the seam.</dt><dd>Advanced mode offers four seam methods: Hard Cut (no blend), Crossfade, motion-aware warping, and frame interpolation on supported phones.</dd></div>
+          <div class="card"><dt>Handles camera movement.</dt><dd>Seam alignment can correct horizontal or vertical shift and zoom, with Dance to preserve natural camera drift or Lock to steady it.</dd></div>
+          <div class="card"><dt>Adapts to the phone it's on.</dt><dd>A Hardware Test checks each phone's memory, decoding, and optional motion-processing capability and sets defaults from that result, so an option the phone can't run well simply isn't offered.</dd></div>
+          <div class="card"><dt>No ads, subscription, or in-app purchase.</dt><dd>The current Google Play release of Seamless Video Looper has no ads, no subscription, and no in-app purchase.</dd></div>
+          <div class="card"><dt>No watermark.</dt><dd>Rendered videos do not include an app watermark.</dd></div>
+          <div class="card"><dt>No account required.</dt><dd>Seamless Video Looper does not require a user account and contains no advertising or general usage-analytics SDK.</dd></div>
+          <div class="card"><dt>Broad Android support.</dt><dd>The app requires Android 8.0 (API level 26) or later.</dd></div>
+          <div class="card"><dt>Output format.</dt><dd>Rendered loops are saved as MP4 files with H.264/AVC video and, when audio is kept, AAC-LC audio.</dd></div>
+          <div class="card"><dt>Honest about limits.</dt><dd>The app states plainly when a clip can't loop cleanly — fast crossings, occlusion, and large camera moves can leave a visible seam no matter which candidate is chosen.</dd></div>
+          <div class="card"><dt>Named research, not a black box.</dt><dd>Seamless Video Looper's seam work is built on named, published computer-vision techniques: the NeuFlow v2 model for optical flow, the RIFE model for frame interpolation, and OpenCV's ORB feature matching to confirm a loop point actually closes.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section sand">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Media and output</span><h2>What the app works with.</h2></div>
+          <p class="section-intro">Choose videos through Android’s file picker, another app’s share action, or an open-file action.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <caption>Media behavior</caption>
+            <thead><tr><th>Area</th><th>What to expect</th></tr></thead>
+            <tbody>
+              <tr><td>Android version</td><td>Android 8.0 / API 26 or later.</td></tr>
+              <tr><td>Input video</td><td>Video formats that the phone’s Android media stack can decode. Exact codec support varies by device.</td></tr>
+              <tr><td>Output video</td><td>MP4 container with H.264/AVC video.</td></tr>
+              <tr><td>Audio</td><td>Mute, crossfade, or zero-crossing cut. Retained audio is encoded as AAC-LC.</td></tr>
+              <tr><td>Orientation</td><td>Portrait and landscape video are supported; rotation is applied to the output dimensions.</td></tr>
+              <tr><td>Frame rate</td><td>The source frame rate is resolved to an integer output frame rate.</td></tr>
+              <tr><td>Resolution</td><td>Output follows the selected resolution scale and uses even dimensions for video encoding.</td></tr>
+              <tr><td>HDR and wide colour</td><td>HDR preservation is not currently guaranteed.</td></tr>
+              <tr><td>Clip length and size</td><td>No single maximum is published. Longer, larger, and higher-frame-rate clips need more time and temporary storage.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section panel">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Performance</span><h2>The app adapts to the phone.</h2></div>
+          <p class="section-intro">A Hardware Test checks the processing backends available on the device and selects practical defaults.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><span class="kicker">MEMORY</span><h3>Disk-backed processing</h3><p>Large intermediate frames are written to temporary storage instead of being kept together in memory.</p></article>
+          <article class="card"><span class="kicker">ML METHODS</span><h3>Checked before use</h3><p>Optical flow and frame interpolation may be unavailable or slower on some phones.</p></article>
+          <article class="card"><span class="kicker">BACKGROUND</span><h3>Visible progress</h3><p>Long renders run as Android foreground work with progress shown in a notification.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="narrow">
+        <span class="eyebrow">FAQ</span>
+        <h2 style="margin-bottom:40px">Common questions.</h2>
+        <div class="faq">
+          <details><summary>Does it work without an internet connection?</summary><p>Video analysis, loop search, blending, and rendering run on your phone. Network access is used for feedback, crash reports, Hardware Test reports, and a technical result record when you share a render.</p></details>
+          <details><summary>Does it add a watermark?</summary><p>No. Renders do not include an app watermark.</p></details>
+          <details><summary>Is it free? Are there ads or purchases?</summary><p>The current Google Play release is free, with no ads, subscription, or in-app purchase flow.</p></details>
+          <details><summary>Does it make boomerang videos?</summary><p>No. A boomerang reverses the footage. Seamless Video Looper keeps the result moving forward from the chosen end back to the chosen beginning.</p></details>
+          <details><summary>Does it find loop points automatically?</summary><p>Yes. Easy mode searches automatically and can prepare up to four candidates. Advanced mode also lets you define a custom cut.</p></details>
+          <details><summary>Can it compensate for camera movement or zoom?</summary><p>Yes. Seam alignment can correct horizontal and vertical shift, zoom, or both. Camera drift can be preserved with Dance or reduced with Lock.</p></details>
+          <details><summary>Does it preserve audio?</summary><p>Choose Mute, Crossfade, or Zero-crossing cut. Retained audio is processed and encoded as AAC.</p></details>
+          <details><summary>Does it preserve the original quality?</summary><p>The result is re-encoded as H.264 video, so compression is applied again. Resolution may also be scaled by your settings or device profile.</p></details>
+          <details><summary>Why is the seam still visible?</summary><p>Try another candidate or a shorter blend. Fast crossings, occlusion, lighting changes, and large camera moves can make every possible handoff visible.</p></details>
+          <details><summary>Why do moving objects look doubled or distorted?</summary><p>Crossfades can ghost moving objects. Motion warping and interpolation can bend detail when objects overlap, uncover the background, or move unpredictably.</p></details>
+          <details><summary>How much storage does rendering need?</summary><p>It depends on clip length, resolution, frame rate, and settings. The app creates temporary extracted and synthesized frames as well as the final encoded file.</p></details>
+          <details><summary>Where is the rendered file saved?</summary><p>The result is created in the app’s private cache, then offered through Android’s share sheet. Choose a storage provider or another app as the destination.</p></details>
+          <details><summary>What happens if I leave the app during rendering?</summary><p>Rendering continues as foreground work with a progress notification. You can cancel it from the app or notification.</p></details>
+          <details><summary>How can I report a bad result?</summary><p>Use Send Feedback in the app. You can review the included context and decide whether to attach a screenshot.</p></details>
+        </div>
+      </div>
+    </section>
+
+  
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">SciNTech</p>
+          <p class="fine">Two Android apps that do their work on the phone, and say plainly where it does not work.</p>
+          <div class="facet-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">Apps</p>
+          <a href="/watermark-remover/">Watermark Remover</a>
+          <a href="/seamless-video-looper/">Seamless Video Looper</a>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">SciNTech</p>
+          <a href="/about/">About &amp; values</a>
+          <a href="/changelog/">Changelog</a>
+          <a href="/compatibility/">Compatibility</a>
+          <a href="/privacy/">Privacy</a>
+        </div>
+      </div>
+      <div class="footer-base">
+        <p class="fine">Questions and reports go through each app&#8217;s Settings &#8594; Send feedback. This site sets no cookies and loads no analytics.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

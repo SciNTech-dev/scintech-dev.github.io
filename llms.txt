@@ -11,6 +11,11 @@ Support: each app's Settings → Send feedback. The site publishes no email addr
 - https://scintech-dev.github.io/changelog/ — Release notes for both apps, newest first, as shipped.
 - https://scintech-dev.github.io/compatibility/ — Devices seen in the apps' reports (real devices only; developer phones and emulators excluded).
 - https://scintech-dev.github.io/privacy/ — The website's own privacy statement and links to each app's privacy page.
+- https://scintech-dev.github.io/seamless-video-looper/ — Seamless Video Looper product overview.
+- https://scintech-dev.github.io/seamless-video-looper/how-it-works/ — How the app finds and blends a loop point.
+- https://scintech-dev.github.io/seamless-video-looper/examples/ — Screens from the app: selecting a clip, comparing candidates, shaping the seam, Hardware Test, rendering.
+- https://scintech-dev.github.io/seamless-video-looper/compatibility/ — Android version and media requirements, output format, FAQ.
+- https://scintech-dev.github.io/seamless-video-looper/privacy/ — How video and report data are handled, with the full privacy policy at #policy.
 
 ## Values
 
@@ -50,7 +55,7 @@ Facts:
 
 ## Seamless Video Looper
 
-Status: on Google Play, https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android — current release 1.7.5. App pages under /seamless-video-looper/ are being added; until then see https://seamlessvideolooper.github.io/.
+Status: on Google Play, https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android — current release 1.7.5. App pages are at /seamless-video-looper/.
 
 - Requires Android 8.0 (API 26) or later.
 - Finds candidate loop points, previews them, and renders a loop that always plays forward (not a boomerang).
