@@ -1,0 +1,33 @@
+User-agent: GPTBot
+Allow: /
+Disallow: /docs/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /docs/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /docs/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /docs/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /docs/
+
+User-agent: CCBot
+Allow: /
+Disallow: /docs/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /docs/
+
+User-agent: *
+Allow: /
+Disallow: /docs/
+
+Sitemap: https://scintech-dev.github.io/sitemap.xml
