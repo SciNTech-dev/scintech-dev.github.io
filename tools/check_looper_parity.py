@@ -30,7 +30,12 @@ The old site is a set of redirect shells since spec 0069 S6, so the OLD text is 
 git history of the old repo at OLD_REF (the last content commit before the cutover), not
 from its working tree. --old-ref '' reads the working tree instead.
 
-Usage: python3 tools/check_looper_parity.py [--old-root DIR] [--old-ref REF]
+RETIRED 2026-09-23: the migration is complete (the old site redirects here), and the owner's
+copy rewrite ("use science to make useful tools that work offline"; no "no ads / no account"
+marketing) deliberately changes Looper text. By default the script only prints
+`LOOPER_PARITY_RETIRED`; `--legacy` runs the historical comparison for reference.
+
+Usage: python3 tools/check_looper_parity.py [--legacy] [--old-root DIR] [--old-ref REF]
 """
 import argparse, difflib, os, re, subprocess, sys
 from html.parser import HTMLParser
@@ -138,7 +143,12 @@ def main():
     ap.add_argument("--old-root", default=DEFAULT_OLD_ROOT)
     ap.add_argument("--new-root", default=NEW_ROOT)
     ap.add_argument("--old-ref", default=OLD_REF, help="git ref of the old repo ('' = working tree)")
+    ap.add_argument("--legacy", action="store_true", help="run the retired migration-parity diff")
     args = ap.parse_args()
+
+    if not args.legacy:
+        print("LOOPER_PARITY_RETIRED migration complete 2026-09-23; Looper copy is now edited in place")
+        return 0
 
     if not os.path.isdir(args.old_root):
         print(f"LOOPER_PARITY_FAIL old_root_missing={args.old_root}")

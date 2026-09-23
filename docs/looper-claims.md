@@ -59,7 +59,7 @@ Thin Compare, Technical Notes, and Support content is merged into the five main 
 | Output MP4 with H.264 video and AAC-LC audio | Verified | MediaCodec pipeline | 2026-08-04 | AAC only when audio retained |
 | Original quality is preserved | Rejected | Re-encoding implementation | 2026-08-04 | Site explicitly says no lossless claim |
 | No watermark | Partly verified | Current Play listing and prior listing audit | 2026-08-04 | No fresh production render test solely for watermark |
-| Free, no ads, no subscription | Verified for current listing/source | Play listing; no billing/ads flow in reviewed source | 2026-08-04 | Store presentation may change; wording is scoped |
+| Core features are free and work offline | Verified for current listing/source + owner promise | Play listing; no billing flow in reviewed source; release note "Fully offline — video never leaves your device"; owner 2026-09-23 "we will always have core functionality free and offline" | 2026-09-23 | Copy no longer markets "no ads / subscription / purchase" (owner: don't shame accounts or paid services); network paths exist for reports only |
 | Works on all formats/devices | Unverified | No exhaustive matrix exists | 2026-08-04 | Not published |
 | HDR preserved | Unverified | No verified contract found | 2026-08-04 | Explicitly shown as unknown |
 | Variable frame rate preserved | Unverified | Output uses resolved integer FPS | 2026-08-04 | No preservation claim |

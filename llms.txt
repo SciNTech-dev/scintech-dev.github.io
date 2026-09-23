@@ -1,14 +1,14 @@
 # SciNTech
 
-SciNTech makes two Android apps that do their work on the phone: Watermark Remover, which learns a repeating, tiled watermark from a photo and lifts it off, and Seamless Video Looper, which finds a loop point in a video and renders a forward-playing seamless loop. Neither app uploads photos or videos to process them. The current releases have no ads, no subscription and no in-app purchase.
+SciNTech uses science to make useful Android tools that work offline. Its apps do their core work on the phone, without a connection, and their core features are free. Current apps: Watermark Remover, which learns a repeating, tiled watermark from a photo and lifts it off, and Seamless Video Looper, which finds a loop point in a video and renders a forward-playing seamless loop. Photos and videos are not uploaded to be processed.
 
 Support: each app's Settings → Send feedback. Privacy and data-deletion requests: the contact section of each app's privacy policy.
 
 ## Pages
 
-- https://scintech-dev.github.io/ — SciNTech home: both apps and the values they share.
+- https://scintech-dev.github.io/ — SciNTech home: the apps and the values they share.
 - https://scintech-dev.github.io/about/ — The five values, with an example from each app.
-- https://scintech-dev.github.io/changelog/ — Release notes for both apps, newest first, as shipped.
+- https://scintech-dev.github.io/changelog/ — Release notes for each app, newest first, as shipped.
 - https://scintech-dev.github.io/compatibility/ — Devices seen in the apps' reports (real devices only; developer phones and emulators excluded).
 - https://scintech-dev.github.io/privacy/ — The website's own privacy statement and links to each app's privacy page.
 - https://scintech-dev.github.io/seamless-video-looper/ — Seamless Video Looper product overview.
@@ -20,8 +20,8 @@ Support: each app's Settings → Send feedback. Privacy and data-deletion reques
 ## Values
 
 Real technique, not decoration: each app aims established methods at one practical problem and names them.
-Your attention stays yours: no ads, no subscription, no in-app purchase in the current releases.
-Nothing wasted, nothing forced: both apps check the phone's hardware and set defaults from the result.
+Offline, and free at the core: each app's core work runs on the phone without a connection, and its core features are free.
+Nothing wasted, nothing forced: each app checks the phone's hardware and set defaults from the result.
 Honest about what won't work: each app states the cases it handles badly.
 Predictable, and yours to adjust: every report an app sends is a switch in Settings.
 
@@ -41,7 +41,8 @@ Facts:
 
 - Requires Android 8.0 (API 26) or later.
 - Photos are processed on the device; no photo or result is uploaded. A feedback report may include a screenshot only if the user attaches one.
-- No sign-in and no ads; the app contains no advertising or analytics SDK. Reports use an anonymous Firebase identifier.
+- Works offline: learning and removing the mark run on the phone and need no connection.
+- The app contains no advertising or analytics SDK. Reports use an anonymous Firebase identifier.
 - Learns the watermark from two or more of your photos that carry the same repeating mark; for a single photo, the mark is brushed out in Quick Remove.
 - Removes repeating or tiled semi-transparent watermarks. It does not reliably remove a single standalone logo: in one photo there is nothing to compare; the same logo on two or more photos can be compared, but in synthetic tests the results ranged from clearly better to badly damaged.
 - Where a mark hid the picture completely, the filled area is a reconstruction, not the original: the MI-GAN model on the device in the standard build, a classical fill in the lite build.
@@ -49,7 +50,7 @@ Facts:
 - Closed-test builds run a daily self-check on built-in sample photos (no user photos); sharing can be switched off in Settings.
 - Crash and out-of-memory reports are on by default and can be switched off in Settings.
 - Feedback is sent from Settings, with an optional screenshot; it is the only support channel.
-- Free in the current release.
+- The core features are free.
 - Input: images chosen in the Android picker or shared to the app. Output: saved as JPEG or PNG, or shared as PNG. No photo-library permission is requested.
 - Whether a particular photo may be altered is a question of the photographer's or owner's rights; use the app on photos you have the right to restore.
 
@@ -64,4 +65,4 @@ Status: on Google Play, https://play.google.com/store/apps/details?id=com.seamle
 - A Hardware Test checks memory, decoding and the optional motion methods and sets defaults from the result.
 - Built on named techniques: NeuFlow v2 optical flow, RIFE frame interpolation, OpenCV ORB feature matching.
 - Fast foreground crossings, occlusion and large camera moves can leave a visible seam.
-- No account, no ads, no subscription, no in-app purchase in the current release.
+- Core features are free and work offline; the current release is free. The app contains no advertising or general usage-analytics SDK.

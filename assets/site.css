@@ -1,4 +1,4 @@
-/* SciNTech — one design system for the hub and both apps (spec 0069 §5).
+/* SciNTech — one design system for the hub and every app (spec 0069 §5).
    Colour tokens are named --c-*; every --c-* set for the light theme is set again for the
    dark theme, twice: under prefers-color-scheme (unless the visitor chose light) and under
    [data-theme="dark"] (the visitor chose dark). tools/check_site.py fails if the two dark
