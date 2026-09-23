@@ -22,7 +22,17 @@ Predictable, and yours to adjust: every report an app sends is a switch in Setti
 
 ## Watermark Remover
 
-Status: closed beta on Google Play (package com.watermarkremover.android). App pages under /watermark-remover/ are being added.
+Status: closed beta on Google Play (package com.watermarkremover.android). To test: https://scintech-dev.github.io/watermark-remover/beta/
+
+Pages:
+- https://scintech-dev.github.io/watermark-remover/ — What the app does and does not do, in four steps.
+- https://scintech-dev.github.io/watermark-remover/how-it-works/ — The four ideas: find the repeat, learn the mark from many copies, lift it off, fill what was lost.
+- https://scintech-dev.github.io/watermark-remover/examples/ — Synthetic examples scored against their true clean image over the whole frame (measured gallery in preparation).
+- https://scintech-dev.github.io/watermark-remover/compatibility/ — Requirements, inputs and outputs, and answers to common questions.
+- https://scintech-dev.github.io/watermark-remover/privacy/ — Privacy at a glance, and the full policy at #policy.
+- https://scintech-dev.github.io/watermark-remover/beta/ — How to join the closed test.
+
+Facts:
 
 - Requires Android 8.0 (API 26) or later.
 - Photos are processed on the device; no photo or result is uploaded. A feedback report may include a screenshot only if the user attaches one.
@@ -35,6 +45,8 @@ Status: closed beta on Google Play (package com.watermarkremover.android). App p
 - Crash and out-of-memory reports are on by default and can be switched off in Settings.
 - Feedback is sent from Settings, with an optional screenshot; it is the only support channel.
 - Free in the current release.
+- Input: images chosen in the Android picker or shared to the app. Output: saved as JPEG or PNG, or shared as PNG. No photo-library permission is requested.
+- Whether a particular photo may be altered is a question of the photographer's or owner's rights; use the app on photos you have the right to restore.
 
 ## Seamless Video Looper
 

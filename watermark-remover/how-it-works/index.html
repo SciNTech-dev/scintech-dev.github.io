@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>How Watermark Remover works — find, learn, lift, fill</title>
+  <meta name="description" content="Four ideas behind Watermark Remover: find the repeating stamp, learn the mark from many copies, lift it off, and fill what the mark hid.">
+  <link rel="canonical" href="https://scintech-dev.github.io/watermark-remover/how-it-works/">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f4ef">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#15161a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SciNTech">
+  <meta property="og:title" content="How Watermark Remover works — find, learn, lift, fill">
+  <meta property="og:description" content="Four ideas behind Watermark Remover: find the repeating stamp, learn the mark from many copies, lift it off, and fill what the mark hid.">
+  <meta property="og:url" content="https://scintech-dev.github.io/watermark-remover/how-it-works/">
+  <meta property="og:image" content="https://scintech-dev.github.io/assets/img/wmr/og-wmr.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Watermark Remover: a landscape half covered in ring stamps, half restored.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/scintech-mark.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/scintech-mark-512.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <script src="/assets/site.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://scintech-dev.github.io/#organization","name":"SciNTech","url":"https://scintech-dev.github.io/","logo":"https://scintech-dev.github.io/assets/img/scintech-mark-512.png","sameAs":["https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android","https://play.google.com/store/apps/details?id=com.watermarkremover.android"]},{"@type":"WebSite","@id":"https://scintech-dev.github.io/#website","name":"SciNTech","url":"https://scintech-dev.github.io/","inLanguage":"en","publisher":{"@id":"https://scintech-dev.github.io/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SciNTech","item":"https://scintech-dev.github.io/"},{"@type":"ListItem","position":2,"name":"Watermark Remover","item":"https://scintech-dev.github.io/watermark-remover/"},{"@type":"ListItem","position":3,"name":"How it works","item":"https://scintech-dev.github.io/watermark-remover/how-it-works/"}]}]}</script>
+</head>
+<body data-app="wmr">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="/"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#29292e"/><rect x="12" y="12" width="25" height="25" rx="3" fill="none" stroke="#89d99f" stroke-width="5"/><circle cx="39.5" cy="39.5" r="12.5" fill="none" stroke="#f69536" stroke-width="5"/></svg><span>SciNTech</span></a>
+      <div class="nav-links">
+        <a class="nav-app" data-app-link="wmr" href="/watermark-remover/">Watermark Remover</a>
+        <a class="nav-app" data-app-link="looper" href="/seamless-video-looper/">Seamless Video Looper</a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a href="/about/">About</a>
+        <a href="/changelog/">Changelog</a>
+        <a href="/compatibility/">Compatibility</a>
+        <a href="/privacy/">Privacy</a>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" hidden><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M5.3 18.7 7 17M17 7l1.7-1.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">Dark theme</span></button>
+    </nav>
+  </header>
+  <nav class="app-nav" aria-label="Watermark Remover">
+    <div class="wrap">
+        <a href="/watermark-remover/">Home</a>
+        <a href="/watermark-remover/how-it-works/" aria-current="page">How it works</a>
+        <a href="/watermark-remover/examples/">Examples</a>
+        <a href="/watermark-remover/compatibility/">Compatibility</a>
+        <a href="/watermark-remover/privacy/">Privacy</a>
+        <a class="button primary" data-cta="wmr" href="/watermark-remover/beta/">Join the beta</a>
+    </div>
+  </nav>
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="wrap">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">SciNTech</a></li><li><a href="/watermark-remover/">Watermark Remover</a></li><li aria-current="page">How it works</li></ol></nav>
+        <span class="eyebrow">How it works</span>
+        <h1>Many copies give the mark away.</h1>
+        <p class="lede">A stamp repeated across a picture is never quite hidden: every copy sits on a different part of the photo, and the difference is what lets the photo be seen again. Four ideas, no formulas.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="ideas-title">
+      <div class="wrap">
+        <h2 id="ideas-title" class="sr-only">The four steps</h2>
+        <ol class="steps">
+          <li>
+            <div class="card"><span class="step-num">1</span><h3>Find the repeat</h3><p>The same stamp lands on the photo many times.</p><p>The app looks for that repetition and works out the spacing between copies.</p></div>
+            <figure class="diagram"><svg viewBox="0 0 320 200" role="img" aria-labelledby="dg1-t dg1-d"><title id="dg1-t">Finding the repeat</title><desc id="dg1-d">A landscape photo with the same ring-shaped stamp printed twelve times in a grid. A dashed outline steps from one copy to the next, and arrows mark the horizontal and vertical spacing between copies.</desc><defs><linearGradient id="dg1-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fb3d9"/><stop offset="1" stop-color="#d3e0ea"/></linearGradient><clipPath id="dg1-clip"><rect x="10" y="10" width="300" height="180" rx="8"/></clipPath></defs><g class="dg-anim"><g clip-path="url(#dg1-clip)"><rect x="10" y="10" width="300" height="180" fill="url(#dg1-sky)"/><circle cx="224" cy="56" r="22" fill="#f3d27a"/><path d="M0 142 L98 62 L180 142 Z" fill="#5d6f86"/><path d="M120 142 L224 80 L330 142 Z" fill="#71849a"/><rect x="10" y="138" width="300" height="52" fill="#5f7d58"/><path d="M10 160 Q90 148 170 162 T310 156 V190 H10 Z" fill="#4d6b48"/></g><g class="dg-mark" transform="translate(50 40) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(130 40) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(210 40) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(290 40) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(50 100) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(130 100) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(210 100) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(290 100) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(50 160) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(130 160) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(210 160) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(290 160) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><rect class="dg-edge" x="10" y="10" width="300" height="180" rx="8"/><g class="dg-hop"><rect class="dg-dash" x="26" y="16" width="48" height="48" rx="6"/></g><g class="dg-late"><path class="dg-line" d="M58 76 H122 M114 70 L122 76 L114 82 M66 70 L58 76 L66 82"/><path class="dg-line" d="M86 48 V92 M80 84 L86 92 L92 84 M80 56 L86 48 L92 56"/></g></g><g class="dg-static"><g clip-path="url(#dg1-clip)"><rect x="10" y="10" width="300" height="180" fill="url(#dg1-sky)"/><circle cx="224" cy="56" r="22" fill="#f3d27a"/><path d="M0 142 L98 62 L180 142 Z" fill="#5d6f86"/><path d="M120 142 L224 80 L330 142 Z" fill="#71849a"/><rect x="10" y="138" width="300" height="52" fill="#5f7d58"/><path d="M10 160 Q90 148 170 162 T310 156 V190 H10 Z" fill="#4d6b48"/></g><g class="dg-mark" transform="translate(50 40) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(130 40) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(210 40) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(290 40) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(50 100) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(130 100) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(210 100) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(290 100) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(50 160) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(130 160) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(210 160) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(290 160) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><rect class="dg-edge" x="10" y="10" width="300" height="180" rx="8"/><rect class="dg-dash" x="26" y="16" width="48" height="48" rx="6"/><rect class="dg-dash" x="106" y="16" width="48" height="48" rx="6"/><rect class="dg-dash" x="26" y="76" width="48" height="48" rx="6"/><path class="dg-line" d="M58 76 H122 M114 70 L122 76 L114 82 M66 70 L58 76 L66 82"/><path class="dg-line" d="M86 48 V92 M80 84 L86 92 L92 84 M80 56 L86 48 L92 56"/></g></svg></figure>
+          </li>
+          <li>
+            <div class="card"><span class="step-num">2</span><h3>Learn the mark from many copies</h3><p>Under each copy lies a different piece of the photo.</p><p>What all the copies share is the mark; what differs between them is the picture. Comparing many copies separates the two.</p></div>
+            <figure class="diagram"><svg viewBox="0 0 320 200" role="img" aria-labelledby="dg2-t dg2-d"><title id="dg2-t">Learning the mark from many copies</title><desc id="dg2-d">Four small squares cut from different parts of the photo, sky, mountain, grass and sun, each with the same ring stamp. They are combined into one square where only the stamp remains, drawn on a checkerboard that stands for transparency.</desc><g class="dg-anim"><g class="dg-slide" style="--dx:200px;--dy:66px;animation-delay:0.00s"><rect x="22" y="16" width="36" height="36" rx="5" fill="#9dbcdc"/><g class="dg-mark" transform="translate(40 34) rotate(-20) scale(.8)"><circle r="13"/><path d="M-6 0h12"/></g></g><g class="dg-slide" style="--dx:200px;--dy:22px;animation-delay:0.12s"><rect x="22" y="60" width="36" height="36" rx="5" fill="#5d6f86"/><g class="dg-mark" transform="translate(40 78) rotate(-20) scale(.8)"><circle r="13"/><path d="M-6 0h12"/></g></g><g class="dg-slide" style="--dx:200px;--dy:-22px;animation-delay:0.24s"><rect x="22" y="104" width="36" height="36" rx="5" fill="#5f7d58"/><g class="dg-mark" transform="translate(40 122) rotate(-20) scale(.8)"><circle r="13"/><path d="M-6 0h12"/></g></g><g class="dg-slide" style="--dx:200px;--dy:-66px;animation-delay:0.36s"><rect x="22" y="148" width="36" height="36" rx="5" fill="#e4c878"/><g class="dg-mark" transform="translate(40 166) rotate(-20) scale(.8)"><circle r="13"/><path d="M-6 0h12"/></g></g><path class="dg-line" d="M70 18 Q80 18 80 30 V88 Q80 100 88 100 Q80 100 80 112 V170 Q80 182 70 182"/><path class="dg-line" d="M92 100 H186 M176 92 L186 100 L176 108"/><g class="dg-reveal"><rect class="dg-edge" x="212" y="72" width="56" height="56" rx="6"/><rect class="dg-soft" x="212" y="72" width="14" height="14"/><rect class="dg-soft" x="240" y="72" width="14" height="14"/><rect class="dg-soft" x="226" y="86" width="14" height="14"/><rect class="dg-soft" x="254" y="86" width="14" height="14"/><rect class="dg-soft" x="212" y="100" width="14" height="14"/><rect class="dg-soft" x="240" y="100" width="14" height="14"/><rect class="dg-soft" x="226" y="114" width="14" height="14"/><rect class="dg-soft" x="254" y="114" width="14" height="14"/><g class="dg-mark-ink" transform="translate(240 100) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g></g></g><g class="dg-static"><rect x="22" y="16" width="36" height="36" rx="5" fill="#9dbcdc"/><g class="dg-mark" transform="translate(40 34) rotate(-20) scale(.8)"><circle r="13"/><path d="M-6 0h12"/></g><rect x="22" y="60" width="36" height="36" rx="5" fill="#5d6f86"/><g class="dg-mark" transform="translate(40 78) rotate(-20) scale(.8)"><circle r="13"/><path d="M-6 0h12"/></g><rect x="22" y="104" width="36" height="36" rx="5" fill="#5f7d58"/><g class="dg-mark" transform="translate(40 122) rotate(-20) scale(.8)"><circle r="13"/><path d="M-6 0h12"/></g><rect x="22" y="148" width="36" height="36" rx="5" fill="#e4c878"/><g class="dg-mark" transform="translate(40 166) rotate(-20) scale(.8)"><circle r="13"/><path d="M-6 0h12"/></g><path class="dg-line" d="M70 18 Q80 18 80 30 V88 Q80 100 88 100 Q80 100 80 112 V170 Q80 182 70 182"/><path class="dg-line" d="M92 100 H186 M176 92 L186 100 L176 108"/><rect class="dg-edge" x="212" y="72" width="56" height="56" rx="6"/><rect class="dg-soft" x="212" y="72" width="14" height="14"/><rect class="dg-soft" x="240" y="72" width="14" height="14"/><rect class="dg-soft" x="226" y="86" width="14" height="14"/><rect class="dg-soft" x="254" y="86" width="14" height="14"/><rect class="dg-soft" x="212" y="100" width="14" height="14"/><rect class="dg-soft" x="240" y="100" width="14" height="14"/><rect class="dg-soft" x="226" y="114" width="14" height="14"/><rect class="dg-soft" x="254" y="114" width="14" height="14"/><g class="dg-mark-ink" transform="translate(240 100) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g></g></svg></figure>
+          </li>
+          <li>
+            <div class="card"><span class="step-num">3</span><h3>Lift it off</h3><p>Once the mark’s shape and strength are known, each pixel’s original value is worked back out.</p><p>Where the mark was see-through, the picture underneath returns.</p></div>
+            <figure class="diagram"><svg viewBox="0 0 320 200" role="img" aria-labelledby="dg3-t dg3-d"><title id="dg3-t">Lifting the mark off</title><desc id="dg3-d">The stamped landscape with a line sweeping across it. Behind the line the ring stamps are gone and the sky, mountains and grass show through unchanged; ahead of it the stamps remain.</desc><defs><linearGradient id="dg3-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fb3d9"/><stop offset="1" stop-color="#d3e0ea"/></linearGradient><clipPath id="dg3-clip"><rect x="10" y="10" width="300" height="180" rx="8"/></clipPath></defs><defs><clipPath id="dg3-wipe"><rect class="dg-wipe" x="-290" y="10" width="300" height="180"/></clipPath></defs><g class="dg-anim"><g clip-path="url(#dg3-clip)"><rect x="10" y="10" width="300" height="180" fill="url(#dg3-sky)"/><circle cx="224" cy="56" r="22" fill="#f3d27a"/><path d="M0 142 L98 62 L180 142 Z" fill="#5d6f86"/><path d="M120 142 L224 80 L330 142 Z" fill="#71849a"/><rect x="10" y="138" width="300" height="52" fill="#5f7d58"/><path d="M10 160 Q90 148 170 162 T310 156 V190 H10 Z" fill="#4d6b48"/></g><g class="dg-mark" transform="translate(50 40) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(130 40) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(210 40) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(290 40) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(50 100) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(130 100) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(210 100) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(290 100) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(50 160) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(130 160) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(210 160) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(290 160) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g clip-path="url(#dg3-wipe)"><g clip-path="url(#dg3-clip)"><rect x="10" y="10" width="300" height="180" fill="url(#dg3-sky)"/><circle cx="224" cy="56" r="22" fill="#f3d27a"/><path d="M0 142 L98 62 L180 142 Z" fill="#5d6f86"/><path d="M120 142 L224 80 L330 142 Z" fill="#71849a"/><rect x="10" y="138" width="300" height="52" fill="#5f7d58"/><path d="M10 160 Q90 148 170 162 T310 156 V190 H10 Z" fill="#4d6b48"/></g></g><g class="dg-wipe"><path class="dg-line" d="M10 14 V186"/></g><rect class="dg-edge" x="10" y="10" width="300" height="180" rx="8"/></g><g class="dg-static"><g clip-path="url(#dg3-clip)"><rect x="10" y="10" width="300" height="180" fill="url(#dg3-sky)"/><circle cx="224" cy="56" r="22" fill="#f3d27a"/><path d="M0 142 L98 62 L180 142 Z" fill="#5d6f86"/><path d="M120 142 L224 80 L330 142 Z" fill="#71849a"/><rect x="10" y="138" width="300" height="52" fill="#5f7d58"/><path d="M10 160 Q90 148 170 162 T310 156 V190 H10 Z" fill="#4d6b48"/></g><g class="dg-mark" transform="translate(210 40) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(290 40) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(210 100) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(290 100) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(210 160) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><g class="dg-mark" transform="translate(290 160) rotate(-20)"><circle r="13"/><path d="M-6 0h12"/></g><path class="dg-line" d="M170 14 V186"/><rect class="dg-edge" x="10" y="10" width="300" height="180" rx="8"/></g></svg></figure>
+          </li>
+          <li>
+            <div class="card"><span class="step-num">4</span><h3>Fill what was lost</h3><p>Where the mark was too solid to see through, nothing of the picture is left to recover.</p><p>A small model on the phone (MI-GAN) paints that area in from its surroundings. That part is a reconstruction, not the original.</p></div>
+            <figure class="diagram"><svg viewBox="0 0 320 200" role="img" aria-labelledby="dg4-t dg4-d"><title id="dg4-t">Filling what was lost</title><desc id="dg4-d">The landscape after the stamps are lifted, with one patch where the mark hid the picture completely, shown as an empty checkerboard. The patch is then painted in to continue the mountain and sky around it, and a dashed outline stays to mark it as reconstructed.</desc><defs><linearGradient id="dg4-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fb3d9"/><stop offset="1" stop-color="#d3e0ea"/></linearGradient><clipPath id="dg4-clip"><rect x="10" y="10" width="300" height="180" rx="8"/></clipPath></defs><defs><linearGradient id="dg4b-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fb3d9"/><stop offset="1" stop-color="#d3e0ea"/></linearGradient><clipPath id="dg4b-clip"><rect x="10" y="10" width="300" height="180" rx="8"/></clipPath></defs><defs><clipPath id="dg4-hole"><rect x="140" y="58" width="76" height="52" rx="4"/></clipPath></defs><g class="dg-anim"><g clip-path="url(#dg4-clip)"><rect x="10" y="10" width="300" height="180" fill="url(#dg4-sky)"/><circle cx="224" cy="56" r="22" fill="#f3d27a"/><path d="M0 142 L98 62 L180 142 Z" fill="#5d6f86"/><path d="M120 142 L224 80 L330 142 Z" fill="#71849a"/><rect x="10" y="138" width="300" height="52" fill="#5f7d58"/><path d="M10 160 Q90 148 170 162 T310 156 V190 H10 Z" fill="#4d6b48"/></g><rect x="140" y="58" width="76" height="52" style="fill:var(--c-surface)"/><rect class="dg-soft" x="140" y="58" width="13" height="13"/><rect class="dg-soft" x="166" y="58" width="13" height="13"/><rect class="dg-soft" x="192" y="58" width="13" height="13"/><rect class="dg-soft" x="153" y="71" width="13" height="13"/><rect class="dg-soft" x="179" y="71" width="13" height="13"/><rect class="dg-soft" x="205" y="71" width="13" height="13"/><rect class="dg-soft" x="140" y="84" width="13" height="13"/><rect class="dg-soft" x="166" y="84" width="13" height="13"/><rect class="dg-soft" x="192" y="84" width="13" height="13"/><rect class="dg-soft" x="153" y="97" width="13" height="13"/><rect class="dg-soft" x="179" y="97" width="13" height="13"/><rect class="dg-soft" x="205" y="97" width="13" height="13"/><g class="dg-fill"><g clip-path="url(#dg4-hole)"><g clip-path="url(#dg4b-clip)"><rect x="10" y="10" width="300" height="180" fill="url(#dg4b-sky)"/><circle cx="224" cy="56" r="22" fill="#f3d27a"/><path d="M0 142 L98 62 L180 142 Z" fill="#5d6f86"/><path d="M120 142 L224 80 L330 142 Z" fill="#71849a"/><rect x="10" y="138" width="300" height="52" fill="#5f7d58"/><path d="M10 160 Q90 148 170 162 T310 156 V190 H10 Z" fill="#4d6b48"/></g></g></g><rect class="dg-dash" x="140" y="58" width="76" height="52" rx="4"/><rect class="dg-edge" x="10" y="10" width="300" height="180" rx="8"/></g><g class="dg-static"><g clip-path="url(#dg4-clip)"><rect x="10" y="10" width="300" height="180" fill="url(#dg4-sky)"/><circle cx="224" cy="56" r="22" fill="#f3d27a"/><path d="M0 142 L98 62 L180 142 Z" fill="#5d6f86"/><path d="M120 142 L224 80 L330 142 Z" fill="#71849a"/><rect x="10" y="138" width="300" height="52" fill="#5f7d58"/><path d="M10 160 Q90 148 170 162 T310 156 V190 H10 Z" fill="#4d6b48"/></g><rect x="140" y="58" width="76" height="52" style="fill:var(--c-surface)"/><rect class="dg-soft" x="140" y="58" width="13" height="13"/><rect class="dg-soft" x="166" y="58" width="13" height="13"/><rect class="dg-soft" x="192" y="58" width="13" height="13"/><rect class="dg-soft" x="153" y="71" width="13" height="13"/><rect class="dg-soft" x="179" y="71" width="13" height="13"/><rect class="dg-soft" x="205" y="71" width="13" height="13"/><rect class="dg-soft" x="140" y="84" width="13" height="13"/><rect class="dg-soft" x="166" y="84" width="13" height="13"/><rect class="dg-soft" x="192" y="84" width="13" height="13"/><rect class="dg-soft" x="153" y="97" width="13" height="13"/><rect class="dg-soft" x="179" y="97" width="13" height="13"/><rect class="dg-soft" x="205" y="97" width="13" height="13"/><g clip-path="url(#dg4-hole)"><g clip-path="url(#dg4b-clip)"><rect x="10" y="10" width="300" height="180" fill="url(#dg4b-sky)"/><circle cx="224" cy="56" r="22" fill="#f3d27a"/><path d="M0 142 L98 62 L180 142 Z" fill="#5d6f86"/><path d="M120 142 L224 80 L330 142 Z" fill="#71849a"/><rect x="10" y="138" width="300" height="52" fill="#5f7d58"/><path d="M10 160 Q90 148 170 162 T310 156 V190 H10 Z" fill="#4d6b48"/></g></g><rect class="dg-dash" x="140" y="58" width="76" height="52" rx="4"/><rect class="dg-edge" x="10" y="10" width="300" height="180" rx="8"/></g></svg></figure>
+          </li>
+        </ol>
+        <p class="section-intro" style="margin-top:40px">Before anything is saved you see what will be removed, and you can paint over any spot the app missed.</p>
+      </div>
+    </section>
+
+    <section class="section tight">
+      <div class="wrap">
+        <div class="callout">
+          <span class="eyebrow">Why a single logo fails</span>
+          <h2>One copy leaves nothing to compare.</h2>
+          <p>Everything above depends on the mark repeating. With a single logo there is no second copy to set against the first, so the app cannot tell the mark from the picture. It declines rather than guess, and leaves the photo untouched.</p>
+          <div class="hero-actions">
+            <a class="button secondary" href="/watermark-remover/examples/">See the measured examples</a>
+            <a class="button secondary" href="/watermark-remover/compatibility/#faq">Questions and answers</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">SciNTech</p>
+          <p class="fine">Two Android apps that do their work on the phone, and say plainly where it does not work.</p>
+          <div class="facet-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">Watermark Remover</p>
+          <a href="/watermark-remover/how-it-works/">How it works</a>
+          <a href="/watermark-remover/examples/">Examples</a>
+          <a href="/watermark-remover/compatibility/">Compatibility &amp; FAQ</a>
+          <a href="/watermark-remover/privacy/">Privacy</a>
+          <a href="/watermark-remover/beta/">Join the beta</a>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">SciNTech</p>
+          <a href="/about/">About &amp; values</a>
+          <a href="/changelog/#watermark-remover">Changelog</a>
+          <a href="/compatibility/">Compatibility</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/seamless-video-looper/">Seamless Video Looper</a>
+        </div>
+      </div>
+      <div class="footer-base">
+        <p class="footer-rights">Restore photos you have the right to restore — respect photographers’ and other owners’ rights.</p>
+        <p class="fine">Questions and reports go through the app’s feedback button (also in Settings → Send feedback). This site sets no cookies and loads no analytics.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

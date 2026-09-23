@@ -2,8 +2,5 @@
 # tools/check_site.py reports these as pending instead of broken, and FAILS if a listed
 # path now exists — delete the line in the chunk that creates the page.
 # path                                  owner chunk
-/watermark-remover/                     S3
-/watermark-remover/beta/                S3
-/watermark-remover/privacy/             S3
 /seamless-video-looper/                 S2
 /seamless-video-looper/privacy/         S2

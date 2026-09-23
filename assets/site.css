@@ -285,6 +285,67 @@ td.empty { color: var(--c-muted); font-style: italic; }
 .faq details[open] summary::before { transform: skewX(18deg); }
 .faq details p { margin: 0; padding: 0 20px 18px 46px; color: var(--c-muted); }
 
+/* ---------- app pages: screenshots, concept diagrams, numbered steps (S3) ----------
+   .shots        strip of unedited app screens: <ol class="shots"><li><figure>…
+   .steps        numbered cards; .step-num badge; .diagram holds an inline concept SVG
+   .dg-anim / .dg-static   animated and still versions of a diagram: the still one is shown
+                 under prefers-reduced-motion. Diagram colours: .dg-* classes below; the
+                 "photo" inside a diagram keeps its own colours in both themes.
+   .slot         dashed region a later chunk fills (marked <!-- …:begin/end --> in HTML) */
+
+.shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 22px; margin: 0; padding: 0; list-style: none; }
+.shots figure { margin: 0; }
+.shots img { width: 100%; height: auto; border: 1px solid var(--c-edge); border-radius: 14px; background: #121316; box-shadow: 5px 5px 0 var(--c-shadow); }
+.shots figcaption { margin-top: 12px; color: var(--c-muted); font-size: .92rem; line-height: 1.45; }
+.shots .step-num { margin-bottom: 10px; }
+
+.step-num { display: inline-grid; place-items: center; min-width: 30px; height: 30px; padding: 0 8px; background: var(--c-accent-bg); color: var(--c-accent-ink); font-family: var(--mono); font-size: .85rem; font-weight: 800; border-radius: 8px; }
+.steps { display: grid; gap: 28px; margin: 0; padding: 0; list-style: none; }
+.steps > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 20px 40px; align-items: center; }
+.steps h3 { margin: 14px 0 10px; font-size: clamp(1.25rem, 2.4vw, 1.6rem); }
+.steps .card p { margin-bottom: .6rem; }
+.diagram { margin: 0; background: var(--c-surface); border: 1px solid var(--c-edge); border-radius: var(--radius); padding: 14px; box-shadow: 7px 7px 0 var(--c-shadow); }
+.diagram svg { width: 100%; height: auto; }
+
+.dg-edge { fill: none; stroke: var(--c-edge); stroke-width: 2; }
+.dg-line { fill: none; stroke: var(--c-accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.dg-dash { fill: none; stroke: var(--c-accent); stroke-width: 3; stroke-dasharray: 7 5; }
+.dg-ink { fill: var(--c-text); }
+.dg-soft { fill: var(--c-surface-2); }
+.dg-mark { fill: none; stroke: #ffffff; stroke-opacity: .62; stroke-width: 4.5; stroke-linecap: round; }
+.dg-mark-ink { fill: none; stroke: var(--c-text); stroke-width: 4.5; stroke-linecap: round; }
+.dg-static { display: none; }
+
+@keyframes dg-hop { 0%, 18% { transform: translate(0, 0); } 28%, 46% { transform: translate(80px, 0); } 56%, 74% { transform: translate(80px, 60px); } 84%, 100% { transform: translate(0, 0); } }
+@keyframes dg-show-late { 0%, 20% { opacity: 0; } 30%, 90% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes dg-slide { 0%, 10% { transform: translate(0, 0); opacity: 1; } 45% { transform: translate(var(--dx), var(--dy)); opacity: 1; } 55%, 100% { transform: translate(var(--dx), var(--dy)); opacity: 0; } }
+@keyframes dg-reveal { 0%, 45% { opacity: 0; } 60%, 92% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes dg-wipe { 0%, 8% { transform: translateX(0); } 70%, 100% { transform: translateX(300px); } }
+@keyframes dg-fill { 0%, 30% { opacity: 0; } 65%, 92% { opacity: 1; } 100% { opacity: 0; } }
+.dg-hop { animation: dg-hop 4s ease-in-out infinite; }
+.dg-late { animation: dg-show-late 4s ease infinite; }
+.dg-slide { animation: dg-slide 4s ease-in-out infinite; }
+.dg-reveal { animation: dg-reveal 4s ease infinite; }
+.dg-wipe { animation: dg-wipe 4s linear infinite; }
+.dg-fill { animation: dg-fill 4s ease infinite; }
+
+.slot { padding: clamp(24px, 4vw, 40px); border: 2px dashed var(--c-edge); border-radius: var(--radius); background: var(--c-surface); }
+.slot > :last-child { margin-bottom: 0; }
+.slot p { color: var(--c-muted); max-width: 62ch; }
+
+.policy { margin-top: 56px; }
+.policy h2 { margin-top: 0; }
+.policy code { font-family: var(--mono); font-size: .88em; overflow-wrap: anywhere; }
+
+@media (max-width: 800px) {
+  .steps > li { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dg-anim { display: none; }
+  .dg-static { display: inline; }
+}
+
 /* ---------- footer ---------- */
 
 .site-footer { margin-top: 0; padding-block: 52px 36px; background: var(--c-surface-2); border-top: 1px solid var(--c-edge); }

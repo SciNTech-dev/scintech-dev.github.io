@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Watermark Remover — see the photo, not the stamp</title>
+  <meta name="description" content="Watermark Remover learns a repeating, tiled watermark from the photo itself and lifts it off on your Android phone. No upload, no account, no ads. Beta.">
+  <link rel="canonical" href="https://scintech-dev.github.io/watermark-remover/">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f4ef">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#15161a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SciNTech">
+  <meta property="og:title" content="Watermark Remover — see the photo, not the stamp">
+  <meta property="og:description" content="Watermark Remover learns a repeating, tiled watermark from the photo itself and lifts it off on your Android phone. No upload, no account, no ads. Beta.">
+  <meta property="og:url" content="https://scintech-dev.github.io/watermark-remover/">
+  <meta property="og:image" content="https://scintech-dev.github.io/assets/img/wmr/og-wmr.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Watermark Remover: See the photo, not the stamp. A landscape half covered in ring stamps, half restored.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/scintech-mark.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/scintech-mark-512.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <script src="/assets/site.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://scintech-dev.github.io/#organization","name":"SciNTech","url":"https://scintech-dev.github.io/","logo":"https://scintech-dev.github.io/assets/img/scintech-mark-512.png","sameAs":["https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android","https://play.google.com/store/apps/details?id=com.watermarkremover.android"]},{"@type":"WebSite","@id":"https://scintech-dev.github.io/#website","name":"SciNTech","url":"https://scintech-dev.github.io/","inLanguage":"en","publisher":{"@id":"https://scintech-dev.github.io/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SciNTech","item":"https://scintech-dev.github.io/"},{"@type":"ListItem","position":2,"name":"Watermark Remover","item":"https://scintech-dev.github.io/watermark-remover/"}]},{"@type":"MobileApplication","@id":"https://scintech-dev.github.io/watermark-remover/#app","name":"Watermark Remover","url":"https://scintech-dev.github.io/watermark-remover/","description":"Removes repeating, tiled watermarks from photos on an Android phone: it learns the mark from the photo itself and lifts it off without uploading the photo.","operatingSystem":"Android 8.0 and later","applicationCategory":"MultimediaApplication","downloadUrl":"https://play.google.com/store/apps/details?id=com.watermarkremover.android","image":"https://scintech-dev.github.io/assets/img/wmr/og-wmr.jpg","screenshot":["https://scintech-dev.github.io/assets/img/wmr/shot-02-pick-photo.jpg","https://scintech-dev.github.io/assets/img/wmr/shot-03-learning-progress.jpg","https://scintech-dev.github.io/assets/img/wmr/shot-05-paint.jpg","https://scintech-dev.github.io/assets/img/wmr/shot-06-result.jpg"],"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@id":"https://scintech-dev.github.io/#organization"},"publisher":{"@id":"https://scintech-dev.github.io/#organization"}},{"@type":"HowTo","name":"Remove a repeating watermark with Watermark Remover","step":[{"@type":"HowToStep","position":1,"name":"Pick","text":"Pick a photo with a repeating watermark, from the Android picker or by sharing it to the app.","image":"https://scintech-dev.github.io/assets/img/wmr/shot-02-pick-photo.jpg"},{"@type":"HowToStep","position":2,"name":"Learn","text":"The app learns the repeating mark from the photo itself, on the phone.","image":"https://scintech-dev.github.io/assets/img/wmr/shot-03-learning-progress.jpg"},{"@type":"HowToStep","position":3,"name":"Preview and paint","text":"Check what will be removed, and paint over any spot the app missed.","image":"https://scintech-dev.github.io/assets/img/wmr/shot-05-paint.jpg"},{"@type":"HowToStep","position":4,"name":"Save","text":"Check the result, then save it to the gallery as JPEG or PNG, or share it.","image":"https://scintech-dev.github.io/assets/img/wmr/shot-06-result.jpg"}]}]}</script>
+</head>
+<body data-app="wmr">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="/"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#29292e"/><rect x="12" y="12" width="25" height="25" rx="3" fill="none" stroke="#89d99f" stroke-width="5"/><circle cx="39.5" cy="39.5" r="12.5" fill="none" stroke="#f69536" stroke-width="5"/></svg><span>SciNTech</span></a>
+      <div class="nav-links">
+        <a class="nav-app" data-app-link="wmr" href="/watermark-remover/" aria-current="page">Watermark Remover</a>
+        <a class="nav-app" data-app-link="looper" href="/seamless-video-looper/">Seamless Video Looper</a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a href="/about/">About</a>
+        <a href="/changelog/">Changelog</a>
+        <a href="/compatibility/">Compatibility</a>
+        <a href="/privacy/">Privacy</a>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" hidden><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M5.3 18.7 7 17M17 7l1.7-1.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">Dark theme</span></button>
+    </nav>
+  </header>
+  <nav class="app-nav" aria-label="Watermark Remover">
+    <div class="wrap">
+        <a href="/watermark-remover/" aria-current="page">Home</a>
+        <a href="/watermark-remover/how-it-works/">How it works</a>
+        <a href="/watermark-remover/examples/">Examples</a>
+        <a href="/watermark-remover/compatibility/">Compatibility</a>
+        <a href="/watermark-remover/privacy/">Privacy</a>
+        <a class="button primary" data-cta="wmr" href="/watermark-remover/beta/">Join the beta</a>
+    </div>
+  </nav>
+  <main id="main">
+
+    <section class="hero wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">SciNTech</a></li><li aria-current="page">Watermark Remover</li></ol></nav>
+      <span class="eyebrow">Photo restoration, on your phone</span>
+      <h1>See the photo, not the stamp.</h1>
+      <p class="lede">A watermark tiled across a picture is damage laid over something you already have the right to see. Watermark Remover learns that pattern from the photo itself and lifts it off, on the phone, without sending the photo anywhere.</p>
+      <ul class="proof-line"><li>On-device</li><li>No account, no ads</li><li>Android 8.0+</li><li>Beta</li></ul>
+      <div class="hero-actions">
+        <a class="button primary" data-cta="wmr" href="/watermark-remover/beta/">Join the beta</a>
+        <a class="button secondary" href="/watermark-remover/examples/">See measured examples</a>
+      </div>
+      <div class="facet-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </section>
+
+    <section class="section panel" aria-labelledby="steps-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Four steps</span><h2 id="steps-title">Pick, learn, check, save.</h2></div>
+          <p class="section-intro">Unedited screens from the app. The ideas behind the learning step are on <a href="/watermark-remover/how-it-works/">How it works</a>.</p>
+        </div>
+        <ol class="shots">
+          <li><figure><span class="step-num" aria-hidden="true">1</span><picture><source srcset="/assets/img/wmr/shot-02-pick-photo.webp" type="image/webp"><img src="/assets/img/wmr/shot-02-pick-photo.jpg" width="360" height="803" alt="The Android photo picker open over the app, showing a grid of photos covered in a repeating SAMPLE watermark." loading="lazy" decoding="async"></picture><figcaption><strong>Pick.</strong> Pick a photo with a repeating watermark, from the Android picker or by sharing it to the app.</figcaption></figure></li>
+          <li><figure><span class="step-num" aria-hidden="true">2</span><picture><source srcset="/assets/img/wmr/shot-03-learning-progress.webp" type="image/webp"><img src="/assets/img/wmr/shot-03-learning-progress.jpg" width="360" height="803" alt="The learning screen with a progress bar, an elapsed time of seven seconds, a Cancel button and the options for where the watermark comes from." loading="lazy" decoding="async"></picture><figcaption><strong>Learn.</strong> The app learns the repeating mark from the photo itself, on the phone.</figcaption></figure></li>
+          <li><figure><span class="step-num" aria-hidden="true">3</span><picture><source srcset="/assets/img/wmr/shot-05-paint.webp" type="image/webp"><img src="/assets/img/wmr/shot-05-paint.jpg" width="360" height="803" alt="The paint screen: a photo with tiled SAMPLE marks, red brush strokes over missed spots, and Paint, Zoom/pan and Erase tools above a Reconstruct button." loading="lazy" decoding="async"></picture><figcaption><strong>Preview and paint.</strong> Check what will be removed, and paint over any spot the app missed.</figcaption></figure></li>
+          <li><figure><span class="step-num" aria-hidden="true">4</span><picture><source srcset="/assets/img/wmr/shot-06-result.webp" type="image/webp"><img src="/assets/img/wmr/shot-06-result.jpg" width="360" height="803" alt="The result screen: removed from one image, everything under the mark was reconstructed, with Save all and Share all buttons." loading="lazy" decoding="async"></picture><figcaption><strong>Save.</strong> Check the result, then save it to the gallery as JPEG or PNG, or share it.</figcaption></figure></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="example-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Measured, not claimed</span><h2 id="example-title">Before and after, with the score.</h2></div>
+          <p class="section-intro">Examples use test images whose clean original is known, so every result can be scored over the whole picture. No score on this site comes from a real photo.</p>
+        </div>
+        <!-- examples:begin (chunk S4 rewrites this region with one before/after slider) -->
+        <div class="slot">
+          <p>The before/after example with its measured score is being prepared. The gallery will show the input, the app’s result and the true clean image side by side, including the cases where the app declines or does damage.</p>
+          <a class="button secondary" href="/watermark-remover/examples/">Go to the examples page</a>
+        </div>
+        <!-- examples:end -->
+      </div>
+    </section>
+
+    <section class="section panel" aria-labelledby="scope-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Honest about what won’t work</span><h2 id="scope-title">What it handles, and what it does not.</h2></div>
+          <p class="section-intro">The app needs the mark to repeat. With a single copy there is nothing to compare, so it declines instead of guessing.</p>
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <h3>Handles</h3>
+            <ul class="checklist">
+              <li>Repeating or tiled semi-transparent watermarks spread across the photo.</li>
+              <li>A mark learned from one photo: the app finds the repeat in that photo itself.</li>
+              <li>Spots the app missed: you can paint over them before it removes anything.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Does not</h3>
+            <ul class="checklist">
+              <li>Remove a single standalone logo, such as one mark in a corner.</li>
+              <li>Recover what a fully opaque mark hid: that area is filled in, and the fill is a reconstruction, not the original.</li>
+              <li>Promise results on other kinds of marks. This is a beta.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="privacy-title">
+      <div class="wrap">
+        <div class="callout">
+          <span class="eyebrow">Privacy</span>
+          <h2 id="privacy-title">The photo stays on the phone.</h2>
+          <ul class="checklist">
+            <li>Photos and results are processed on the device and never uploaded.</li>
+            <li>No sign-in, no ads, no analytics or crash-analytics SDK.</li>
+            <li>Reports the app can send — feedback you write, crash and memory reports, hardware check results — carry no photos, and each has a switch in Settings.</li>
+          </ul>
+          <div class="hero-actions">
+            <a class="button secondary" href="/watermark-remover/privacy/">Privacy at a glance and full policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">SciNTech</p>
+          <p class="fine">Two Android apps that do their work on the phone, and say plainly where it does not work.</p>
+          <div class="facet-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">Watermark Remover</p>
+          <a href="/watermark-remover/how-it-works/">How it works</a>
+          <a href="/watermark-remover/examples/">Examples</a>
+          <a href="/watermark-remover/compatibility/">Compatibility &amp; FAQ</a>
+          <a href="/watermark-remover/privacy/">Privacy</a>
+          <a href="/watermark-remover/beta/">Join the beta</a>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">SciNTech</p>
+          <a href="/about/">About &amp; values</a>
+          <a href="/changelog/#watermark-remover">Changelog</a>
+          <a href="/compatibility/">Compatibility</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/seamless-video-looper/">Seamless Video Looper</a>
+        </div>
+      </div>
+      <div class="footer-base">
+        <p class="footer-rights">Restore photos you have the right to restore — respect photographers’ and other owners’ rights.</p>
+        <p class="fine">Questions and reports go through the app’s feedback button (also in Settings → Send feedback). This site sets no cookies and loads no analytics.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
