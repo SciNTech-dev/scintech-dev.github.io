@@ -42,8 +42,8 @@ Facts:
 - Requires Android 8.0 (API 26) or later.
 - Photos are processed on the device; no photo or result is uploaded. A feedback report may include a screenshot only if the user attaches one.
 - No sign-in and no ads; the app contains no advertising or analytics SDK. Reports use an anonymous Firebase identifier.
-- Learns the watermark from the photo itself; this requires a mark that repeats across the photo.
-- Removes repeating or tiled semi-transparent watermarks. It does not remove a single standalone logo: with one copy there is nothing to compare, so it declines.
+- Learns the watermark from two or more of your photos that carry the same repeating mark; for a single photo, the mark is brushed out in Quick Remove.
+- Removes repeating or tiled semi-transparent watermarks. It does not reliably remove a single standalone logo: in one photo there is nothing to compare; the same logo on two or more photos can be compared, but in synthetic tests the results ranged from clearly better to badly damaged.
 - Where a mark hid the picture completely, the filled area is a reconstruction, not the original: the MI-GAN model on the device in the standard build, a classical fill in the lite build.
 - A hardware check picks the removal engine; its results are shared by default since 0.2.3 and can be switched off in Settings.
 - Closed-test builds run a daily self-check on built-in sample photos (no user photos); sharing can be switched off in Settings.

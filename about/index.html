@@ -61,7 +61,7 @@
             <h3>Real technique, not decoration</h3>
             <p>Each app aims established methods at one practical problem, and names them.</p>
             <ul class="per-app">
-              <li><strong>Watermark Remover.</strong> It estimates the mark from its many repeats in one photo, then, where the mark hid the picture completely, MI-GAN — a small model that runs on the phone — fills in from the surroundings.</li>
+              <li><strong>Watermark Remover.</strong> It estimates the mark from its many repeats across two or more of your photos, then, where the mark hid the picture completely, MI-GAN — a small model that runs on the phone — fills in from the surroundings.</li>
               <li><strong>Seamless Video Looper.</strong> NeuFlow v2 optical flow and RIFE frame interpolation help the seam bend less where the phone supports them, and OpenCV’s ORB feature matching confirms a loop point closes.</li>
             </ul>
           </article>
@@ -88,7 +88,7 @@
             <h3>Honest about what won’t work</h3>
             <p>Each app says where it fails instead of only showing its best angle.</p>
             <ul class="per-app">
-              <li><strong>Watermark Remover.</strong> A single standalone logo is not removed: with one copy there is nothing to compare, so the app declines instead of guessing. Where a mark hid the picture completely, what is filled in is a reconstruction, not the original.</li>
+              <li><strong>Watermark Remover.</strong> It needs two or more photos with the same mark, and a single standalone logo is not something it reliably removes: one copy leaves nothing to compare. Where a mark hid the picture completely, what is filled in is a reconstruction, not the original.</li>
               <li><strong>Seamless Video Looper.</strong> Fast crossings, occlusion and big camera moves can leave a visible seam no matter which candidate you pick.</li>
             </ul>
           </article>
