@@ -32,7 +32,11 @@ BUDGET = {"html_kb": 60, "css_kb": 40, "js_kb": 6, "atf_img_kb": 250, "page_kb":
           "lcp_ms": 2500, "cls": 0.1, "a11y": 0.95}
 # Spec 0069 §5.5: every page <= 600 KB except the examples gallery, <= 2.5 MB with
 # lazy-loaded cards. Applies to both the static byte count and Lighthouse's transfer.
-PAGE_KB_OVERRIDE = {"watermark-remover/examples/index.html": 2500}
+# 2026-09-24 (saved-template gallery): the gallery spans three pages because 21 slider cards
+# exceed the 60 KB HTML budget on one page; the gallery allowance applies to each of them.
+PAGE_KB_OVERRIDE = {"watermark-remover/examples/index.html": 2500,
+                    "watermark-remover/examples/single-marks/index.html": 2500,
+                    "watermark-remover/examples/two-photos/index.html": 2500}
 MIN_CONTRAST = 4.5
 TEXT_EXT = {".html", ".css", ".js", ".txt", ".xml", ".md", ".json", ".svg", ".py"}
 EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}")
