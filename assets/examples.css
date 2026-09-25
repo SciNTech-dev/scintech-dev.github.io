@@ -69,3 +69,24 @@
 .heat-bar{flex:none;width:120px}
 }
 
+/* spec 0072: one-page gallery rendered by examples.js; the watermark file shown on each card */
+.ex-grid[hidden],.ex-controls[hidden]{display:none}
+.ex-static{list-style:none;padding:0}
+.ex-lead{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:24px}
+.ex-lead .callout{margin:0}
+.ex-lead .callout:first-child{grid-column:1/-1;border-color:var(--c-accent)}
+.ex-lead h3{margin:0 0 8px;font-size:1.15rem}
+.ex-controls{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.ex-controls [role=group]{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--c-edge);background:var(--c-surface-2);color:var(--c-text);font:inherit;font-size:.92rem;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--c-accent-bg);color:var(--c-accent-ink);border-color:var(--c-accent-bg);font-weight:600}
+.ex-kind{margin:0 0 8px;color:var(--c-muted);font-size:.88rem}
+.ex-file{margin:0 0 14px;display:flex;gap:12px;align-items:flex-end}
+.ex-file figcaption{margin:0}
+.ex-wm{display:block;width:auto;height:auto;max-width:62%;max-height:280px;border-radius:6px;border:1px solid var(--c-edge)}
+.ex-trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.ex-trio figure{margin:0}
+.ex-trio img{display:block;width:100%;height:auto;border-radius:6px}
+.ex-trio .ex-wm{max-width:100%;max-height:none}
+.ex-trio figcaption{font-size:.8rem;color:var(--c-muted);margin-top:4px}
+@media (max-width:960px){.ex-lead{grid-template-columns:1fr}}

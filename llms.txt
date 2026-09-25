@@ -32,9 +32,7 @@ Status: closed beta on Google Play (package com.watermarkremover.android). To te
 Pages:
 - https://scintech-dev.github.io/watermark-remover/ — What the app does and does not do, in four steps.
 - https://scintech-dev.github.io/watermark-remover/how-it-works/ — The four ideas: find the repeat, learn the mark from many copies, lift it off, fill what was lost.
-- https://scintech-dev.github.io/watermark-remover/examples/ — Main case: a watermark learned once from 8 photos, saved, and removed from two new pictures; synthetic, scored against the true clean image over the whole frame.
-- https://scintech-dev.github.io/watermark-remover/examples/single-marks/ — The same saved-mark test for single logos, stamps and credit lines.
-- https://scintech-dev.github.io/watermark-remover/examples/two-photos/ — The quicker, weaker way: the mark learned from the two photos it is removed from.
+- https://scintech-dev.github.io/watermark-remover/examples/ — Main case: a watermark file opened in the app and removed from two pictures; also a mark learned from 8 photos and saved, and two photos; synthetic, scored against the true clean image over the whole frame, one page with filters.
 - https://scintech-dev.github.io/watermark-remover/compatibility/ — Requirements, inputs and outputs, and answers to common questions.
 - https://scintech-dev.github.io/watermark-remover/privacy/ — Privacy at a glance, and the full policy at #policy.
 - https://scintech-dev.github.io/watermark-remover/beta/ — How to join the closed test.
