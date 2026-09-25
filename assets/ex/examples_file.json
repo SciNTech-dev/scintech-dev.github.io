@@ -1,0 +1,1347 @@
+{
+  "cases": [
+    {
+      "caption": "One bold wordmark across the middle",
+      "case": "stock_preview_bold",
+      "delta": 20.1298,
+      "delta_min": 20.0503,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 20.0503,
+          "detail": "det=0.2173 cleaned=0.0000 tx=162 ty=266",
+          "input_sha256": "a3f3f0ab0fcff0f0b735960c5c078401dce3e691d5f7137d9025367c388336f1",
+          "psnr_in": 28.6518,
+          "psnr_out": 48.7021,
+          "removed_sha256": "8b1ddd1391364339eafbf3692b2f9f405d8f46996444a2deb0e64165f26a45f7",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 20.2093,
+          "detail": "det=0.2437 cleaned=0.0000 tx=162 ty=266",
+          "input_sha256": "9d30fed10b7edd4f51c899e433d522306d3a8991d95032838f5357f0462fd1f8",
+          "psnr_in": 27.4465,
+          "psnr_out": 47.6558,
+          "removed_sha256": "22c48ff2feded2ebe876e406e2167d34256e5aa26d5b2d159537fd3f2b1ad2c4",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": false,
+      "watermark_file": {
+        "bytes": 69150,
+        "fit_space": "srgb",
+        "origin": [
+          162,
+          266
+        ],
+        "peak_alpha": 0.5048,
+        "preview_wh": [
+          690,
+          486
+        ],
+        "sha256": "d562fb509ec22953455f53f11d08a4f82b1b2875635721f5cb264665a77cba94",
+        "size": [
+          690,
+          486
+        ]
+      }
+    },
+    {
+      "caption": "Faint tiled text, many small copies",
+      "case": "stock_preview_tile",
+      "delta": 10.7462,
+      "delta_min": 10.0659,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 11.4266,
+          "detail": "det=0.0239 cleaned=0.0000 tx=0 ty=12",
+          "input_sha256": "a682bdac7a045ddf556b77bda5feb9ddfb14f0d56cfefb0d1ef5cb1e17ac9093",
+          "psnr_in": 35.8979,
+          "psnr_out": 47.3245,
+          "removed_sha256": "8a1e29aa3fa87d72d084cd44a682993c0e8ce1b6fa7f27e2871fbdce6676ec34",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 10.0659,
+          "detail": "det=0.0223 cleaned=0.0070 tx=0 ty=12",
+          "input_sha256": "41b370431338da13dbf0f6feca8596240ecfaa7419dd21eb1dd786f568939620",
+          "psnr_in": 36.3557,
+          "psnr_out": 46.4216,
+          "removed_sha256": "07dbe032cc5c216bb8cfea1adda723baf2abf24fbe075a4fc1641be385e5c171",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": true,
+      "watermark_file": {
+        "bytes": 108929,
+        "fit_space": "srgb",
+        "origin": [
+          0,
+          12
+        ],
+        "peak_alpha": 0.1706,
+        "preview_wh": [
+          1024,
+          1012
+        ],
+        "sha256": "9cf57391c1f299197941b0603621d60cd9a1faf374c20a0ddb07aedd93564a87",
+        "size": [
+          1024,
+          1012
+        ]
+      }
+    },
+    {
+      "caption": "A single script signature",
+      "case": "proof_signature",
+      "delta": 15.925,
+      "delta_min": 15.4934,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 16.3566,
+          "detail": "det=0.4787 cleaned=0.0024 tx=650 ty=883",
+          "input_sha256": "42b34e5db5b5f8a85af9e1853746138b1134b2a6dc4bd6eea3534c9a48a6deaa",
+          "psnr_in": 31.0193,
+          "psnr_out": 47.3758,
+          "removed_sha256": "2de70ba679ef294fb5e3afa6ee3a8781e6568f32e525a0596cf7d9ba67834cf8",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 15.4934,
+          "detail": "det=0.4283 cleaned=0.0041 tx=650 ty=883",
+          "input_sha256": "03e54c5afdd9f4a81aa1b3634b05d8940e3e0972978588f4d231c0d70e38b3d6",
+          "psnr_in": 31.6361,
+          "psnr_out": 47.1294,
+          "removed_sha256": "efac47fff1a7fad59b3a0275f1b5982cec3bdb07e2ff43f6b8b273b649ab86a5",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": false,
+      "watermark_file": {
+        "bytes": 18513,
+        "fit_space": "srgb",
+        "origin": [
+          650,
+          883
+        ],
+        "peak_alpha": 0.5983,
+        "preview_wh": [
+          336,
+          104
+        ],
+        "sha256": "d3fd0feefb313fc6f7f4611aaf76d885f7c47b36757ba625d785b28b1816fbd7",
+        "size": [
+          336,
+          104
+        ]
+      }
+    },
+    {
+      "caption": "Repeating two-tone signature: pale wash under dark script",
+      "case": "proof_two_tone",
+      "delta": 7.6661,
+      "delta_min": 7.5829,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 7.5829,
+          "detail": "det=0.0138 cleaned=0.0096 tx=0 ty=40",
+          "input_sha256": "9ff3e31ed2d08812bb4d78960d2e06f55f30ca70cdaf48a8702d22c740026cd8",
+          "psnr_in": 29.1747,
+          "psnr_out": 36.7576,
+          "removed_sha256": "fd535b9d66e6eeaee9211b951a02bf2075a98a8bff349e47cad70a8b0a2ee103",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 7.7492,
+          "detail": "det=0.0214 cleaned=0.0336 tx=0 ty=40",
+          "input_sha256": "4354134027ad8507e884415540c16d9f3f334ae177a8461aa60ee9908cba60ba",
+          "psnr_in": 28.6827,
+          "psnr_out": 36.4319,
+          "removed_sha256": "8264bd4e4032bff63ae0b744fb9072afc84817f7911c4034714db1dcc6ade837",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": true,
+      "watermark_file": {
+        "bytes": 94447,
+        "fit_space": "srgb",
+        "origin": [
+          0,
+          40
+        ],
+        "peak_alpha": 0.619,
+        "preview_wh": [
+          1024,
+          964
+        ],
+        "sha256": "f9cb9043f49bf87870f69e415be9cac89828261ec0a5545db6f6fde7db675071",
+        "size": [
+          1024,
+          964
+        ]
+      }
+    },
+    {
+      "caption": "A single corner logo with a handle",
+      "case": "social_video_bug",
+      "delta": 16.0077,
+      "delta_min": 14.3029,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 17.7126,
+          "detail": "det=0.4781 cleaned=0.0000 tx=29 ty=29",
+          "input_sha256": "4b88290b55b8cc9a8d808f52eeca2a4b917de3b0cb55a95b1273a7d5f3aa1897",
+          "psnr_in": 32.1269,
+          "psnr_out": 49.8395,
+          "removed_sha256": "478f726be2dc13db61e0418d4ea278bb9ac5f886c2a713f970c2d88e65021bec",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 14.3029,
+          "detail": "det=0.3023 cleaned=0.0000 tx=29 ty=29",
+          "input_sha256": "f4c453751a928d9cc53d945882f5919f55ebd336cad7a814a0741e63b1e9da52",
+          "psnr_in": 39.6931,
+          "psnr_out": 53.996,
+          "removed_sha256": "b6c8311e1415b5380a3950001bd3c503624549dfdc915daae05951a73c4006ca",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": false,
+      "watermark_file": {
+        "bytes": 6231,
+        "fit_space": "srgb",
+        "origin": [
+          29,
+          29
+        ],
+        "peak_alpha": 0.6827,
+        "preview_wh": [
+          114,
+          114
+        ],
+        "sha256": "a0bbaf66c6c86a8b48f816215da1ff1a9dd4af8d1a452f9005b9b62f42accefc",
+        "size": [
+          115,
+          115
+        ]
+      }
+    },
+    {
+      "caption": "A single handle in plain text",
+      "case": "creator_self_mark",
+      "delta": 19.5943,
+      "delta_min": 17.8288,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 21.3597,
+          "detail": "det=0.5353 cleaned=0.0033 tx=724 ty=931",
+          "input_sha256": "3e6200529f0794e2aadfaf1a2e2298e949909219eab69f2ed38cc3c66d44c02d",
+          "psnr_in": 35.5191,
+          "psnr_out": 56.8789,
+          "removed_sha256": "71158dd662f37486a3c953ff2472195288c1e044aaf2f395c31f5990605c7b5b",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 17.8288,
+          "detail": "det=0.4349 cleaned=0.0046 tx=724 ty=931",
+          "input_sha256": "ada09fdec23f3c5df3c9a8b2efe90a778701d293d21851d229f9c6a47b3005fa",
+          "psnr_in": 36.4785,
+          "psnr_out": 54.3072,
+          "removed_sha256": "98891525ec201426e7f12200b46f913d6aae9344dd9e28b7d37cedd00afe8561",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": false,
+      "watermark_file": {
+        "bytes": 12613,
+        "fit_space": "srgb",
+        "origin": [
+          724,
+          931
+        ],
+        "peak_alpha": 0.4377,
+        "preview_wh": [
+          264,
+          60
+        ],
+        "sha256": "0326f6cb1b2b929afa989487bf94f97c634d9a66db179c042dee192d803682fa",
+        "size": [
+          265,
+          60
+        ]
+      }
+    },
+    {
+      "caption": "A small credit line near the edge",
+      "case": "wire_credit",
+      "delta": 21.2162,
+      "delta_min": 18.467,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 23.9655,
+          "detail": "det=0.4759 cleaned=0.0256 tx=584 ty=33",
+          "input_sha256": "4fe0148e6cd5e680d47b887e3c6f3288c399d758aec49d265bbddb6a7000304e",
+          "psnr_in": 30.7508,
+          "psnr_out": 54.7163,
+          "removed_sha256": "96f46558264316e50924db07e7dd3eff4503ab3ed278e1eb92c17354fd7bb255",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 18.467,
+          "detail": "det=0.5103 cleaned=0.0000 tx=584 ty=33",
+          "input_sha256": "09062c0d19618fbf52aa3b89583061c0d42d1316532c6d9c4b8ecd69b2c9d310",
+          "psnr_in": 35.8667,
+          "psnr_out": 54.3337,
+          "removed_sha256": "699bf7b532b2c2df3768a661db74c3f77f8d22419c8d6390c85af14ed81dd2c8",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": false,
+      "watermark_file": {
+        "bytes": 19018,
+        "fit_space": "srgb",
+        "origin": [
+          584,
+          33
+        ],
+        "peak_alpha": 0.7455,
+        "preview_wh": [
+          400,
+          56
+        ],
+        "sha256": "76f20f875665adee76124500065c1e1e25218da7d4205c22d8461b02e3cf0a28",
+        "size": [
+          401,
+          57
+        ]
+      }
+    },
+    {
+      "caption": "Dark tiled banner text",
+      "case": "archive_scan_overlay",
+      "delta": 11.1969,
+      "delta_min": 11.1473,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 11.2465,
+          "detail": "det=0.0141 cleaned=0.0000 tx=0 ty=20",
+          "input_sha256": "da5b8bd63574090be13239ab1bb0648961d8d1445869bc2a32d22729a3c00e44",
+          "psnr_in": 38.8227,
+          "psnr_out": 50.0693,
+          "removed_sha256": "e55ea28c1312eec3fe0e3189e436a030c0159ce9e49db3cb611311c5f355035b",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 11.1473,
+          "detail": "det=0.0148 cleaned=0.0000 tx=0 ty=20",
+          "input_sha256": "e9d358d2fd12574ab7f0ce1534b67bb6b2b79f125d1e3b642c033f933ecf88b1",
+          "psnr_in": 37.2283,
+          "psnr_out": 48.3756,
+          "removed_sha256": "44a066140eb8de97194c325e1dd58a7682d64f844ab38e732d30c153f02b4dfb",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": true,
+      "watermark_file": {
+        "bytes": 107538,
+        "fit_space": "srgb",
+        "origin": [
+          0,
+          20
+        ],
+        "peak_alpha": 0.1928,
+        "preview_wh": [
+          1024,
+          1004
+        ],
+        "sha256": "ccd60e986acdf7fa078957ffc83f68204050f28ecef6eedef095de1cafb50c77",
+        "size": [
+          1024,
+          1004
+        ]
+      }
+    },
+    {
+      "caption": "One large diagonal stamp",
+      "case": "document_stamp",
+      "delta": 15.2365,
+      "delta_min": 14.8373,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 15.6357,
+          "detail": "det=0.1044 cleaned=0.0000 tx=104 ty=104",
+          "input_sha256": "3ebe1efa938951e49db38962f4c012f704e9c3e870cdc37f99ea0e9d294c8ad0",
+          "psnr_in": 35.375,
+          "psnr_out": 51.0106,
+          "removed_sha256": "c5c46a08bf2fafcb0bf1a5ac763b67155f02588e4885a29573d0ac8b9cf487d1",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 14.8373,
+          "detail": "det=0.1271 cleaned=0.0000 tx=104 ty=104",
+          "input_sha256": "2d86e0676ba0de606140455556432efa151ac4e25f5f1c85a79eb60f0b912a6a",
+          "psnr_in": 34.7223,
+          "psnr_out": 49.5596,
+          "removed_sha256": "ce8b438422bee85c114f17af2c4af33169950269ab458ddd503b2ff3d1091eb0",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": false,
+      "watermark_file": {
+        "bytes": 55822,
+        "fit_space": "srgb",
+        "origin": [
+          104,
+          104
+        ],
+        "peak_alpha": 0.245,
+        "preview_wh": [
+          816,
+          816
+        ],
+        "sha256": "259c3d8c9a9840b5bfcad0fbfa074936094dfd34b09f3f4db21b0e3e8ee67870",
+        "size": [
+          816,
+          816
+        ]
+      }
+    },
+    {
+      "caption": "Tiled embossed text",
+      "case": "print_lab_proof",
+      "delta": 18.2416,
+      "delta_min": 17.679,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 18.8043,
+          "detail": "det=0.0567 cleaned=0.0002 tx=0 ty=24",
+          "input_sha256": "1244ccc84f7d29a6a5c6b1ce08cdbaa7c94abe35c698eb983e610adc83dbfb96",
+          "psnr_in": 24.5788,
+          "psnr_out": 43.383,
+          "removed_sha256": "ac4a5604cf03b92b89fe4e001148b839c01ec1c0861e1d73f54a24a577e8d6b3",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 17.679,
+          "detail": "det=0.0458 cleaned=0.0170 tx=0 ty=24",
+          "input_sha256": "18b5df7fe43fd19076b3e057e5f449455a9e8328ca39ba0f9853a8b0f2d7ea9e",
+          "psnr_in": 24.8649,
+          "psnr_out": 42.5439,
+          "removed_sha256": "ed1ceff153c05f9394e84f377a9725a4fa1120138a8e4471cf016e551d82f8ae",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": true,
+      "watermark_file": {
+        "bytes": 159551,
+        "fit_space": "srgb",
+        "origin": [
+          0,
+          24
+        ],
+        "peak_alpha": 0.4955,
+        "preview_wh": [
+          1024,
+          972
+        ],
+        "sha256": "4d34ed72d0ea47f0674e037063162146041b6a092d46922f5ad7a8d9e86a5e17",
+        "size": [
+          1024,
+          973
+        ]
+      }
+    },
+    {
+      "caption": "A faint single corner logo",
+      "case": "broadcast_dog",
+      "delta": 22.6838,
+      "delta_min": 20.0267,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 25.3409,
+          "detail": "det=0.6195 cleaned=0.0508 tx=29 ty=886",
+          "input_sha256": "16225e0d3cf13abd7a3c5cf48ea3fda477880fde6e52cc59320ccb3f004123ef",
+          "psnr_in": 40.7615,
+          "psnr_out": 66.1024,
+          "removed_sha256": "a1e4572abd9a3432828becc4ed4a253fab2f25dde3e25bc69cbb4e2c06711432",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 20.0267,
+          "detail": "det=0.3893 cleaned=0.0000 tx=29 ty=886",
+          "input_sha256": "1227c8f8086dbe385586a7f86e687fcd88af4a3301e69c8bda6776aaa3619658",
+          "psnr_in": 42.0105,
+          "psnr_out": 62.0371,
+          "removed_sha256": "b8f7d975f2fbc8c2553bf7680a82e5a2096b7d9cb7bf176566bc4dfd725dd55c",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": false,
+      "watermark_file": {
+        "bytes": 8125,
+        "fit_space": "srgb",
+        "origin": [
+          29,
+          886
+        ],
+        "peak_alpha": 0.2816,
+        "preview_wh": [
+          108,
+          108
+        ],
+        "sha256": "8f494adeea527f491bf849dca5951223b8d4490e6fff150ddda794e2190f5537",
+        "size": [
+          109,
+          109
+        ]
+      }
+    },
+    {
+      "caption": "A single strong \u201cmade with\u201d label",
+      "case": "app_export_mark",
+      "delta": 19.1905,
+      "delta_min": 17.1214,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 21.2596,
+          "detail": "det=0.4766 cleaned=0.0000 tx=475 ty=44",
+          "input_sha256": "6ff4e0aa71e42df4fcc3993a520219236dce1d19520bd57f339619a8872d83d0",
+          "psnr_in": 27.9346,
+          "psnr_out": 49.1942,
+          "removed_sha256": "d53597837b1163cda1e3dfcdf22c474a3ef5d2bcc0931018dccb44a92928a1eb",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 17.1214,
+          "detail": "det=0.4769 cleaned=0.0000 tx=475 ty=44",
+          "input_sha256": "add0eab0cad51ae57a9a58cb8c2007bf295bc307f28aae1dad1fdbee17d54024",
+          "psnr_in": 33.4976,
+          "psnr_out": 50.619,
+          "removed_sha256": "a327ee7ef938d249554a6651c15ef62302061c9ed289d8b3619ad7d6181987c6",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": false,
+      "watermark_file": {
+        "bytes": 24394,
+        "fit_space": "srgb",
+        "origin": [
+          475,
+          44
+        ],
+        "peak_alpha": 0.7136,
+        "preview_wh": [
+          502,
+          72
+        ],
+        "sha256": "61428fdacaae9f5e8da79c9252896fcd2168102735a5e1b9e9ccf70678080f45",
+        "size": [
+          502,
+          72
+        ]
+      }
+    },
+    {
+      "caption": "Faint tiled text, blended in linear light",
+      "case": "stock_preview_tile_linear",
+      "delta": 11.2496,
+      "delta_min": 10.9489,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 11.5503,
+          "detail": "det=0.0119 cleaned=0.0000 tx=0 ty=16",
+          "input_sha256": "234c8f8e6062344e84db35261a4f0fcfaf513adfcda477387775e17bf0c6ce17",
+          "psnr_in": 30.2088,
+          "psnr_out": 41.7591,
+          "removed_sha256": "b03e06b8f598eb0a685dca12fc54ce39772972f56d642726ef0c13184c9f05ad",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 10.9489,
+          "detail": "det=0.0151 cleaned=0.0069 tx=0 ty=16",
+          "input_sha256": "4c5c080c0496c41c03dbd4eff1d91bf125f60a561eb2203a802ff0f59e299489",
+          "psnr_in": 30.1448,
+          "psnr_out": 41.0937,
+          "removed_sha256": "25bb36145094ab9902445411dfe7a6657a16ec4724a0d1e04c50366b1400b645",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": true,
+      "watermark_file": {
+        "bytes": 104457,
+        "fit_space": "linear",
+        "origin": [
+          0,
+          16
+        ],
+        "peak_alpha": 0.167,
+        "preview_wh": [
+          1024,
+          1008
+        ],
+        "sha256": "f99c8c945442a45b50419188b29da30c3ee317273f6e2ff7172a1fda13eb736d",
+        "size": [
+          1024,
+          1008
+        ]
+      }
+    },
+    {
+      "caption": "A small credit line, blended in linear light",
+      "case": "wire_credit_linear",
+      "delta": 13.8191,
+      "delta_min": 10.9807,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 16.6575,
+          "detail": "det=0.4707 cleaned=0.0337 tx=611 ty=32",
+          "input_sha256": "2ca3eeb77515fe3261fb459b256c960c859e85f8653abc76d85d40f411caed61",
+          "psnr_in": 29.613,
+          "psnr_out": 46.2705,
+          "removed_sha256": "15048dd2bde9364e6b4f9185ecd2bcfaaa08051df14723a18b4e0be557c779e1",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 10.9807,
+          "detail": "det=0.4755 cleaned=0.0000 tx=611 ty=32",
+          "input_sha256": "9a86464ecf640fedf7864332aefb0090bea49b15ac31245ed59df9a541fc82dc",
+          "psnr_in": 35.0889,
+          "psnr_out": 46.0696,
+          "removed_sha256": "8d053fedbb80eff144210cd6eae4a37ff2781bfca82d6334d1585422bbbc5623",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": false,
+      "watermark_file": {
+        "bytes": 17897,
+        "fit_space": "linear",
+        "origin": [
+          611,
+          32
+        ],
+        "peak_alpha": 0.7076,
+        "preview_wh": [
+          376,
+          54
+        ],
+        "sha256": "44e8b61b32982563571b5fd87f66b24633e32a45b54fbc06bff8191a4bc8f35e",
+        "size": [
+          376,
+          55
+        ]
+      }
+    },
+    {
+      "caption": "A single embossed shadow signature",
+      "case": "proof_emboss_shadow",
+      "delta": 7.344,
+      "delta_min": -0.1453,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": -0.1453,
+          "detail": "det=0.2249 cleaned=0.0902 tx=35 ty=36",
+          "input_sha256": "20fb14c6031a529e5e9d565443e671b8d803503a705fedface953d4e02b7c9c3",
+          "psnr_in": 45.6615,
+          "psnr_out": 45.5162,
+          "removed_sha256": "c55db5307432d104398736a69b5d62ef45581b029e4b1019f1d984697e8fc8d2",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 14.8334,
+          "detail": "det=0.4692 cleaned=0.0000 tx=35 ty=36",
+          "input_sha256": "036d3952dd6372a29c2f1bee5a1ff64aaefa9648d9c2307110e8626cb726fc02",
+          "psnr_in": 37.0094,
+          "psnr_out": 51.8427,
+          "removed_sha256": "a9fce132d1908c678db096f7b12a3d3341a6eaae93434e6056b34ce87aa856ca",
+          "status": "ok"
+        }
+      ],
+      "n_better": 1,
+      "n_declined": 0,
+      "n_worse": 1,
+      "refused": false,
+      "repeats": false,
+      "watermark_file": {
+        "bytes": 16061,
+        "fit_space": "srgb",
+        "origin": [
+          35,
+          36
+        ],
+        "peak_alpha": 0.4118,
+        "preview_wh": [
+          272,
+          86
+        ],
+        "sha256": "f0eee4b9e6b13bdbd324f33e4b22bad3642360e94bc780feafab58e6849ed081",
+        "size": [
+          273,
+          87
+        ]
+      }
+    },
+    {
+      "caption": "A single two-tone signature",
+      "case": "proof_signature_two_tone",
+      "delta": 8.313,
+      "delta_min": 6.0963,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 6.0963,
+          "detail": "det=0.1531 cleaned=0.0717 tx=31 ty=31",
+          "input_sha256": "9cc592a3eb1bbfc374c72e391cc26bb377593caaf9b5d507f1cc7244f026bbb7",
+          "psnr_in": 45.9197,
+          "psnr_out": 52.016,
+          "removed_sha256": "0944d62a236ed16cb75b0b921fe685bc641c71a3dbf018d5193917fdbb59c585",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 10.5296,
+          "detail": "det=0.2391 cleaned=0.0000 tx=31 ty=31",
+          "input_sha256": "7cd06c02e8a39fe11104f1a161fae233cc2c697f47450548a7dac2893d57a044",
+          "psnr_in": 40.6467,
+          "psnr_out": 51.1763,
+          "removed_sha256": "f29ced2cade00d690781b1a9ba08fd891c6ae87626dad53f0bb2a6f4c5dab308",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": false,
+      "watermark_file": {
+        "bytes": 7632,
+        "fit_space": "srgb",
+        "origin": [
+          31,
+          31
+        ],
+        "peak_alpha": 0.632,
+        "preview_wh": [
+          186,
+          62
+        ],
+        "sha256": "d5cc6dc59a0433f54201653a932564f1f4ef6560eb3afd6eefff71dab2f49700",
+        "size": [
+          187,
+          63
+        ]
+      }
+    },
+    {
+      "caption": "Tiled handwritten script",
+      "case": "proof_tile_script",
+      "delta": 9.1088,
+      "delta_min": 8.6566,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 9.5609,
+          "detail": "det=0.0114 cleaned=0.0000 tx=0 ty=49",
+          "input_sha256": "b2c1823aa50bc9b096a0034bca6724977dbd7a5f8f516eb8c5ed780ace8cc341",
+          "psnr_in": 35.4451,
+          "psnr_out": 45.006,
+          "removed_sha256": "d818117b61ff64639d6c03c28b82de571f579ebe022151dc2e3d20475e12bc13",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 8.6566,
+          "detail": "det=0.0201 cleaned=0.0015 tx=0 ty=49",
+          "input_sha256": "03f083e98f8cc6391d6d0ad212491ea66be3ddee61307a56e425f9fd4b3f04ef",
+          "psnr_in": 35.6529,
+          "psnr_out": 44.3095,
+          "removed_sha256": "2fe8d6917e096b1c1498a7268da37544b88b8c668e452fc2b6aea2c7c5929767",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": true,
+      "watermark_file": {
+        "bytes": 91109,
+        "fit_space": "srgb",
+        "origin": [
+          0,
+          49
+        ],
+        "peak_alpha": 0.2003,
+        "preview_wh": [
+          1024,
+          974
+        ],
+        "sha256": "16a2689bc2b9139b1d980f50f43af76f95d7f505bee218d767fd5c41f3a23c46",
+        "size": [
+          1024,
+          975
+        ]
+      }
+    },
+    {
+      "caption": "Dense, stronger tiled banner text",
+      "case": "archive_scan_dense",
+      "delta": 15.7744,
+      "delta_min": 15.4214,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 16.1274,
+          "detail": "det=0.0177 cleaned=0.0495 tx=0 ty=22",
+          "input_sha256": "2a41563c7b637ca32d39587f00d55221ee2b73efc2ba58751b0c59b1448bbadd",
+          "psnr_in": 34.4818,
+          "psnr_out": 50.6092,
+          "removed_sha256": "77966421d56c846b126dbd8649bd6a97cf1f35ff5faf840001d2852bc502517b",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 15.4214,
+          "detail": "det=0.0203 cleaned=0.0000 tx=0 ty=22",
+          "input_sha256": "074f3229a994def3680d5f40478a3fef0644a56b56de9f73b190a53723b3a917",
+          "psnr_in": 33.0471,
+          "psnr_out": 48.4685,
+          "removed_sha256": "7418e742f20d84fab117f8f38b560f70ea24f91c97f6f7c98dfe9a9bc6445fe7",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": true,
+      "watermark_file": {
+        "bytes": 118701,
+        "fit_space": "srgb",
+        "origin": [
+          0,
+          22
+        ],
+        "peak_alpha": 0.3348,
+        "preview_wh": [
+          1024,
+          1002
+        ],
+        "sha256": "655b0df69efccbf448df870d71855f8122461c302ae606658db65c683cd68820",
+        "size": [
+          1024,
+          1002
+        ]
+      }
+    },
+    {
+      "caption": "Tiled text in a saturated brand colour",
+      "case": "print_lab_tile_brand",
+      "delta": 12.9738,
+      "delta_min": 12.7058,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 13.2419,
+          "detail": "det=0.0464 cleaned=0.0016 tx=0 ty=21",
+          "input_sha256": "3b7d33d9410950aa79d8cfcbb9cdf8f475264af25fddb34c230e0de8f4388c96",
+          "psnr_in": 29.8414,
+          "psnr_out": 43.0832,
+          "removed_sha256": "76854827cb52a438324a45056a76c7580d064236772ec0c1164dcb551c5c326b",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 12.7058,
+          "detail": "det=0.0145 cleaned=0.0000 tx=0 ty=21",
+          "input_sha256": "7bda655287c30ad41aadd56a65775f3835a24a5d2a5ed46f5d12ec844d8d1f6a",
+          "psnr_in": 29.2201,
+          "psnr_out": 41.9259,
+          "removed_sha256": "b8a1bddb8eb63ae08b14ceb430d7a4405042eec2de2620b240d336afa6c36dd2",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": true,
+      "watermark_file": {
+        "bytes": 169077,
+        "fit_space": "srgb",
+        "origin": [
+          0,
+          21
+        ],
+        "peak_alpha": 0.4039,
+        "preview_wh": [
+          1024,
+          976
+        ],
+        "sha256": "38416f32956ddd0bd6661e59f0c8e5faafb712fe1a0c8c7c573f6ed326321e4c",
+        "size": [
+          1024,
+          976
+        ]
+      }
+    },
+    {
+      "caption": "Repeating soft pale patches with dark script",
+      "case": "proof_wash_blob",
+      "delta": 14.2934,
+      "delta_min": 14.2053,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 14.3815,
+          "detail": "det=0.0234 cleaned=0.0258 tx=0 ty=99",
+          "input_sha256": "20a9e239ed1652963ecbf2d5da504e2c3f19e3fcd87534248a168bfb3925c484",
+          "psnr_in": 28.038,
+          "psnr_out": 42.4196,
+          "removed_sha256": "35bf7982227adf106fab54e9d1bccd025658977e9563150c44de1bdb6c8d7ff0",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 14.2053,
+          "detail": "det=0.0228 cleaned=0.0000 tx=0 ty=99",
+          "input_sha256": "b5b9ab4bc348ecc4230edfdef920d16fe7bff7fedec9c6a29570faa3354e047a",
+          "psnr_in": 27.3793,
+          "psnr_out": 41.5846,
+          "removed_sha256": "c5f78cb4b8a5cdf184f7ebfa3ff901df25318afd9f799850c50d958c88c0a91f",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": true,
+      "watermark_file": {
+        "bytes": 209396,
+        "fit_space": "srgb",
+        "origin": [
+          0,
+          99
+        ],
+        "peak_alpha": 0.4585,
+        "preview_wh": [
+          1024,
+          924
+        ],
+        "sha256": "8ee67ca5f52b0d94ad1c5db27aa3f30542a7cb572f255c67e2a656698c5b5ebb",
+        "size": [
+          1024,
+          925
+        ]
+      }
+    },
+    {
+      "caption": "Clustered pale patches with dark script, repeating",
+      "case": "proof_wash_cluster",
+      "delta": 13.1903,
+      "delta_min": 12.8919,
+      "images": [
+        {
+          "clean_source": "site_examples/clean/bear_on_train.png",
+          "delta": 12.8919,
+          "detail": "det=0.0156 cleaned=0.0000 tx=0 ty=42",
+          "input_sha256": "ed500f3a98a81f45df508497d46184f80df51aec125edcbbae65b7ac13369c85",
+          "psnr_in": 26.109,
+          "psnr_out": 39.0009,
+          "removed_sha256": "ac462b98addb221affbc717ebea827ea34926b715748941b4fd6da47dfda130a",
+          "status": "ok"
+        },
+        {
+          "clean_source": "site_examples/clean/bear_hiking.png",
+          "delta": 13.4888,
+          "detail": "det=0.0165 cleaned=0.0000 tx=0 ty=42",
+          "input_sha256": "2a8c2a67ca64a6665c8a2c65837ecd1a03a322eb52b4d1994edd4745b46a6df2",
+          "psnr_in": 25.0271,
+          "psnr_out": 38.5159,
+          "removed_sha256": "37efb8aa7159e2f2d3645cf8a4a3a82c73de99b35b2d985b17b685129f86b89b",
+          "status": "ok"
+        }
+      ],
+      "n_better": 2,
+      "n_declined": 0,
+      "n_worse": 0,
+      "refused": false,
+      "repeats": true,
+      "watermark_file": {
+        "bytes": 118578,
+        "fit_space": "srgb",
+        "origin": [
+          0,
+          42
+        ],
+        "peak_alpha": 0.5724,
+        "preview_wh": [
+          1024,
+          982
+        ],
+        "sha256": "ca69d0ada92a044039375714a71eb624c7535b7cac1e46bc4aad378731564328",
+        "size": [
+          1024,
+          982
+        ]
+      }
+    }
+  ],
+  "engine_call": "TemplateNCliKt --template-file: readTemplateFile (= WorkbenchViewModel.adoptTemplateFile's parse, PNG or .cmt by magic); removeOrSkip(hasKnownPlacement=false){ WatermarkRemover(DiffusionInpaintingEngine()).remove(img, tpl, null, true, 32) }; classical fill, no MI-GAN",
+  "engine_commit": "27002d8cc896d50d41606574bca912d68ecb6bca",
+  "engine_dirty": false,
+  "engine_version": "0.2.8",
+  "heat_scale_u8": 32,
+  "spec": "0072 watermark-file gallery (owner correction 2026-09-24)",
+  "web_sha256": {
+    "c001o-1024.avif": "3fede2df4691ee65566ea645e799a19c3983824f2e01b31dfb7ab24cbcd010b2",
+    "c001o-512.avif": "fcd4ae264937f214064335a86ef864db163c66f504a98dd1b3b5777d4d1396df",
+    "c001o-512.webp": "1989842e15da729c0c237d52fc80fdd15f98a013d1b1091c083036a240aad30d",
+    "c002o-1024.avif": "601f52c89913553ce2d91612ff4448ce50b0b7775502d412e3ea3f7b8fef8d35",
+    "c002o-512.avif": "63b232edbe25f1642edd63df3d12fbf255a1d74ad9b22de00cd8ba18716f510b",
+    "c002o-512.webp": "016c756297eb7ea48c6aab01d79d497b37a0aa242738f17da58a9dc86a3ce3be",
+    "c041o-1024.avif": "90da8d706ebaa0cb461341d1475681055de2712f7d7bfd66f2c0a4b597db40ca",
+    "c041o-512.avif": "97532ea52b77998b3afe7675b68d481d729d5c0d20ed61c4289390ec9795edd1",
+    "c041o-512.webp": "3bc15578e9ab028259b19fab08ef6b00af725b96ad9a4688739c89456d6d7460",
+    "c042o-1024.avif": "de18a0385d2d260ed47871f37a1fa67d4017cd3de3a0f5cb5222777fe5e22053",
+    "c042o-512.avif": "d788a701fd67e644f0750fd86e0240f510e5ab0ba1147ab24fd599c38f7840a8",
+    "c042o-512.webp": "faa1bb480735a2a6a197ef7842c9bd99d83856e8b65aa157e26db4292467946b",
+    "wc001h-512.avif": "d5c5aef61e91a6fdd8ca3643d13cca493da7cc41cb506b3154d58b203b3ab025",
+    "wc001h-512.webp": "857adfb0f56521384b2d327f96998c05b0aaab5b3391e46fd406e778c5dc31f3",
+    "wc001o-1024.avif": "13aa0dd21f55058bf2ef069e7532e23059d7d5cb7647c9de643885fee94923e4",
+    "wc001o-512.avif": "2dd73a6715fd7ff2aa64b97c093e0ddabcc44eeed6071933a1ac471f45ea55b8",
+    "wc001o-512.webp": "63cff9f82e223fdb50bd8ae20afdfb92c01f75f11f76cc07a1ceb0c0d5585c1c",
+    "wc002h-512.avif": "78ab1c92917b679d11fbb72859bff4190813713049d7916cfb43d413fc6907a2",
+    "wc002h-512.webp": "2838e23b529e0dace9d613ba321b5ec297269f536858bdcfb469d48cf2111170",
+    "wc002o-1024.avif": "e7b424cdc58bde8e273e3f56f12aff3f85252b64c03f57a0d5fafbde0d28422e",
+    "wc002o-512.avif": "7211731631188ed387391c22024ec6add473d8bdb2a2402449c3410fb9d0570a",
+    "wc002o-512.webp": "fb5812d0c4b7954aef3f677df72a2442772e4acf8d908705f7db8e6ecf14576a",
+    "wc00m-512.avif": "9a4da0f980b43eacc1b35467afd088131262422b4f02f69960fcd72350dbb0b4",
+    "wc00m-512.webp": "fe95b28ebf491635a0b4603fb5ff8f5bf2e2ebfe20373e58ebaec62ded86a7e3",
+    "wc011h-512.avif": "6ed8fac0646ac622f72a3bb30dbb0bbebb7e0de98e5d514845d9068699ec5d61",
+    "wc011h-512.webp": "dfdd90a1a3b12b904cbf668113346475152a1a925a931e5abab019e2e180ca98",
+    "wc011o-1024.avif": "a23c9f248c8abe2a97be2df8fb2128d921aa2a5e86dc1d853f39a19b8f7c8397",
+    "wc011o-512.avif": "07897c28e7031898da17fceedd1ccc317c39e132b4ad5f32d987035d89ac8eab",
+    "wc011o-512.webp": "de6ef4fc04bd40fb63a13b20a24cc36b2c886ce5ab9a883ce9cde61dd29cdbb0",
+    "wc012h-512.avif": "ee08cdd5f8fcafec1520a4e264e98d614aeb64127e59657e28548c7be5accdf4",
+    "wc012h-512.webp": "6a0c27458e88598406672db0aec6579d82951cdee2fc7067df21884b0e7b0954",
+    "wc012o-1024.avif": "1447266005435205e98eafd3370db5125cc4eec0c6588de50739d736bf2951b0",
+    "wc012o-512.avif": "9e8c928dbf93052dd355a67e2e6a3eacb1ee2e36a90027bb3cea09467e162a73",
+    "wc012o-512.webp": "58b6f31fd8d2eea9a668033a8ba1a2cfcf5bb334c94b863bf7d412a3a7b5d6e6",
+    "wc01m-512.avif": "78a4cf2a7293e9719805cf5490b047cb4c533fbf7f6751123495062449ac8008",
+    "wc01m-512.webp": "5ba812f3b7991ba3160114f2815fa8bd676a60a2e21242a41fe07369f25ec9c9",
+    "wc021h-512.avif": "e14211ab3db62598e3983e3c47e0fb3f3d0c1c63945f6d38995482f958dca230",
+    "wc021h-512.webp": "720a595410b9c72a63e98de584a92ed40abbcc22f836c4bc942ac9734bc6cdea",
+    "wc021o-1024.avif": "3266fb011b900ed438c46b15208ad0a6baa58cb965c14cc2a9289c0224e91d2c",
+    "wc021o-512.avif": "d91a8b4128677bc5f665cd2a9ca1b8b09aa1cd5c1b238669ce9084cb27e9c690",
+    "wc021o-512.webp": "52fc23f871d421efab090f3352ffe54e5f4a1992fbf6b3b3a04d33c23bad5e93",
+    "wc022h-512.avif": "ae87b19c4f38d9da35e0f98b3465ebc61803cd39b50d7b11a9ffb2b8cdf917cd",
+    "wc022h-512.webp": "4f52ab4a24818fccae62f2dcad12568c3602ddc834f6fa3c78a3c7b5b9aff897",
+    "wc022o-1024.avif": "ab69e894f7c731e66f66fc63067b1b1212f848ff5ed8ca2fe2114a819279e949",
+    "wc022o-512.avif": "bbd309e04a45d63a0f9f6b2da3c4985c52b576e256e478cf19d45729dafccb8b",
+    "wc022o-512.webp": "6d06a3466774fe488664b276ce219509c0c2f1acf2a5c065e148a6e1070da56b",
+    "wc02m-512.avif": "c37996f4e2b01d3f1350d5b345eedfd099b17555f1cb372e8ac6ff4a02adc255",
+    "wc02m-512.webp": "0e6d613fc875dd73d6bf152c1ac81991f326f12aa0430e8f92180182b45f9eb4",
+    "wc031h-512.avif": "fd4d1fc8fa7eb7f684d00a48b4327af476198cd05dc4b4820217c53ee6730286",
+    "wc031h-512.webp": "9bb6192daedda7445873d47f51dcdfe2a487d40384d82d72bbcc29cc233ceb37",
+    "wc031o-1024.avif": "f1c049198e88bcd70c0ed442349d5f5bff98e547ce701c5a1251137c3568d11a",
+    "wc031o-512.avif": "0c17c0696b07b7619c62209150d163f4d06f6067b8d6743f1231cb72f6bd1ec9",
+    "wc031o-512.webp": "79ca753f16a7eb7be09ec242b9a756a885e833da1f6ab95c7c4d5579a237c68a",
+    "wc032h-512.avif": "acc3733789b3a2c60cd65a2f41469b177f156b8a9d414f9740e57d18020243f7",
+    "wc032h-512.webp": "8c17aab586039a7970d4f8d0a15c82b18aa2c4a27f44380131b4a42dced38007",
+    "wc032o-1024.avif": "587f7c7979e0a69fbe240db2d734e0faa46bdc269ca20de296cf179d00b091a9",
+    "wc032o-512.avif": "792a2a9570816b8efa88f7d2d579a453992ac77c7ee9a4880ae1b6fe079fb5ce",
+    "wc032o-512.webp": "ebb493cb4960c56c1c2a45fe70e62bafe39ec52c7e6c6753a6dde1ba640e6274",
+    "wc03m-512.avif": "d7d894312acee6a5dc438f7670f14566aa2a1b3470fc0b59adfe122f4678d7fd",
+    "wc03m-512.webp": "fafa4be7d401b5cafbf53b6590930415146f77fc47075cfec8469f5f07c53b59",
+    "wc041h-512.avif": "f525ec5239379c490daa8e613d97225569efc5e5bc1b4ce71bb75c5c0768ee44",
+    "wc041h-512.webp": "e9bbd7b8f0a284ffa9202d0bd2eea487d9252e468a447e04fe35fdc7649ca12b",
+    "wc041o-1024.avif": "40018797437939d59ce18fe8ae9605e7c8a0676e9984e1971c0b4f83c61ab5c2",
+    "wc041o-512.avif": "43c7ae1051fe6cced7da384ffffa484991802c470fcb2ea8da90a1681a353a3f",
+    "wc041o-512.webp": "0694ce1ee504e8837cfea5e6ffd396617191e7246182894779e9334d17fa082c",
+    "wc042h-512.avif": "acaba77b993ee4cca44b2d144f63df7b59246acf69f011c6a32ffe75ebbc08f7",
+    "wc042h-512.webp": "869e9ab3ac4ae2da418eca9d8551a1c85a78eac3234dc40dc3a954c5c7692802",
+    "wc042o-1024.avif": "688f1711c8eb3a98f9e73728205947d5bfa660325d2caf570e3836e1d2ae1ed8",
+    "wc042o-512.avif": "d9a7467dcaaef1009ebc8c6be805f84b864f97bc1826339557b54d05cea7f4d7",
+    "wc042o-512.webp": "64209a2273a4250a6b1fb01c6d5e66b4b6f19f490eb81853ed8f235d4a8495ae",
+    "wc04m-512.avif": "f4673541c77afd2579107138ae3e71d102e78393a614c092704bc30e5561cdd0",
+    "wc04m-512.webp": "bb5cc65dd7df3713fc43e0b73b4bb5239100dad8e3980c15e417d62280db1e79",
+    "wc051h-512.avif": "2a4721ba34ac8ae64ce7de47670f1f58fa7b3b914eab464e59c9de5bcbf411e5",
+    "wc051h-512.webp": "69e075d8142d4d10c1e7d4a1590fc2a0c11a1c6d1eb48c48d84180745b659ebd",
+    "wc051o-1024.avif": "b4a1955bfab7eb4659dd85cdabff9ba85b86ed09898da33dc6b03c279bce5f7a",
+    "wc051o-512.avif": "11b991b9ab65493427da6bbe49e991078caebfbdb390bafc352e60970eab3c2b",
+    "wc051o-512.webp": "11fc1d0258118ac86611ceb7dfb6ca4709df878b5a8c6a4d4cc806bb034e6aff",
+    "wc052h-512.avif": "dacd171f989dbdef0c5d61dd8ffb100ccfa46ceb6043bf02e6112304e95d00a5",
+    "wc052h-512.webp": "c2bebc5373f0f5edbc3e8d25c74d87b47898d268ee348ead14e9f973c7f9e5d5",
+    "wc052o-1024.avif": "8d292da0dfc4604f3baef2b1d8f48fbf40d936419d78547e9c89d61cfc9e3264",
+    "wc052o-512.avif": "4c824cbc8affb0d889e3f90d270a757c60d60144e40e132964db3f4abc2ad542",
+    "wc052o-512.webp": "68d818932c44c2b1cb85e842cf67eb8e18a065ff3a4b91b53f7ec8cdaa9d2c8f",
+    "wc05m-512.avif": "0fa2ed9327636be0508e51223a4d67156ef7257e46aa787d0cec739a661e4acf",
+    "wc05m-512.webp": "afca8979233740091a0ae51596843f0e17312bbd6e97f5845c83dff2badf77cc",
+    "wc061h-512.avif": "0cb4c7aeabcf9dfdb60eeb1affafec459777a5fd534f4ff53ee1b17e80fa4689",
+    "wc061h-512.webp": "bcb73b841c1ff5dd081d9873ae99e6253d9d34a3fde06ef990db30c8408088f7",
+    "wc061o-1024.avif": "eab014d96d65e8d84a7db2c371b1249704888c532461655c260060c1c903a798",
+    "wc061o-512.avif": "bce1ccfec3a78d212dce5004dc183077040cbed1771d93ad17c5e5be9e13aa39",
+    "wc061o-512.webp": "645dcca8876aa689ebedfb599ffb061ee4e8635fb0e9bb458db01c0ad89aaf5e",
+    "wc062h-512.avif": "34b570cab27978dc9e729cc7efc676c738c4c34d3aad281f7de0aa3123b6790e",
+    "wc062h-512.webp": "f9f5df203f5d09d8ece6cfcb83446c00d2b47fd9d741552966be04cecff7ce98",
+    "wc062o-1024.avif": "6a6eedb2e464650e1db1fb969d7c10fc51337c89473d397460d05d29ce14e559",
+    "wc062o-512.avif": "9a3a1214dab010c529a856ca4eb7aca4d3d1771702ecc7fe24ed637a54b7fd52",
+    "wc062o-512.webp": "b613fad069c3186144ed39d8892b94599fe5148a93c4c0f643da9645b223ee18",
+    "wc06m-512.avif": "f57a220dd46c6b11019b1e0ab08e7fd46481ebd8f4f0ded8de80b49b236623e9",
+    "wc06m-512.webp": "af8f1854da049f717ed95615cc0416faa15ae41074d283bb3ddccd7a3466faf4",
+    "wc071h-512.avif": "b71a5714d3ca37ca94a3ca9c5ec3e0b5ce69e78608c8d718987cddf1d5bc40c1",
+    "wc071h-512.webp": "c9eeeb0ac3abc53485f0a9e38d2b856c937101ec7142d2b9b04bb52fd737f43e",
+    "wc071o-1024.avif": "dfd47e3df16734d15c6ce11a5a9a7f4e3dac63d266ff855369c3a397acadd4bb",
+    "wc071o-512.avif": "4ce4d5d3a5989f758300f10b5cf0431ded944c5f99021135e9541e7ebb056eff",
+    "wc071o-512.webp": "10d8ae7703a19c234060d444194d57bb7d5f0533fba920a3663dbe11b59d1a61",
+    "wc072h-512.avif": "1b87122a79ba97d965e6b504e5f7c67a9dc397cce956b5b427e04d2efcb66c8f",
+    "wc072h-512.webp": "f2704e34facc4461a641e1160810dd3d9e14e481d2532ac481fdbfcf673d54fc",
+    "wc072o-1024.avif": "75a367254da7f18a77e745c961761541b80dfed45f21e074defc1446d4b687cc",
+    "wc072o-512.avif": "7fde7710f55828bcc06743a1404a942d9d740f6cae9c5c2d4cce5cf909ab9792",
+    "wc072o-512.webp": "fb67d51596277da6b89bebeeab863056389ae50d3eb385975ba57db0e1e8f17e",
+    "wc07m-512.avif": "09a6bc638dbe317f72d21da1810274273d978eb0f4bcc32f2c3b7f75aed74bd7",
+    "wc07m-512.webp": "f515fb27499fd1a8f616f0e96f9df5980ae3023795973b0b358587b8b05c45f1",
+    "wc081h-512.avif": "35932182d280aefb660b172f95af8124a9c7c761d8d1b64fa690929bb088c612",
+    "wc081h-512.webp": "26705b94281076c3f5fe93dc046a3c96e437ef9a4128d1d21bbc645de27a8dcc",
+    "wc081o-1024.avif": "c7b8ccb6da423eb878a257cdb3018ee8adad2ee4cef40ff1287130db8e47e6ea",
+    "wc081o-512.avif": "15f2d7abe772860311b15ee508b420e9b1cb7a6a06b6b6d00cfa930a7d2eea27",
+    "wc081o-512.webp": "9dddbf33d16958b3941007b38ba0695cb3d797abe384a43f36004ff2ce63ed71",
+    "wc082h-512.avif": "673972c55566baa91b8fcb044affe60c11d8a059063f0a051507e774fea18178",
+    "wc082h-512.webp": "554960a689ce72079de7ed24dead5d69d061bbccba4d79acce05101e03276e78",
+    "wc082o-1024.avif": "d154d89f2673056aa9b28706f40c4f659308b296d6a688bcdb817e7832b6d50a",
+    "wc082o-512.avif": "5ebc9bf438b53558ccc84acd5fa3b260f043399aed89e29f51530faba3154797",
+    "wc082o-512.webp": "737badf62ed1e7c6788a14f1941aec3c1134f00f328ddd6daaf3fb4d350d25a1",
+    "wc08m-512.avif": "cab3312003c438d52ee111024ada65bd94997fdb16aca0bf7ee01fd071db73cf",
+    "wc08m-512.webp": "7e229b4f1d4033594f9c1a114dc737b97b0c8e67f8f0483f0177e7f0e3e2c36b",
+    "wc091h-512.avif": "b436f4e02cb3944c7e7dc1741f4de17087094bc0b8af4f3c189de4d53e3d997a",
+    "wc091h-512.webp": "b390f3e2f89c4ad594aacbd5b510ce12e4f815a2c75cbbc782a4fd49c0145087",
+    "wc091o-1024.avif": "d67f246873a98a27be97a9cfb6855e238763e2551156e56c899ee43770c7a9da",
+    "wc091o-512.avif": "3145be8c868c2d81e82efd0f19a54e49dcd2ce64640a9f1c9f49c445dfd86813",
+    "wc091o-512.webp": "cdd341e07dac4c1723e6014534ba2275241caa6de3b749d3d2ffc7aefda21f82",
+    "wc092h-512.avif": "d34054ca9ec9002b5a21319d59b4040054df76b321b7b56b70a577309eb8ce0b",
+    "wc092h-512.webp": "67b862b37b134354e4384850755d8aa37b218e58d28c8b49e3e67795461b76e4",
+    "wc092o-1024.avif": "803c4e9920b6273bb6af3b414d34fb7377ae5c5be070bdc78541360db1b7398a",
+    "wc092o-512.avif": "2b2a4b3e7bf29c30ce6998cc1d2572ddde941678f445e4e8f4ba6cad5519db2c",
+    "wc092o-512.webp": "507422f3a5a01ddb45301438bda906b632bf41f50cf36a1210319132cc339f5b",
+    "wc09m-512.avif": "4aed6653c3aaa21d64204d8de0dc59c3ba70f1d7f97dce79ea7522d6bd908e4a",
+    "wc09m-512.webp": "2fe98608b9295ea7a1c919d52c9fce34409fbf777c274a00d2baab170aa4445c",
+    "wc101h-512.avif": "ca3c9628142b0ce968ccbe4d644fd5491cf2445490575b511f1a4e5fa6037ba2",
+    "wc101h-512.webp": "fe45bb809b24f4731a15275abf19bad3aab1bb8154ecca1531f8a3f925ad46b9",
+    "wc101o-1024.avif": "a4f95cc89978aa29d6d2188b4fa80752ab4c29468abbbe55d475735a0be20e7b",
+    "wc101o-512.avif": "1d47e140c0cfc7d633f3786d2a5822944364c2cf1a5176a27fed85cd3a85f3c3",
+    "wc101o-512.webp": "02e7e1a415052563d41e18e0a3131fa04db072865cc1e66df567393979bb38f6",
+    "wc102h-512.avif": "fd534b8b64381d92144f9bc35c65385aa92cea18a83740ed931cba5d0ebe5728",
+    "wc102h-512.webp": "944641695b5df51be38aca63ea765f9628a7bf4882ed12ee443fc5dcafb0168f",
+    "wc102o-1024.avif": "c212a8a5f97931b616020a471296009f21be53c233ebac60a6a2444d85bb2ade",
+    "wc102o-512.avif": "de5ea0b405e0645a621f4a71088d6c5a87d5af99a3ef5d3a79bfc651636621b2",
+    "wc102o-512.webp": "451c4687fe49505846174c5307c04866200edab7335c9d17c72265f48bbf3e01",
+    "wc10m-512.avif": "46165e791bb1aabc4b8d6e1d76f79c2b5c247952cc1becebf263e98cb9827968",
+    "wc10m-512.webp": "c4f906d3e8bc9b77680f5b5b570305adeaecf6c8d3e463ed17188212245555b3",
+    "wc111h-512.avif": "9ad13b74f7dec9ef4a5fef4809ef49cfce5d007c7441ef0402dc0b8daf37fc42",
+    "wc111h-512.webp": "ceaaf239c74884ed7716273a2bb4ef1ab66879c434ca9d074bb19cd51f71189a",
+    "wc111o-1024.avif": "d5c0bd95567a3f0ded606c51123b535128356bf5d58f1f26d35aa40fa7d7567d",
+    "wc111o-512.avif": "0247f6f2cf912abfdcd7dd31c0c654e6a962a94a449d35fee932b578fac0f071",
+    "wc111o-512.webp": "4f4daebd17651c92553e4a9cac33235d4a489e3800072507c035fa18b20bb7ce",
+    "wc112h-512.avif": "536a6655a8e5d568f11b6f5d7696ea4307f4a5a6a46b266c9ea65c4a0a481807",
+    "wc112h-512.webp": "42c344988a55ab952939903bd151d5af90ecf513da459f1b4aaa7c821cca47f4",
+    "wc112o-1024.avif": "479d28315b601b4b4923b6006747193801ebc2f96678cbe5c85b5ca5346b9fae",
+    "wc112o-512.avif": "4fe4375b432c2b587a42d679c8ce339a6023c34caa4fc3a7193e3f3503242a28",
+    "wc112o-512.webp": "0c916afd17b216955ca31effd054c3e2e541d8ab79913a9ec9e0a1565b49905c",
+    "wc11m-512.avif": "72c81c8ff533ed6740c6e9325b910a7c01d8bccd116d624c01c7be2e33e7e28e",
+    "wc11m-512.webp": "d62436fb7272a9c6c609a01338e7b01ba6176edfc34c8e7b25b7651fe1857259",
+    "wc121h-512.avif": "845d94e2441da961f6334211cad99bb73abac305a6b7a66b04753e034f1d5a53",
+    "wc121h-512.webp": "e6beacd90fd4f5cfd905e2603761bb491a87228a023f728c9d26ff87016a5853",
+    "wc121o-1024.avif": "c9951f196fd1033ee0761633ab492d7df19ead6cd50975d8cf2be3d19851ad2e",
+    "wc121o-512.avif": "2051e53fc3457b597ca048ff23c1907b39280d5f562f4b839dcee6d6927bd3c0",
+    "wc121o-512.webp": "32e1316342e41b3ddd89431239a697acce542deecd85448d4ed8c4ec05d73bd3",
+    "wc122h-512.avif": "cbb9eac246d175fb38d7f1c6ace44e0a37b9577ea3781a96cda591a583abc20f",
+    "wc122h-512.webp": "36e5a188d9153e5ef2b2cfea38d7ab120fdef6866d08907bdf31473b013c71a6",
+    "wc122o-1024.avif": "cc91e2f3ecbdfd5ddff12bbc0f18f8984348f3e331a7ec3958f8f5abe407d088",
+    "wc122o-512.avif": "1cdab2e1b811e277cbeb8b3ffaa688d7df965c73fbeca14f3fa2d9bb64155fb6",
+    "wc122o-512.webp": "0e2aa467a97f3d33401cd474fdf06a67acbd19caffba7c076c15b20f727a90ef",
+    "wc12m-512.avif": "76aa2f4ea4ad49b2ad2fa39d4be742f38e088e83845d9805964807bea9852f2b",
+    "wc12m-512.webp": "9b6f6fbd93398778c9250ad05ccaae4bee96512af93a5c8d983b4ea96511ffc0",
+    "wc131h-512.avif": "236ca4cdbc85a11d8186416c37f22e179f152ca22b663576746f1c3fcf0dae0a",
+    "wc131h-512.webp": "36b7ca6da9bfe3a0d20fadab508c99dde8ab7891110b0282493dea7c9a97410e",
+    "wc131o-1024.avif": "36a39ecd73007c83a58b36be837bc9fc29e785f6e281354009ba28cc753e9f32",
+    "wc131o-512.avif": "e5344daa57f530b8851c1ddb213752908e97dc8d816e2aa8182ea378887c34c4",
+    "wc131o-512.webp": "3a4d767f5db0038bd11fd629180103a95ca9fa0a682e62cbf5a8370fcefc9eef",
+    "wc132h-512.avif": "60b2cabdcb5bb6072e88d271fef9226c3d880e42cae000dd8baeb0261f3b60c6",
+    "wc132h-512.webp": "16358be2a5fa50874365461e7a5151ea5eb152063f843b2e44ad42a29e3020b3",
+    "wc132o-1024.avif": "35b1d998ce90d935bb6cc99ef3a7229868451d43d1585b0d4cba800d693a810b",
+    "wc132o-512.avif": "708a72e571bec8fad4e981fa361cc924d2531c6e99b499f4a3f87448cfd9c517",
+    "wc132o-512.webp": "dd11b27e163cd79527940874c18064442614c127fd60c8691ad1f8f3737ecbe5",
+    "wc13m-512.avif": "f59542f002e5c3535ce7933b670ad7b7dce3bae51e65470c3857077d7b707c3c",
+    "wc13m-512.webp": "61d93b9bc076abe71e3d490c430c2e94ebf750d708370e07b3f754f5a2b57ab6",
+    "wc141h-512.avif": "707db61f117fe0f3b7aa3365f6187ef67a080a760fa44f95c8498339fffd993f",
+    "wc141h-512.webp": "16d587e634bcd6c16275db6cbc2576c4ea5c4dec112e7403157c1ac4d999bfcc",
+    "wc141o-1024.avif": "fbf607a1412df5a8e2e4546fb26c11b181adc77428331534b67f7cbbceabed15",
+    "wc141o-512.avif": "2928e311256542c5d6aad6334f2079a3d312a644aeac9fc717138bf91a634377",
+    "wc141o-512.webp": "4a39a8f8dd52f25f1eb4088ac8572022c3bcacf94c8dc510e67aa5bff3577b86",
+    "wc142h-512.avif": "1c03b2d10737975303f21ae98fc473485c06da65c04a0e3181e0745d552846a9",
+    "wc142h-512.webp": "975c36059af77fca552b6cd019578bec15e0f5d46b310d8b118c6666ded7ab52",
+    "wc142o-1024.avif": "e34d51fd14972bf31290315aaf1767f40be2fe2c7319b3712d90bea8a99bf0ef",
+    "wc142o-512.avif": "3292df6cce2610f050a49bfcafc3d4d3890865410d71ac680377ba6a4626ad1b",
+    "wc142o-512.webp": "a23e57751ca10949caf917c411a21a286ac6acaaf01b9458cdca582afa467374",
+    "wc14m-512.avif": "3364f034c90070fd47779ccaedb9dc9efe957e4d5135a23474739cdf740cad37",
+    "wc14m-512.webp": "cea68a3ae1adc7738b24ad6a1010a40d9b7b0f1792bcc9ee52646e8883b0ce1a",
+    "wc151h-512.avif": "7cc495977c48cb9c5fb76e770b76d5178c2ef508c27b89e52a19db10b06faf8b",
+    "wc151h-512.webp": "073c50e6880c992aa664453c1be789fc78dce005e1fb0b82c64a8c84c03d161b",
+    "wc151o-1024.avif": "c5919e4f902e21583d8f89b48f7b035ff86693de80e18cbdb0c3f2dd22f196ae",
+    "wc151o-512.avif": "573bff117770d82225c3e2f2a8bf9bb0607397e712220812b3f3a8ac7a6870b3",
+    "wc151o-512.webp": "6297bba03b08621f80499040420361525516913b0f07fba308962a2d9295d7a7",
+    "wc152h-512.avif": "b7f3abb6fcf6f775990008df7b7aa0c94f2eecb119e8753982e4b815af2ad315",
+    "wc152h-512.webp": "0cbbc2da339924c3c85467a6785b4e36c4d87ed66149ea1797295103a97c3cf0",
+    "wc152o-1024.avif": "62793c2d2155a319cb410c5ca6fa1f54df3a5f5405a3e00a48da96398ef338ac",
+    "wc152o-512.avif": "476a4b6ea3a505f87120064ca7308413252d886c4470a85b9aebf7aece97c0dd",
+    "wc152o-512.webp": "fd2265fed46eefa9b2e2499804e091da5c8db62371a1d4b52ff064cc19212f3b",
+    "wc15m-512.avif": "f50501a181c5b2d39c3a14cf28639ccaded15f0d2693dee7213189232407f024",
+    "wc15m-512.webp": "b52a42e4f2ec7fdaa4e90c412b89bc47d963b70044b835e65e57fa8ac00d5e3b",
+    "wc161h-512.avif": "bd511d79d69d41c257c0ce0ae246054df77781dfb9c79c60bd9a18e37c13e84d",
+    "wc161h-512.webp": "758de13512a23f83050c8c600139b6f20c106e361d4b139ef994742acaaf69cf",
+    "wc161o-1024.avif": "b63000d023564f92215a173ebcd49e543187281b718a1ebb2afc04dd91a0d222",
+    "wc161o-512.avif": "7b7f84eecbfe47e63e756771a5bf79f8bd0b2d8a5e49ea5821b7dce6bb779855",
+    "wc161o-512.webp": "f95017278910d0686269c7b2895c966099085e5b6b5b939b1367f969894fc5d4",
+    "wc162h-512.avif": "3f17a25d242d425b74995bc70688c0e401e105de3364f6d16c3e4916e81d51dd",
+    "wc162h-512.webp": "25e333e83b6b638e5f15d3c892de4bca3cebc9962f291ffaf345f632a02893cf",
+    "wc162o-1024.avif": "3e42571a0c54e1ad287356b336d6c1cee8bcd30fc71603a0595b339eaacfc927",
+    "wc162o-512.avif": "8c43497590610979902fcd0d54cf63ff68919de34114f2a5c133d255f6d1bd76",
+    "wc162o-512.webp": "2fff2d4ace2b12b8e231c48a3e7f048d3708839e9a1a908cf146788ca714c8cf",
+    "wc16m-512.avif": "458342ca079d6f50ee17ec8030fdb8ea16846fadac782e41fdb991d944422a9b",
+    "wc16m-512.webp": "48536de74c6836b6e39c188d521135fc5fc56611f0262629edfc37b621b89d44",
+    "wc171h-512.avif": "52fa4abae1ca8e7b3473179a2c5f9c27b2bdf0e106ec0548d2ae0023e0562e51",
+    "wc171h-512.webp": "5eb11b6bf1bb6124eafa4f35eb6f7d2ae00142884acc6bf8482cf39276ef978d",
+    "wc171o-1024.avif": "856c36d9bc2830c7621e23ded24fb4c3adcc6e9314efb04f739672eca2bb98e0",
+    "wc171o-512.avif": "36266f10cfb701bd5a3dc9c44e31481ca9f23006c088ca7b8135407ffe6fe464",
+    "wc171o-512.webp": "8304f51517d96ccbfbee4f6b9463c1e710ff1e35e0bcf57bc479c648352874e5",
+    "wc172h-512.avif": "c9d780ae2ec6e4e744a549f17e6d73c65c838cbfccd356630ba9e36156e1d06a",
+    "wc172h-512.webp": "11af13646fdd4a50197829618e6330356e34c29836ba2887160563d88f38ac07",
+    "wc172o-1024.avif": "304c7cedca7dadc7bd207f62a94713817149979db5e7bdad535114a2f0072628",
+    "wc172o-512.avif": "7a7cf67450cd653f46e0d0227e1a5cf818ccff5773ca55b7411bf12c0f180ff8",
+    "wc172o-512.webp": "68d5232c6b0e282f18ef1a159ed0cf2e5b4ba3d7049f721b029b2a5d8a47f8f5",
+    "wc17m-512.avif": "2df320d349054407b0beff52d739d688fd42a51dfc4dc8adbc5e4c2ab81327ca",
+    "wc17m-512.webp": "ca817ed3e367420f7bde4e74ef62577e0531227d9e3984417cb1fcdb1e23dbc0",
+    "wc181h-512.avif": "9008c515e8b0f0b10b87ab06326408c4cba2e6a3a6aa5a18cddc64798f9469ab",
+    "wc181h-512.webp": "7eafabdbfed876285df11d72b4a1113c57708d74ec675ced7eab1257db322eb3",
+    "wc181o-1024.avif": "e52c4ebb30efdf54b2ca0093308e3d05716b48ac173a6717a18a3af8496dbce6",
+    "wc181o-512.avif": "8642cc2f9b79570bdb2516ff52a8807c57be947fa996a7901fbea09dc8109b45",
+    "wc181o-512.webp": "a9795d863e7097087a8c46c8bf74ab59473da613796e9bf24bae71912659397f",
+    "wc182h-512.avif": "d9a1243b23e1e8c09471b6615e9953e25b1cc098beafe5ef6af265b728c016a6",
+    "wc182h-512.webp": "5a091ce42bda0a55be8ca1839ba6e1c83cc24545d82eecb285dfcbfac7d65e14",
+    "wc182o-1024.avif": "ba3a1149700564cbdc47306744bd649f62ceca4b7508aa771ea320a1ef4a7621",
+    "wc182o-512.avif": "de6c185005a35fcb59370763741af36c7f96e0891c829e54e7ab47221e7f0e4e",
+    "wc182o-512.webp": "55b599ae6f1acdd187fe697943e2f7303f7c10b13521fda37afba9e593a9ac5c",
+    "wc18m-512.avif": "f32758bc40cbef2d507783b2f404930e49e3fb34eca213a5e1e49d9308c68ff3",
+    "wc18m-512.webp": "6064ebcff0ff8d742753b33b1d756ff7eb8cee09845a4faac7f5358bfe8f12e1",
+    "wc191h-512.avif": "ccfb7e1d7625e363c6b98b996611c51c3d854fc3428e75c7fd07d8049dd41ec4",
+    "wc191h-512.webp": "af564ff37dc1e54b7df6bdc03af42c0b7288ee62f2f5b5398831e560d49ed6ad",
+    "wc191o-1024.avif": "0128a5ae827024ba9ea4480ea2ec05b25f896d42903c7ae7ce6aa278cc8462f4",
+    "wc191o-512.avif": "b878bd060359e32b9a2cc0df7de13635e1510ed5a19e29e149278240afbfc19c",
+    "wc191o-512.webp": "6c131008aecae514973549bfb9b4dadfd294f18c26bc5a3425a79dab21f2aa07",
+    "wc192h-512.avif": "c0750c341e6aabd26e9242dd2b9fb7a99af92424befa42759c9790a5f122c869",
+    "wc192h-512.webp": "df297c4d378d89b80f396a933d071534ba7dfb017799e4cf4807883d1a95a3a8",
+    "wc192o-1024.avif": "2fecb9d35e96f0ac564cf678130f6f3881ad8ea1a5bbe0bc0fe18c85f53fb23d",
+    "wc192o-512.avif": "80aa876d773ee85014ed5745e68437af86aac37b6f5b0c99a42cc1d1218eb0b8",
+    "wc192o-512.webp": "cc8d96ee61d4eba5f689ac30058d08a8ad3740ad51f23b5b01a1a1a629632510",
+    "wc19m-512.avif": "2eb29e09786bcf2b6e474f4ce0deb498e05c0097156f7ca07160b4df113bc238",
+    "wc19m-512.webp": "b7c38f1ad85ff85a6b167f6a2984aa8db70a277e9b6e5446c72cc59cfbcbea8f",
+    "wc201h-512.avif": "bb431ca07abc5d9bcabebd8e86b09299a2e8fc7008d788885b8f5b3ba3c9cf11",
+    "wc201h-512.webp": "e08b829802960cbf411cf15bfc38e0557e971af28925a7eaeee8f2f59b24a785",
+    "wc201o-1024.avif": "04387c49c32baf9e711081404d2fad957520b805720c540380b12fedcb31f005",
+    "wc201o-512.avif": "1012c812ca4ee79a4042b87682b696b247827a05c196a57bb32c253de09a1a86",
+    "wc201o-512.webp": "687d94ee9ae997c388ce801f595218e93efd8b1bd982569ae112757702da8efd",
+    "wc202h-512.avif": "6a0c38478ec2aeccc1bd74babc66863c7ac440b639d7484e4149c6e61245f102",
+    "wc202h-512.webp": "1a55b70cce7eb344f097200cbdadce97514e7e6eff7c7d3a99e70f11777d4987",
+    "wc202o-1024.avif": "23cfed51956de5258fc4ad1361589f05ff4b1cb469b33fe39181bfc37c39cafd",
+    "wc202o-512.avif": "4fa12dd20a2be63f2798a55d6408dc19f12ac915095da3bd122ad6f863134930",
+    "wc202o-512.webp": "8e8c076be17d6e88e2aadfc67c8071ffaa1625302a62301a87b0386d79b79d09",
+    "wc20m-512.avif": "13fb5673b48d45820d3912a8dd37c339385e806d93a280619eda055c3e2e8ea4",
+    "wc20m-512.webp": "6d0d63e027b610ec32566b96721607c5a2112c70076fc392c95bebdd32452b55"
+  }
+}

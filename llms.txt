@@ -32,7 +32,7 @@ Status: closed beta on Google Play (package com.watermarkremover.android). To te
 Pages:
 - https://scintech-dev.github.io/watermark-remover/ — What the app does and does not do, in four steps.
 - https://scintech-dev.github.io/watermark-remover/how-it-works/ — The four ideas: find the repeat, learn the mark from many copies, lift it off, fill what was lost.
-- https://scintech-dev.github.io/watermark-remover/examples/ — Synthetic examples scored against their true clean image over the whole frame (measured gallery in preparation).
+- https://scintech-dev.github.io/watermark-remover/examples/ — Main case: a watermark file opened in the app and removed from two pictures; also a mark learned from 8 photos and saved, and two photos; synthetic, scored against the true clean image over the whole frame, one page with filters.
 - https://scintech-dev.github.io/watermark-remover/compatibility/ — Requirements, inputs and outputs, and answers to common questions.
 - https://scintech-dev.github.io/watermark-remover/privacy/ — Privacy at a glance, and the full policy at #policy.
 - https://scintech-dev.github.io/watermark-remover/beta/ — How to join the closed test.
@@ -43,8 +43,9 @@ Facts:
 - Photos are processed on the device; no photo or result is uploaded. A feedback report may include a screenshot only if the user attaches one.
 - Works offline: learning and removing the mark run on the phone and need no connection.
 - The app contains no advertising or analytics SDK. Reports use an anonymous Firebase identifier.
-- Learns the watermark from two or more of your photos that carry the same repeating mark; for a single photo, the mark is brushed out in Quick Remove.
-- Removes repeating or tiled semi-transparent watermarks. It does not reliably remove a single standalone logo: in one photo there is nothing to compare; the same logo on two or more photos can be compared, but in synthetic tests the results ranged from clearly better to badly damaged.
+- Learns the watermark from two or more of your photos that carry the same mark, and can save it to remove it from new photos later; 5–8 learning photos are recommended. With no saved mark, a single photo is brushed out in Quick Remove.
+- Synthetic tests (examples pages): a mark learned from 8 photos and saved, applied to two new pictures, 21 kinds of mark: 33 of 42 results closer to the true picture, 1 further, 8 declined, mean +4.77 dB. Learned from the two pictures themselves: 34 closer, 0 further, 8 declined, mean +3.07 dB (better on repeating marks, worse on single marks).
+- Removes repeating or tiled semi-transparent watermarks. A single standalone logo cannot be removed from one photo alone (nothing to compare); learned from 8 photos and saved, 9 of 11 single-mark kinds ended closer on both new pictures in synthetic tests, 1 was declined.
 - Where a mark hid the picture completely, the filled area is a reconstruction, not the original: the MI-GAN model on the device in the standard build, a classical fill in the lite build.
 - A hardware check picks the removal engine; its results are shared by default since 0.2.3 and can be switched off in Settings.
 - Closed-test builds run a daily self-check on built-in sample photos (no user photos); sharing can be switched off in Settings.
