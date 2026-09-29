@@ -149,7 +149,7 @@ h3 { font-size: 1.18rem; letter-spacing: -.01em; }
 .site-header { position: sticky; top: 0; z-index: 30; background: var(--c-header); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--c-edge); }
 .nav { min-height: 68px; display: flex; align-items: center; gap: 14px 22px; flex-wrap: wrap; padding-block: 8px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--c-text); font-weight: 780; font-size: 1.08rem; letter-spacing: -.02em; text-decoration: none; white-space: nowrap; }
-.brand svg { width: 32px; height: 32px; flex: none; }
+.brand img { width: 32px; height: 32px; flex: none; border-radius: 8px; }
 .nav-links { display: flex; align-items: center; flex-wrap: wrap; gap: 2px; margin-left: auto; }
 .nav-links a { min-height: 44px; display: inline-flex; align-items: center; padding: .4rem .7rem; color: var(--c-muted); font-size: .92rem; font-weight: 620; text-decoration: none; border-radius: 8px; }
 .nav-links a:hover { color: var(--c-text); background: var(--c-surface-2); }
