@@ -27,7 +27,7 @@ Predictable, and yours to adjust: every report an app sends is a switch in Setti
 
 ## Watermark Remover
 
-Status: closed beta on Google Play (package com.watermarkremover.android). To test: https://scintech-dev.github.io/watermark-remover/beta/
+Status: on Google Play for everyone since 2026-10-15, listed as "Watermark Remover (Offline)": https://play.google.com/store/apps/details?id=com.watermarkremover.android (package com.watermarkremover.android). Current release 0.5.0 (build 68); the first production release was 0.2.13.
 
 Pages:
 - https://scintech-dev.github.io/watermark-remover/ — What the app does and does not do, in four steps.
@@ -35,7 +35,6 @@ Pages:
 - https://scintech-dev.github.io/watermark-remover/examples/ — Main case: a watermark file opened in the app and removed from two pictures; also a mark learned from 8 photos and saved, and two photos; synthetic, scored against the true clean image over the whole frame, one page with filters.
 - https://scintech-dev.github.io/watermark-remover/compatibility/ — Requirements, inputs and outputs, and answers to common questions.
 - https://scintech-dev.github.io/watermark-remover/privacy/ — Privacy at a glance, and the full policy at #policy.
-- https://scintech-dev.github.io/watermark-remover/beta/ — How to join the closed test.
 
 Facts:
 
@@ -43,14 +42,16 @@ Facts:
 - Photos are processed on the device; no photo or result is uploaded. A feedback report may include a screenshot only if the user attaches one.
 - Works offline: learning and removing the mark run on the phone and need no connection.
 - The app contains no advertising or analytics SDK. Reports use an anonymous Firebase identifier.
+- Easy mode (0.5.0): one Add button for pictures, clean originals and watermark files; the app sorts them and asks only when unsure, and Skip is always safe. Bursts of one scene count once. Pictures of different sizes can be cleaned together when the watermark repeats.
 - Learns the watermark from two or more of your photos that carry the same mark, and can save it to remove it from new photos later; 5–8 learning photos are recommended. With just one photo and no usable watermark, the user paints over the area instead. Results vary; the app shows a "Mark remaining" estimate relative to the input, and a Not perfect button opens a template editor to refine the learned mark.
 - Synthetic tests (examples pages): a mark learned from 8 photos and saved, applied to two new pictures, 21 kinds of mark: 33 of 42 results closer to the true picture, 1 further, 8 declined, mean +4.77 dB. Learned from the two pictures themselves: 34 closer, 0 further, 8 declined, mean +3.07 dB (better on repeating marks, worse on single marks).
 - Removes repeating or tiled semi-transparent watermarks. A single standalone logo cannot be removed from one photo alone (nothing to compare); learned from 8 photos and saved, 9 of 11 single-mark kinds ended closer on both new pictures in synthetic tests, 1 was declined.
 - Where a mark hid the picture completely, the filled area is a reconstruction, not the original: the MI-GAN model on the device in the standard build, a classical fill in the lite build.
-- A hardware check picks the removal engine; its results are shared by default since 0.2.3 and can be switched off in Settings.
-- Closed-test builds run a daily self-check on built-in sample photos (no user photos); sharing can be switched off in Settings.
+- A Hardware Test picks the removal engine; it is the first item in the ⋮ menu on every screen. Its results are shared by default since 0.2.3 and can be switched off in Settings.
+- A self-test on built-in sample photos (no user photos) runs once per install and again after some app or system updates, not daily; sharing its results has its own switch in Settings.
+- Opening the app makes no network connection of its own; the app signs in anonymously to Firebase only when a report is about to be sent.
 - Crash and out-of-memory reports are on by default and can be switched off in Settings.
-- Feedback is sent from Settings, with an optional screenshot; it is the only support channel.
+- Feedback is sent from the corner button or Send feedback in the ⋮ menu on any screen, with an optional screenshot; it is the only support channel.
 - The core features are free.
 - Input: images chosen in the Android picker or shared to the app. Output: saved as JPEG or PNG, or shared as PNG. No photo-library permission is requested.
 - Whether a particular photo may be altered is a question of the photographer's or owner's rights; use the app on photos you have the right to restore.
