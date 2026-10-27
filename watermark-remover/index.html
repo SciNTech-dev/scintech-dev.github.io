@@ -117,14 +117,14 @@
             <h3>Handles</h3>
             <ul class="checklist">
               <li>Repeating or tiled semi-transparent watermarks spread across the photo.</li>
-              <li>A mark learned once from several of your photos that carry it (5–8 work best), saved, and removed from new photos with the same mark — one at a time or many. A watermark file or a clean original helps when learning from marked photos alone is hard. With just one photo and no usable watermark, you paint over the area instead.</li>
+              <li>A mark learned once from several of your photos that carry it (5–8 work best), saved, and removed from new photos with the same mark — one at a time or many. A watermark file or a clean original helps when learning from marked photos alone is hard. With one photo and no usable watermark (0.6.0), a model on the phone estimates the mark and removes it; the median improvement on our test set was +6.5 dB (<a href="/watermark-remover/examples/#one-photo">examples</a>). You can also paint over the area instead.</li>
               <li>Results that are not right yet: tap Not perfect and refine the learned mark with paint and erase tools, then apply it again.</li>
             </ul>
           </article>
           <article class="card">
             <h3>Does not</h3>
             <ul class="checklist">
-              <li>Remove a single standalone logo, such as one mark in a corner, from one photo alone: there is nothing to compare. Learned from 8 photos and saved, most single marks in our synthetic tests ended closer to the true picture; learned from only two photos the results varied more (<a href="/watermark-remover/examples/">examples</a>).</li>
+              <li>Guarantee a clean result from one photo: the one-photo model (0.6.0) improved the picture in most of our tests but sometimes leaves a faint outline, and about 1 in 150 test pictures ended with a damaged patch (<a href="/watermark-remover/examples/#one-photo">examples</a>). Learned from 8 photos and saved, single marks did better.</li>
               <li>Recover what a fully opaque mark hid: that area is filled in, and the fill is a reconstruction, not the original.</li>
               <li>Promise results on other kinds of marks. Check each result before you save it.</li>
             </ul>

@@ -90,3 +90,13 @@
 .ex-trio .ex-wm{max-width:100%;max-height:none}
 .ex-trio figcaption{font-size:.8rem;color:var(--c-muted);margin-top:4px}
 @media (max-width:960px){.ex-lead{grid-template-columns:1fr}}
+
+/* one-photo section: single-column cards, two-up before/after, full-width pictures */
+.ex-one{grid-template-columns:1fr}
+.ex-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0}
+.ex-pair figure{margin:0}
+.ex-pair picture,.ex-pair img{display:block;width:100%;height:auto;border-radius:6px}
+.ex-pair figcaption{font-size:.8rem;color:var(--c-muted);margin-top:4px}
+.ex-stats{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ex-stats li{margin:0}
+@media (max-width:600px){.ex-pair{grid-template-columns:1fr}.ex-stats{grid-template-columns:1fr}}

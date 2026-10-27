@@ -89,12 +89,23 @@
       </div>
     </section>
 
+    <section class="section tight" id="one-photo">
+      <div class="wrap">
+        <div class="callout">
+          <span class="eyebrow">One photo (0.6.0)</span>
+          <h2>A trained model, on the phone, for a single photo.</h2>
+          <p>With one photo there is no second copy to compare, so the app uses a small neural model that has learned what watermarks look like. It runs entirely on the phone, and nothing is uploaded. It predicts the mark's opacity and colour at every pixel, then inverts the blend: given what a mark of that opacity and colour does to a pixel, it works the original value back out.</p>
+          <p>The picture is processed twice, once as it is and once mirrored. The second pass is a self-check: wherever the two passes disagree about what lies under the mark, the app leaves the original pixels untouched rather than guess. On a clean photograph with no mark it changes nothing. In our test set this cut visibly damaged patches from 9 of 300 marked pictures to 2 of 300 (<a href="/watermark-remover/examples/#one-photo">numbers and examples</a>). The same path is used for two photos when the learner above cannot find a shared mark. It needs about 1.2&nbsp;GB of free memory and the full build.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="section tight">
       <div class="wrap">
         <div class="callout">
-          <span class="eyebrow">Why one photo is not enough</span>
-          <h2>One copy leaves nothing to compare.</h2>
-          <p>Everything above depends on seeing the mark more than once, over different pieces of picture. In one photo the drawing under the mark and the mark itself cannot be told apart reliably, so the app asks for two or more photos with the same mark. For a single photo, brush the mark out in Quick Remove. A single logo that sits in the same place on several photos gives the app something to compare, but results vary: the examples show both outcomes.</p>
+          <span class="eyebrow">Why several photos are still better</span>
+          <h2>More copies leave more to compare.</h2>
+          <p>The four steps above depend on seeing the mark more than once, over different pieces of picture, and they remain the most reliable route when you have 5 or more photos with the same mark. The one-photo model is a prediction from a single picture: it can leave a faint outline or miss the mark's exact strength, so check the preview before saving. For anything it leaves behind, brush the area out in Quick Remove.</p>
           <div class="hero-actions">
             <a class="button secondary" href="/watermark-remover/examples/">See the measured examples</a>
             <a class="button secondary" href="/watermark-remover/compatibility/#faq">Questions and answers</a>
