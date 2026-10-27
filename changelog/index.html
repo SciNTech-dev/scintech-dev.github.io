@@ -63,6 +63,22 @@
           <blockquote><p>One-photo watermark removal (neural, on-device); also used for 2 photos when the learner cannot find a shared mark.</p></blockquote>
         </article>
         <article class="release">
+          <div class="release-head"><h3>0.5.4</h3><span class="release-meta"><time datetime="2026-10-24">2026-10-24</time></span></div>
+          <blockquote><p>Learning a watermark from several photos now uses all of them on phones with less memory, instead of quietly dropping some. If your photos are near-identical shots of the same scene, the app now tells you to add photos with different backgrounds instead of producing a damaged result.</p></blockquote>
+        </article>
+        <article class="release">
+          <div class="release-head"><h3>0.5.3</h3><span class="release-meta"><time datetime="2026-10-23">2026-10-23</time></span></div>
+          <blockquote><p>Quick Remove now recognises a repeating (tiled) watermark and suggests adding a few more photos with the same mark for a clean result. Brush removal on large photos no longer runs out of memory. Fixed Autopilot rejecting some photos as unreadable.</p></blockquote>
+        </article>
+        <article class="release">
+          <div class="release-head"><h3>0.5.2</h3><span class="release-meta"><time datetime="2026-10-20">2026-10-20</time></span></div>
+          <blockquote><p>Fixed an out-of-memory crash on phones with less RAM: the AI fill now uses far less memory and is shared between screens. When you add a clean original alongside several watermarked photos, it is now always used to learn the watermark.</p></blockquote>
+        </article>
+        <article class="release">
+          <div class="release-head"><h3>0.5.1</h3><span class="release-meta"><time datetime="2026-10-18">2026-10-18</time></span></div>
+          <blockquote><p>Fixed a crash that could happen when cleaning started in the background. Large or unusual photos that ran out of memory or could not be decoded now show a clearer message. Photos of different sizes that share a corner watermark can be cleaned together. Removing a watermark now uses less memory.</p></blockquote>
+        </article>
+        <article class="release">
           <div class="release-head"><h3>0.5.0</h3><span class="release-meta">build 68 · <time datetime="2026-10-15">2026-10-15</time> · going to production next</span></div>
           <blockquote><p>Easy mode has one Add button and sorts your pictures itself. It asks only when unsure (is this the clean original? is this PNG a watermark file?) and Skip is always safe. Bursts of one scene count once, so they no longer blur the learned mark. Pictures of different sizes can be cleaned together when the watermark repeats. Send feedback from any screen. Hardware Test is in the ⋮ menu. No network use at startup; the self-test runs once per install.</p></blockquote>
         </article>
