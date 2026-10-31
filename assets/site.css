@@ -3,7 +3,7 @@
    dark theme, twice: under prefers-color-scheme (unless the visitor chose light) and under
    [data-theme="dark"] (the visitor chose dark). tools/check_site.py fails if the two dark
    blocks differ or miss a token, and measures WCAG contrast of the text pairs.
-   Per-app accent: <body data-app="wmr"> or <body data-app="looper"> on an app page; any
+   Per-app accent: <body data-app="wmr|looper|pic2ink"> on an app page; any
    element may carry data-app to take that app's accent (hub app cards). None = hub accent.
 
    Components (class → use):
@@ -34,6 +34,7 @@
   --c-accent-soft: #e2e5f2;
   --c-mint: #1b6d3d;
   --c-orange: #9a4b17;
+  --c-ink-red: #a3243b;
 
   --radius: 12px;
   --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
@@ -56,6 +57,13 @@
   --c-accent-soft: #f7e4d0;
 }
 
+[data-app="pic2ink"] {
+  --c-accent: #a3243b;
+  --c-accent-bg: #a3243b;
+  --c-accent-ink: #ffffff;
+  --c-accent-soft: #f9e0e4;
+}
+
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
@@ -75,6 +83,7 @@
     --c-accent-soft: #262a3f;
     --c-mint: #89d99f;
     --c-orange: #f69536;
+    --c-ink-red: #ff9aab;
   }
   :root:not([data-theme="light"]) [data-app="wmr"] {
     --c-accent: #89d99f;
@@ -87,6 +96,12 @@
     --c-accent-bg: #f69536;
     --c-accent-ink: #15161a;
     --c-accent-soft: #3a2a1d;
+  }
+  :root:not([data-theme="light"]) [data-app="pic2ink"] {
+    --c-accent: #ff9aab;
+    --c-accent-bg: #ff9aab;
+    --c-accent-ink: #15161a;
+    --c-accent-soft: #3a1f26;
   }
 }
 
@@ -108,6 +123,7 @@
   --c-accent-soft: #262a3f;
   --c-mint: #89d99f;
   --c-orange: #f69536;
+  --c-ink-red: #ff9aab;
 }
 :root[data-theme="dark"] [data-app="wmr"] {
   --c-accent: #89d99f;
@@ -120,6 +136,12 @@
   --c-accent-bg: #f69536;
   --c-accent-ink: #15161a;
   --c-accent-soft: #3a2a1d;
+}
+:root[data-theme="dark"] [data-app="pic2ink"] {
+  --c-accent: #ff9aab;
+  --c-accent-bg: #ff9aab;
+  --c-accent-ink: #15161a;
+  --c-accent-soft: #3a1f26;
 }
 
 /* ---------- base ---------- */
@@ -157,6 +179,7 @@ h3 { font-size: 1.18rem; letter-spacing: -.01em; }
 .nav-app::before { content: ""; width: 9px; height: 9px; margin-right: 8px; border-radius: 2px; transform: skewX(-18deg); background: var(--app-dot, var(--c-accent)); }
 .nav-app[data-app-link="wmr"] { --app-dot: var(--c-mint); }
 .nav-app[data-app-link="looper"] { --app-dot: var(--c-orange); }
+.nav-app[data-app-link="pic2ink"] { --app-dot: var(--c-ink-red); }
 .nav-sep { width: 1px; height: 22px; margin-inline: 8px; background: var(--c-edge); }
 
 .theme-toggle { width: 44px; height: 44px; display: inline-grid; place-items: center; padding: 0; color: var(--c-text); background: var(--c-surface); border: 1px solid var(--c-edge); border-radius: 10px; cursor: pointer; }
