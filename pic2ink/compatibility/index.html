@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pic2Ink compatibility — frames, requirements and FAQ</title>
+  <meta name="description" content="Which e-ink frames are in Pic2Ink's catalogue and which one has been tested, what the app needs (Android 7.0+, NFC for NFC frames), and answers to common questions.">
+  <link rel="canonical" href="https://scintech-dev.github.io/pic2ink/compatibility/">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f4ef">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#15161a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SciNTech">
+  <meta property="og:title" content="Pic2Ink compatibility — frames, requirements and FAQ">
+  <meta property="og:description" content="Which e-ink frames are in Pic2Ink's catalogue and which one has been tested, what the app needs (Android 7.0+, NFC for NFC frames), and answers to common questions.">
+  <meta property="og:url" content="https://scintech-dev.github.io/pic2ink/compatibility/">
+  <meta property="og:image" content="https://scintech-dev.github.io/assets/img/pic2ink/og-pic2ink.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Pic2Ink: a phone sending a picture to an e-ink frame over NFC.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/scintech-mark-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/scintech-mark-180.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <script src="/assets/site.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://scintech-dev.github.io/#organization","name":"SciNTech","url":"https://scintech-dev.github.io/","logo":"https://scintech-dev.github.io/assets/img/scintech-mark-512.png","sameAs":["https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android","https://play.google.com/store/apps/details?id=com.watermarkremover.android"]},{"@type":"WebSite","@id":"https://scintech-dev.github.io/#website","name":"SciNTech","url":"https://scintech-dev.github.io/","inLanguage":"en","publisher":{"@id":"https://scintech-dev.github.io/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SciNTech","item":"https://scintech-dev.github.io/"},{"@type":"ListItem","position":2,"name":"Pic2Ink","item":"https://scintech-dev.github.io/pic2ink/"},{"@type":"ListItem","position":3,"name":"Compatibility","item":"https://scintech-dev.github.io/pic2ink/compatibility/"}]}]}</script>
+</head>
+<body data-app="pic2ink">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="/"><img src="/assets/img/scintech-mark-64.png" width="32" height="32" alt="" decoding="async"><span>SciNTech</span></a>
+      <div class="nav-links">
+        <a class="nav-app" data-app-link="wmr" href="/watermark-remover/">Watermark Remover</a>
+        <a class="nav-app" data-app-link="looper" href="/seamless-video-looper/">Seamless Video Looper</a>
+        <a class="nav-app" data-app-link="pic2ink" href="/pic2ink/">Pic2Ink</a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a href="/about/">About</a>
+        <a href="/changelog/">Changelog</a>
+        <a href="/compatibility/">Compatibility</a>
+        <a href="/privacy/">Privacy</a>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" hidden><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M5.3 18.7 7 17M17 7l1.7-1.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">Dark theme</span></button>
+    </nav>
+  </header>
+  <nav class="app-nav" aria-label="Pic2Ink">
+    <div class="wrap">
+        <a href="/pic2ink/">Home</a>
+        <a href="/pic2ink/how-it-works/">How it works</a>
+        <a href="/pic2ink/compatibility/" aria-current="page">Compatibility</a>
+        <a href="/pic2ink/privacy/">Privacy</a>
+    </div>
+  </nav>
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="wrap">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">SciNTech</a></li><li><a href="/pic2ink/">Pic2Ink</a></li><li aria-current="page">Compatibility</li></ol></nav>
+        <span class="eyebrow">Compatibility &amp; FAQ</span>
+        <h1>Which frames, tested or not.</h1>
+        <p class="lede">An Android phone with NFC, a frame from the catalogue, and a photo. Which frames are in the catalogue, and the one that has been tested, are below.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="facts-title">
+      <div class="wrap">
+        <h2 id="facts-title">Quick facts</h2>
+        <div class="table-wrap" style="margin-top:28px">
+          <table>
+            <caption>Read from the app’s source code for version 0.1.0.</caption>
+            <thead><tr><th scope="col">Topic</th><th scope="col">What holds</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Android version</th><td>Android 7.0 (API 24) or later.</td></tr>
+              <tr><th scope="row">NFC</th><td>Needed to send to an NFC frame. Not needed to prepare a picture and export it for a device that takes a file.</td></tr>
+              <tr><th scope="row">Pictures in</th><td>Chosen in Android’s photo picker, or shared to Pic2Ink from another app.</td></tr>
+              <tr><th scope="row">Pictures out</th><td>To the frame over NFC, or saved as a PNG at the device’s exact size, in Documents/Pic2Ink.</td></tr>
+              <tr><th scope="row">Permissions</th><td>NFC; internet, only to send feedback you submit; storage on Android 12 and older, only to save exports. No access to the rest of your photo library.</td></tr>
+              <tr><th scope="row">Connection</th><td>None needed: preparing and sending work offline.</td></tr>
+              <tr><th scope="row">Account and price</th><td>No account. Free.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section panel" aria-labelledby="frames">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Frames</span><h2 id="frames">Tested, and in the catalogue.</h2></div>
+          <p class="section-intro">The catalogue comes from DITHR and is generated here from the app’s own list, so this table and the app’s device picker match. <strong>Tested</strong> means sent to and confirmed on a real frame with Pic2Ink. A frame moves to Tested only with a dated confirmation from the owner or a tester.</p>
+        </div>
+        <!-- frames:begin generated by tools/pic2ink_frames.ts from di2g/einksend src/lib/devices.ts @ 6fb6fe2: nfc=31 file=21 tested=1 — do not edit by hand -->
+        <div class="table-wrap">
+          <table class="frames">
+            <caption class="sr-only">Frames and displays in Pic2Ink's catalogue: 31 NFC entries and 21 file-export devices; 1 tested with Pic2Ink.</caption>
+            <thead><tr><th scope="col">Brand</th><th scope="col">Model</th><th scope="col">Inks</th><th scope="col">Pixels</th><th scope="col">Connection</th><th scope="col">Status</th></tr></thead>
+            <tbody>
+            <tr class="row-tested"><td>TapMora</td><td>2.8&quot; Photoframe</td><td>Spectra 6 (six inks)</td><td>304&#215;400</td><td>NFC</td><td><strong>Tested</strong></td></tr>
+            <tr><td>DIY</td><td>Magnetic Eink 3.97&quot; Display</td><td>Black, white, red, yellow</td><td>528&#215;768</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>EZ Sign</td><td>2.13&quot; Display</td><td>Black, white, red, yellow</td><td>250&#215;122</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>EZ Sign</td><td>2.9&quot; Display</td><td>Black, white</td><td>296&#215;128</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>EZ Sign</td><td>2.9&quot; Display</td><td>Black, white, red, yellow</td><td>296&#215;128</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>EZ Sign</td><td>4.2&quot; Display</td><td>Black, white</td><td>400&#215;300</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>EZ Sign</td><td>4.2&quot; Display</td><td>Black, white, red, yellow</td><td>400&#215;300</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>0.97&quot; Screen</td><td>Black, white</td><td>184&#215;88</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>0.97&quot; Screen</td><td>Black, white, red, yellow</td><td>184&#215;88</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>1.54&quot; Keychain</td><td>Black, white, red, yellow</td><td>200&#215;200</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>1.54&quot; Screen</td><td>Black, white</td><td>200&#215;200</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>Hi-Res 1.54&quot; Screen</td><td>Black, white, red, yellow</td><td>200&#215;200</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>2.13&quot; Screen</td><td>Black, white</td><td>250&#215;122</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>2.13&quot; Screen</td><td>Black, white, red, yellow</td><td>250&#215;122</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>2.66&quot; Screen</td><td>Black, white</td><td>296&#215;152</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>Hi-Res 2.66&quot; Screen</td><td>Black, white, red, yellow</td><td>360&#215;184</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>2.7&quot; Screen</td><td>Black, white</td><td>264&#215;176</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>2.9&quot; Screen</td><td>Black, white</td><td>296&#215;128</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>2.9&quot; Screen</td><td>Black, white, red, yellow</td><td>296&#215;128</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>Hi-Res 2.9&quot; Screen</td><td>Black, white, red, yellow</td><td>384&#215;168</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>3.6&quot; Badge</td><td>Spectra 6 (six inks)</td><td>400&#215;600</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>3.7&quot; Screen</td><td>Black, white</td><td>416&#215;240</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>3.7&quot; Screen</td><td>Black, white, red, yellow</td><td>416&#215;240</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>4.2&quot; ESL</td><td>Black, white</td><td>400&#215;300</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>4.2&quot; Screen</td><td>Black, white</td><td>400&#215;300</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Good Display</td><td>4.2&quot; Screen</td><td>Black, white, red, yellow</td><td>400&#215;300</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Hipoink</td><td>Einky 1.54&quot; Keychain</td><td>Black, white, red, yellow</td><td>200&#215;200</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Hipoink</td><td>Tong Card 2.53&quot;</td><td>Black, white, red, yellow</td><td>428&#215;428</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Reink</td><td>iPhone case C1 3.7&quot;</td><td>Black, white, red, yellow</td><td>240&#215;416</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Waveshare</td><td>1.54&quot; Keychain</td><td>Black, white, red, yellow</td><td>200&#215;200</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Xteink</td><td>Tong Card 2.53&quot;</td><td>Black, white, red, yellow</td><td>428&#215;428</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>M5Stack</td><td>Cardputer Adv 1.14&quot;</td><td>Full colour</td><td>240&#215;135</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>M5Stack</td><td>Cardputer Zero 1.9&quot;</td><td>Full colour</td><td>320&#215;170</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>M5Stack</td><td>PaperMono 3.97&quot;</td><td>4 greys</td><td>480&#215;800</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>M5Stack</td><td>PaperColor 4&quot;</td><td>Spectra 6 (six inks)</td><td>400&#215;600</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>M5Stack</td><td>M5Paper 4.7&quot;</td><td>16 greys</td><td>540&#215;960</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>PICPAK</td><td>Mini E-Ink Album 4.2&quot;</td><td>Black, white, red, yellow</td><td>400&#215;300</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Seeed Studio</td><td>Sticky 3.97&quot;</td><td>4 greys</td><td>480&#215;800</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Seeed Studio</td><td>reTerminal E1002 7.3&quot; Dashboard</td><td>Spectra 6 (six inks)</td><td>800&#215;480</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Seeed Studio</td><td>reTerminal E1001 7.5&quot; Dashboard</td><td>16 greys</td><td>800&#215;480</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Seeed Studio</td><td>reTerminal E1003 10.3&quot; Dashboard</td><td>16 greys</td><td>1872&#215;1404</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Seeed Studio</td><td>reTerminal E1004 13.3&quot; Dashboard</td><td>Spectra 6 (six inks)</td><td>1200&#215;1600</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>TRMNL</td><td>BWRY 7.5&quot; Dashboard</td><td>Black, white, red, yellow</td><td>1872&#215;1404</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>TRMNL</td><td>OG 7.5&quot; Dashboard</td><td>4 greys</td><td>800&#215;480</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>TRMNL</td><td>X 10.3&quot; Dashboard</td><td>16 greys</td><td>1872&#215;1404</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>VidaBay</td><td>Snap 2.67&quot;</td><td>Black, white, red, yellow</td><td>400&#215;400</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Waveshare</td><td>RLCD 4.2&quot; Screen</td><td>Black, white</td><td>400&#215;300</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Waveshare</td><td>ESP32-S3-PhotoPainter 7.3&quot;</td><td>Spectra 6 (six inks)</td><td>480&#215;800</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Waveshare</td><td>PhotoPainter (B) 7.3&quot;</td><td>Spectra 6 (six inks)</td><td>480&#215;800</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Waveshare</td><td>Rpi-Zero-PhotoPainter 7.3&quot;</td><td>Spectra 6 (six inks)</td><td>480&#215;800</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Xteink</td><td>X3 3.7&quot; eReader</td><td>4 greys</td><td>528&#215;792</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            <tr><td>Xteink</td><td>X4 4.3&quot; eReader</td><td>4 greys</td><td>480&#215;800</td><td>File (PNG)</td><td>In catalogue, not tested with Pic2Ink</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- frames:end -->
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq">
+      <div class="narrow">
+        <h2 id="faq">Questions</h2>
+        <div class="faq" style="margin-top:28px">
+          <details id="faq-frame"><summary>Does my frame work?</summary><p>Look it up in the table above. Only a TapMora Spectra 6 frame has been tested with Pic2Ink. Every other entry uses the profile and protocol DITHR has for it, and has not been tried with Pic2Ink. A frame that is not in the table may still be recognised by Auto-detect, which is experimental.</p></details>
+          <details id="faq-preview"><summary>Why does the frame look different from the preview?</summary><p>The preview shows exactly the pixels and inks that are sent. If the picture on the frame is shifted, cut off at the edges or garbled, the bezel may hide some pixels (measure it), or the frame may need a different profile. Send feedback with App logs ticked, and the log shows each NFC step.</p></details>
+          <details id="faq-confirmed"><summary>Why “sent, not confirmed”?</summary><p>The app sent the image but did not receive the frame’s report that its refresh had finished. Look at the frame: the picture may still have arrived. Nothing is retried automatically, so send again if it did not.</p></details>
+          <details id="faq-bezel"><summary>What is Measure bezel for?</summary><p>Many frames hide a few edge pixels under the bezel, and units differ. Measure bezel sends an edge ruler, reads from one photo how many pixels each edge hides, and after you check the numbers saves them for that frame. Pictures are then placed in the part you can see.</p></details>
+          <details id="faq-offline"><summary>Does it work without internet?</summary><p>Yes. Preparing a picture and sending it over NFC need no connection. Only feedback you send uses the internet; if the phone is offline, it waits on the phone and is sent later.</p></details>
+          <details id="faq-sends"><summary>What leaves the phone?</summary><p>Your picture goes only to the frame you tap, over NFC. Nothing is uploaded unless you send feedback, and its screenshot, ticked by default, shows your picture if it is on screen; untick it to leave it out. Details are on <a href="/pic2ink/privacy/">the privacy page</a>.</p></details>
+          <details id="faq-free"><summary>Is it free?</summary><p>Yes, Pic2Ink is free. It is in a closed test and not yet on Google Play.</p></details>
+          <details id="faq-maker"><summary>Is Pic2Ink made by the frame’s maker?</summary><p>No. Pic2Ink is made by SciNTech and based on DITHR by redphx (MIT licence). Brand names belong to their owners; Pic2Ink is not affiliated with or endorsed by any frame maker.</p></details>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">SciNTech</p>
+          <p class="fine">Useful Android tools, built on science, that work offline — and say plainly where they fall short.</p>
+          <div class="facet-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">Pic2Ink</p>
+          <a href="/pic2ink/how-it-works/">How it works</a>
+          <a href="/pic2ink/compatibility/">Compatibility &amp; FAQ</a>
+          <a href="/pic2ink/privacy/">Privacy</a>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">SciNTech</p>
+          <a href="/about/">About &amp; values</a>
+          <a href="/changelog/">Changelog</a>
+          <a href="/compatibility/">Compatibility</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/watermark-remover/">Watermark Remover</a>
+          <a href="/seamless-video-looper/">Seamless Video Looper</a>
+        </div>
+      </div>
+      <div class="footer-base">
+        <p class="fine">Questions and reports go through the app’s Send feedback button. This site sets no cookies and loads no analytics.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

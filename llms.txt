@@ -21,7 +21,7 @@ Support: each app's Settings → Send feedback. Privacy and data-deletion reques
 
 Real technique, not decoration: each app aims established methods at one practical problem and names them.
 Offline, and free at the core: each app's core work runs on the phone without a connection, and its core features are free.
-Nothing wasted, nothing forced: each app checks the phone's hardware and set defaults from the result.
+Awareness through measurement: each app measures the hardware it works with and the result it produces: it sets its defaults from the first and shows you the second.
 Honest about what won't work: each app states the cases it handles badly.
 Predictable, and yours to adjust: every report an app sends is a switch in Settings.
 
@@ -74,10 +74,21 @@ Status: on Google Play, https://play.google.com/store/apps/details?id=com.seamle
 Status: closed test, not yet on Google Play (package com.scintech.pic2ink, version 0.1.0). Based on DITHR by redphx (MIT licence).
 
 Pages:
+- https://scintech-dev.github.io/pic2ink/ — What the app does in three steps, what it handles and does not.
+- https://scintech-dev.github.io/pic2ink/how-it-works/ — Dithering to a panel's few inks, the exact buffer, the NFC send, measuring the bezel from a photo.
+- https://scintech-dev.github.io/pic2ink/compatibility/ — Requirements, the frames table generated from the app's catalogue (tested / not tested), FAQ.
 - https://scintech-dev.github.io/pic2ink/privacy/ — Privacy at a glance, and the full policy at #policy.
 
 Facts:
 
+- Requires Android 7.0 (API 24) or later. NFC is needed for NFC frames, not for devices that take a picture file (PNG export).
+- Three steps: choose the device (brand and model), choose the picture (photo picker or Share; crop by dragging, rotate 90°), send via NFC.
+- Catalogue (from DITHR, generated from the app's own list at einksend 6fb6fe2): 31 NFC entries (27 profiles and 4 variants) and 21 file-export devices. Tested with Pic2Ink: TapMora Spectra 6 photo frame only (2026-10-28); every other entry is "in catalogue, not tested with Pic2Ink".
+- The picture is prepared at the panel's exact resolution (TapMora 304×400) in the panel's inks only, using DITHR's error diffusion: Floyd–Steinberg, Atkinson, Jarvis, Ostromoukhov or none; the default is DITHR's Atkinson/Jarvis hybrid.
+- A send is reported as "confirmed" (the frame reported its refresh finished) or "sent, not confirmed"; nothing is retried automatically.
+- Measure bezel: sends an edge ruler, reads from one photo of the frame how many pixels each edge hides (about ±1 px), and saves the values for that frame after the user checks them.
+- Auto-detect (experimental): a read-only scan identifies an unknown frame's protocol family from its reply.
+- Free; no account. Not affiliated with or endorsed by any frame maker.
 - Pictures are prepared on the phone and sent only to the frame the user taps, over NFC.
 - Nothing is uploaded unless the user sends feedback; there are no accounts, no advertising and no analytics software, and no automatic reports.
 - A feedback report's screenshot is ticked by default and can show the user's picture if it is on screen; it can be unticked before sending.

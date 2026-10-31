@@ -4,7 +4,9 @@
 Prints one token per check; a check that fails prints <NAME>_FAIL plus the reasons.
 Exit code is 1 if any check fails, but grep the tokens: exit 0 is not a pass.
 
-  SITE_LINKS_OK n=<internal links> pending=<k> external=<e>
+  SITE_LINKS_OK n=<internal links> pending=<k> unlinked=<u> external=<e>
+      (tools/pending_links.txt: paths later chunks create, or with owner UNLINKED, pages that
+      exist but must not be linked yet and must be noindex — spec 0003 AC-9)
   SITE_NOEMAIL_OK files=<n> allowed=<k>
       (owner 2026-09-23 "email on privacy pages only": the one CONTACT_EMAIL may appear only
       in the contact/deletion section of the app privacy policies in EMAIL_PAGES, and must
@@ -417,8 +419,16 @@ def main():
 
     # ---- links
     fails, n_int, n_ext, pend_used = [], 0, 0, set()
+    unlinked = {p for p, o in pending.items() if o == "UNLINKED"}
     for path in pending:
         rel = path.lstrip("/") + ("index.html" if path.endswith("/") else "")
+        if path in unlinked:
+            # spec 0003 AC-9: the page exists, is noindex, and nothing links to it yet
+            if not os.path.exists(os.path.join(root, rel)):
+                fails.append(f"UNLINKED path {path} does not exist")
+            elif "noindex" not in pages[rel].meta.get("robots", ""):
+                fails.append(f"UNLINKED page {path} must carry <meta name=robots content=noindex>")
+            continue
         if os.path.exists(os.path.join(root, rel)):
             fails.append(f"pending path {path} now exists: remove it from tools/pending_links.txt")
     for rel, p in pages.items():
@@ -432,6 +442,10 @@ def main():
                 continue
             n_int += 1
             target, frag, path = r
+            if path in unlinked:
+                if url_path(rel) != path:
+                    fails.append(f"{rel}: links to {path}, which is UNLINKED in tools/pending_links.txt")
+                continue
             if path in pending:
                 pend_used.add(path)
                 continue
@@ -442,7 +456,7 @@ def main():
                 fails.append(f"{rel}: {href} — no id '{frag}' in {target}")
             if kind == "href" and target.endswith(".html") and not href.split("#")[0].endswith("/") and href.split("#")[0]:
                 fails.append(f"{rel}: {href} — link to a page must end in '/' (rule R2)")
-    report("SITE_LINKS", fails, f"SITE_LINKS_OK n={n_int} pending={len(pend_used)} external={n_ext}")
+    report("SITE_LINKS", fails, f"SITE_LINKS_OK n={n_int} pending={len(pend_used)} unlinked={len(unlinked)} external={n_ext}")
     if pend_used:
         print("  pending (owned by later chunks): " + ", ".join(f"{k} [{pending[k]}]" for k in sorted(pend_used)))
 

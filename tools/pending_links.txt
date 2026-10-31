@@ -2,6 +2,6 @@
 # tools/check_site.py reports these as pending instead of broken, and FAILS if a listed
 # path now exists — delete the line in the chunk that creates the page.
 # path                                  owner chunk
-/pic2ink/                               pic2ink-S2
-/pic2ink/how-it-works/                  pic2ink-S2
-/pic2ink/compatibility/                 pic2ink-S2
+# UNLINKED: the page exists but no page may link to it yet, and it must be noindex (it is then
+# not required in sitemap.xml). Delete the line when the page is linked.
+/pic2ink/beta/                          UNLINKED  # until the Pic2Ink closed test is live in Play Console (spec 0003 §4.6, AC-9)
