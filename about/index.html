@@ -64,6 +64,7 @@
             <ul class="per-app">
               <li><strong>Watermark Remover.</strong> It estimates the mark from its many repeats across two or more of your photos, then, where the mark hid the picture completely, MI-GAN — a small model that runs on the phone — fills in from the surroundings.</li>
               <li><strong>Seamless Video Looper.</strong> NeuFlow v2 optical flow and RIFE frame interpolation help the seam bend less where the phone supports them, and OpenCV’s ORB feature matching confirms a loop point closes.</li>
+              <li><strong>Pic2Ink.</strong> Error diffusion from DITHR — Floyd–Steinberg, Atkinson, Jarvis, Ostromoukhov — maps a photo onto a panel’s few inks, and a homography fitted to a photo of the frame reads how many pixels its bezel hides.</li>
             </ul>
           </article>
 
@@ -73,15 +74,17 @@
             <ul class="per-app">
               <li><strong>Watermark Remover.</strong> Learning and removing the mark run on the phone and need no connection. The current Google Play release is free.</li>
               <li><strong>Seamless Video Looper.</strong> Loop search, blending and rendering run on the phone. The current Google Play release is free.</li>
+              <li><strong>Pic2Ink.</strong> Preparing a picture and sending it over NFC need no connection. It is free; it is in a closed test, not yet on Google Play.</li>
             </ul>
           </article>
 
-          <article class="card value" id="nothing-wasted">
-            <h3>Nothing wasted, nothing forced</h3>
-            <p>Each app checks what the phone can actually do and sets its defaults from that, not from a guess.</p>
+          <article class="card value" id="awareness">
+            <h3>Awareness through measurement</h3>
+            <p>Each app measures the hardware it works with and the result it produces: it sets its defaults from the first and shows you the second.</p>
             <ul class="per-app">
-              <li><strong>Watermark Remover.</strong> A hardware check picks the fastest removal engine the phone supports.</li>
-              <li><strong>Seamless Video Looper.</strong> A Hardware Test checks memory, decoding and the optional motion methods; an option the phone can’t run well isn’t offered.</li>
+              <li><strong>Watermark Remover.</strong> A hardware check picks the fastest removal engine the phone supports, and after removal a “Mark remaining” estimate shows how much of the mark is left, relative to the input.</li>
+              <li><strong>Seamless Video Looper.</strong> A Hardware Test checks memory, decoding and the optional motion methods, and an option the phone can’t run well isn’t offered; ORB feature matching confirms that a loop point closes.</li>
+              <li><strong>Pic2Ink.</strong> Before each send to a TapMora frame it reads the frame’s own reply, and does not send if the size or inks differ from the profile; a bezel measured from a photo of your frame becomes that frame’s setting; and each send is reported as confirmed or as sent, not confirmed.</li>
             </ul>
           </article>
 
@@ -91,6 +94,7 @@
             <ul class="per-app">
               <li><strong>Watermark Remover.</strong> It needs two or more photos with the same mark, and a single standalone logo is not something it reliably removes: one copy leaves nothing to compare. Where a mark hid the picture completely, what is filled in is a reconstruction, not the original.</li>
               <li><strong>Seamless Video Looper.</strong> Fast crossings, occlusion and big camera moves can leave a visible seam no matter which candidate you pick.</li>
+              <li><strong>Pic2Ink.</strong> Only a TapMora Spectra 6 frame has been tested with it; every other frame in its catalogue is marked not tested, and a send the frame did not confirm is shown as “sent, not confirmed”.</li>
             </ul>
           </article>
 
@@ -100,6 +104,7 @@
             <ul class="per-app">
               <li><strong>Watermark Remover.</strong> Crash and out-of-memory reports, Hardware Test results and the self-test (run once per install and after some updates) are each a switch in Settings; which ones start switched on is stated in the app’s privacy page.</li>
               <li><strong>Seamless Video Looper.</strong> Crash sharing, Hardware Test reporting and render-failure reporting are each a switch in Settings.</li>
+              <li><strong>Pic2Ink.</strong> It sends no automatic reports. In a feedback report, the screenshot, picture details, app logs and settings are each ticked or unticked before you press Send.</li>
             </ul>
           </article>
 
@@ -115,9 +120,12 @@
         <ul>
           <li>Watermark Remover’s example gallery scores each result against the true clean image over the whole frame, including the cases where the app declines or does damage: <a href="/watermark-remover/examples/">see the measured examples</a>.</li>
           <li>Seamless Video Looper keeps a <a href="/docs/looper-claims.md">claims ledger</a> with the status and evidence of each statement on its pages.</li>
+          <li>Pic2Ink’s frames table is generated from the app’s own device catalogue, and a frame is marked tested only after a dated confirmation on a real frame: <a href="/pic2ink/compatibility/#frames">see the table</a>.</li>
         </ul>
+        <h2 id="compounding">Compounding iterative improvement.</h2>
+        <p>Each release starts from what the one before it measured: reports sent from the apps, the test sets, and the cases that failed. What a release fixes stays fixed and the next one builds on it, so improvements add up instead of being redone. Watermark Remover went from 0.2.0 to 0.5.4 in 18 releases between 2026-09-19 and 2026-10-24; every note is on the <a href="/changelog/">changelog</a>.</p>
         <h2>Feedback</h2>
-        <p>Feedback goes through the app’s Settings → Send feedback, which attaches the facts we need to find the problem. You can review what is sent before sending it.</p>
+        <p>Feedback goes through each app’s Send feedback, in Settings or as a button on screen, which attaches the facts we need to find the problem. You can review what is sent before sending it.</p>
       </div>
     </section>
   </main>

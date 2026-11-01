@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>How Pic2Ink works — dithering, NFC and the bezel</title>
+  <meta name="description" content="How Pic2Ink prepares a photo for an e-ink panel's exact pixels and few inks, sends it over NFC in the frame's own protocol, and measures the bezel from a photo.">
+  <link rel="canonical" href="https://scintech-dev.github.io/pic2ink/how-it-works/">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f4ef">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#15161a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SciNTech">
+  <meta property="og:title" content="How Pic2Ink works — dithering, NFC and the bezel">
+  <meta property="og:description" content="How Pic2Ink prepares a photo for an e-ink panel's exact pixels and few inks, sends it over NFC in the frame's own protocol, and measures the bezel from a photo.">
+  <meta property="og:url" content="https://scintech-dev.github.io/pic2ink/how-it-works/">
+  <meta property="og:image" content="https://scintech-dev.github.io/assets/img/pic2ink/og-pic2ink.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Pic2Ink: a phone sending a picture to an e-ink frame over NFC.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/scintech-mark-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/scintech-mark-180.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <script src="/assets/site.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://scintech-dev.github.io/#organization","name":"SciNTech","url":"https://scintech-dev.github.io/","logo":"https://scintech-dev.github.io/assets/img/scintech-mark-512.png","sameAs":["https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android","https://play.google.com/store/apps/details?id=com.watermarkremover.android"]},{"@type":"WebSite","@id":"https://scintech-dev.github.io/#website","name":"SciNTech","url":"https://scintech-dev.github.io/","inLanguage":"en","publisher":{"@id":"https://scintech-dev.github.io/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SciNTech","item":"https://scintech-dev.github.io/"},{"@type":"ListItem","position":2,"name":"Pic2Ink","item":"https://scintech-dev.github.io/pic2ink/"},{"@type":"ListItem","position":3,"name":"How it works","item":"https://scintech-dev.github.io/pic2ink/how-it-works/"}]}]}</script>
+</head>
+<body data-app="pic2ink">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="/"><img src="/assets/img/scintech-mark-64.png" width="32" height="32" alt="" decoding="async"><span>SciNTech</span></a>
+      <div class="nav-links">
+        <a class="nav-app" data-app-link="wmr" href="/watermark-remover/">Watermark Remover</a>
+        <a class="nav-app" data-app-link="looper" href="/seamless-video-looper/">Seamless Video Looper</a>
+        <a class="nav-app" data-app-link="pic2ink" href="/pic2ink/">Pic2Ink</a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a href="/about/">About</a>
+        <a href="/changelog/">Changelog</a>
+        <a href="/compatibility/">Compatibility</a>
+        <a href="/privacy/">Privacy</a>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" hidden><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M5.3 18.7 7 17M17 7l1.7-1.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">Dark theme</span></button>
+    </nav>
+  </header>
+  <nav class="app-nav" aria-label="Pic2Ink">
+    <div class="wrap">
+        <a href="/pic2ink/">Home</a>
+        <a href="/pic2ink/how-it-works/" aria-current="page">How it works</a>
+        <a href="/pic2ink/compatibility/">Compatibility</a>
+        <a href="/pic2ink/privacy/">Privacy</a>
+    </div>
+  </nav>
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="wrap">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">SciNTech</a></li><li><a href="/pic2ink/">Pic2Ink</a></li><li aria-current="page">How it works</li></ol></nav>
+        <span class="eyebrow">How it works</span>
+        <h1>Few inks, every pixel counted.</h1>
+        <p class="lede">An e-ink frame has a fixed grid of pixels and a handful of inks. Pic2Ink prepares a photo for exactly that grid and those inks, sends it in the frame’s own protocol, and can measure what the frame’s bezel hides. Four ideas, no formulas.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="ideas-title">
+      <div class="wrap">
+        <h2 id="ideas-title" class="sr-only">Four ideas</h2>
+        <ol class="steps">
+          <li>
+            <div class="card"><span class="step-num">1</span><h3>Few inks, many pixels</h3><p>A Spectra 6 panel such as TapMora’s has six inks: black, white, red, yellow, green and blue. The frame lists them in its own reply.</p><p>Error diffusion picks the nearest ink for each pixel and passes the rounding error on to the pixels next to it, so patterns of inks read as the colours in between. Pic2Ink uses DITHR’s methods: Floyd–Steinberg, Atkinson, Jarvis, Ostromoukhov, or none. The default is DITHR’s own hybrid of Atkinson and Jarvis.</p></div>
+            <figure class="diagram"><picture><source srcset="/assets/img/pic2ink/shot-010-03-dithering.webp" type="image/webp"><img src="/assets/img/pic2ink/shot-010-03-dithering.jpg" width="540" height="960" alt="The Dithering sheet with a dithered landscape, style chips and the method Natural (Atkinson + Jarvis)." loading="lazy" decoding="async" style="margin-inline:auto;max-height:520px;width:auto"></picture><figcaption class="fine" style="margin-top:10px">The Dithering sheet in Advanced mode (version 0.1.0).</figcaption></figure>
+          </li>
+          <li>
+            <div class="card"><span class="step-num">2</span><h3>The exact buffer</h3><p>The picture is prepared at the panel’s own size — 304×400 pixels for TapMora — and contains only the panel’s inks.</p><p>The preview is that same buffer, scaled up with square pixels; it never feeds back into it. Export as PNG saves exactly what would be sent.</p></div>
+            <figure class="diagram"><picture><source srcset="/assets/img/pic2ink/shot-010-01-easy.webp" type="image/webp"><img src="/assets/img/pic2ink/shot-010-01-easy.jpg" width="540" height="960" alt="Easy mode showing the prepared 304×400 picture and the line Photo 3000×2000 → 304×400." loading="lazy" decoding="async" style="margin-inline:auto;max-height:520px;width:auto"></picture><figcaption class="fine" style="margin-top:10px">A 3000×2000 photo prepared as 304×400 for a TapMora frame.</figcaption></figure>
+          </li>
+          <li>
+            <div class="card"><span class="step-num">3</span><h3>NFC, in the frame’s own protocol</h3><p>The phone talks to the frame over NFC, using the protocol DITHR implements for that frame family; a battery-free frame such as TapMora also takes its power from the phone. With TapMora, the app first reads the frame’s configuration, then sends the packed image — compressed, since the frame reports that it can unpack it — and waits for the refresh to finish.</p><p>Only when the frame reports that it is done is the send called “confirmed”; otherwise it is “sent, not confirmed”. A TapMora frame whose reply does not match its profile (size, number of inks, which inks) is not sent to at all. In Advanced mode, Diagnostics shows each command.</p></div>
+            <figure class="diagram"><svg viewBox="0 0 320 200" role="img" aria-labelledby="dg-nfc-t dg-nfc-d"><title id="dg-nfc-t">One send over NFC</title><desc id="dg-nfc-d">A phone on the left and an e-ink frame on the right. Three arrows run between them in order: the phone asks for the frame's configuration and the frame answers; the phone sends the packed image; the frame reports when its refresh is done.</desc>
+<rect class="dg-edge" x="16" y="30" width="62" height="130" rx="10"/><rect class="dg-soft" x="24" y="44" width="46" height="96" rx="4"/>
+<rect class="dg-edge" x="236" y="40" width="70" height="110" rx="4"/><rect class="dg-soft" x="246" y="50" width="50" height="90"/>
+<path class="dg-line" d="M90 62 H224 M214 54 l10 8 -10 8"/><path class="dg-dash" d="M224 82 H90"/><path class="dg-line" d="M100 74 l-10 8 10 8" />
+<path class="dg-line" d="M90 112 H224 M214 104 l10 8 -10 8"/><path class="dg-dash" d="M224 140 H90"/><path class="dg-line" d="M100 132 l-10 8 10 8"/>
+<text class="dg-ink" x="157" y="56" text-anchor="middle" font-size="11">configuration?</text><text class="dg-ink" x="157" y="100" text-anchor="middle" font-size="11">size, inks</text>
+<text class="dg-ink" x="157" y="128" text-anchor="middle" font-size="11">image</text><text class="dg-ink" x="157" y="158" text-anchor="middle" font-size="11">refresh done</text>
+<text class="dg-ink" x="47" y="180" text-anchor="middle" font-size="11">phone</text><text class="dg-ink" x="271" y="170" text-anchor="middle" font-size="11">frame</text></svg></figure>
+          </li>
+          <li>
+            <div class="card"><span class="step-num">4</span><h3>Measuring the bezel from a photo</h3><p>Many frames hide a few edge pixels under the bezel, and each unit differs. Measure bezel sends an edge ruler: on each edge, bar <em>k</em> covers pixels 0 to <em>k</em>.</p><p>You take one photo of the frame. The app finds the panel’s outline, maps the photo onto the panel’s grid (a homography), and reads where each ruler bar disappears. That gives the hidden pixels per edge, to about ±1 pixel. You check the numbers and save them for that frame.</p></div>
+            <figure class="diagram"><img class="pixelated" src="/assets/img/pic2ink/edge-ruler-304x400.png" width="304" height="400" alt="The edge ruler: numbered bars 0 to 19 along each edge in black and blue on white, and in the middle the instruction to find the smallest number whose bar shows any ink." loading="lazy" decoding="async" style="margin-inline:auto"><figcaption class="fine" style="margin-top:10px">The ruler itself, 304×400, generated by the app — not a photo.</figcaption></figure>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section tight">
+      <div class="wrap">
+        <div class="callout">
+          <span class="eyebrow">Experimental</span>
+          <h2>Auto-detect, for a frame the catalogue does not name.</h2>
+          <p>In Advanced mode, a read-only scan identifies an unknown frame’s protocol family from its own reply. For some frames, an opt-in guided test then sends a calibration image in different encodings, asks what you see, and saves the one that works.</p>
+          <div class="hero-actions">
+            <a class="button secondary" href="/pic2ink/compatibility/">Which frames work</a>
+            <a class="button secondary" href="/pic2ink/compatibility/#faq">Questions and answers</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">SciNTech</p>
+          <p class="fine">Useful Android tools, built on science, that work offline — and say plainly where they fall short.</p>
+          <div class="facet-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">Pic2Ink</p>
+          <a href="/pic2ink/how-it-works/">How it works</a>
+          <a href="/pic2ink/compatibility/">Compatibility &amp; FAQ</a>
+          <a href="/pic2ink/privacy/">Privacy</a>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">SciNTech</p>
+          <a href="/about/">About &amp; values</a>
+          <a href="/changelog/">Changelog</a>
+          <a href="/compatibility/">Compatibility</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/watermark-remover/">Watermark Remover</a>
+          <a href="/seamless-video-looper/">Seamless Video Looper</a>
+        </div>
+      </div>
+      <div class="footer-base">
+        <p class="fine">Questions and reports go through the app’s Send feedback button. This site sets no cookies and loads no analytics.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
