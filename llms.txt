@@ -1,8 +1,8 @@
 # SciNTech
 
-SciNTech uses science to make useful Android tools that work offline. Its apps do their core work on the phone, without a connection, and their core features are free. Current apps: Watermark Remover, which learns a repeating, tiled watermark from two or more photos carrying the same mark and lifts it off, and Seamless Video Looper, which finds a loop point in a video and renders a forward-playing seamless loop. Photos and videos are not uploaded to be processed.
+SciNTech uses science to make useful Android tools that work offline. Its apps do their core work on the phone, without a connection, and their core features are free. Current apps: Watermark Remover, which learns a repeating, tiled watermark from two or more photos carrying the same mark and lifts it off, Seamless Video Looper, which finds a loop point in a video and renders a forward-playing seamless loop, and Pic2Ink, which prepares a photo for an NFC e-ink frame and sends it from the phone (closed test, not yet on Google Play). Photos and videos are not uploaded to be processed.
 
-Support: each app's Settings → Send feedback. Privacy and data-deletion requests: the contact section of each app's privacy policy.
+Support: each app's Settings → Send feedback. Privacy and data-deletion requests: the contact or data-removal section of each app's privacy policy.
 
 ## Pages
 
@@ -68,3 +68,18 @@ Status: on Google Play, https://play.google.com/store/apps/details?id=com.seamle
 - Built on named techniques: NeuFlow v2 optical flow, RIFE frame interpolation, OpenCV ORB feature matching.
 - Fast foreground crossings, occlusion and large camera moves can leave a visible seam.
 - Core features are free and work offline; the current release is free. The app contains no advertising or general usage-analytics SDK.
+
+## Pic2Ink
+
+Status: closed test, not yet on Google Play (package com.scintech.pic2ink, version 0.1.0). Based on DITHR by redphx (MIT licence).
+
+Pages:
+- https://scintech-dev.github.io/pic2ink/privacy/ — Privacy at a glance, and the full policy at #policy.
+
+Facts:
+
+- Pictures are prepared on the phone and sent only to the frame the user taps, over NFC.
+- Nothing is uploaded unless the user sends feedback; there are no accounts, no advertising and no analytics software, and no automatic reports.
+- A feedback report's screenshot is ticked by default and can show the user's picture if it is on screen; it can be unticked before sending.
+- Reports carry three anonymous identifiers (a random install identifier, Android ID, and a Firebase anonymous sign-in identifier), used only to group reports from one phone.
+- Sent reports are deleted within 30 days of a request; the policy's "Removing your data" section says how to ask.

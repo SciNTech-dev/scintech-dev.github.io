@@ -2,3 +2,6 @@
 # tools/check_site.py reports these as pending instead of broken, and FAILS if a listed
 # path now exists — delete the line in the chunk that creates the page.
 # path                                  owner chunk
+/pic2ink/                               pic2ink-S2
+/pic2ink/how-it-works/                  pic2ink-S2
+/pic2ink/compatibility/                 pic2ink-S2

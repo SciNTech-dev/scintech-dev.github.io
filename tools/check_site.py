@@ -7,9 +7,13 @@ Exit code is 1 if any check fails, but grep the tokens: exit 0 is not a pass.
   SITE_LINKS_OK n=<internal links> pending=<k> external=<e>
   SITE_NOEMAIL_OK files=<n> allowed=<k>
       (owner 2026-09-23 "email on privacy pages only": the one CONTACT_EMAIL may appear only
-      in the contact/deletion section of the two app privacy policies, and must appear there)
+      in the contact/deletion section of the app privacy policies in EMAIL_PAGES, and must
+      appear there; Pic2Ink's policy names no address, spec 0003 Q3, so it is not listed)
   SITE_META_OK pages=<n>
   SITE_A11Y_OK pages=<n>
+  SITE_NAV_OK apps=<n> pages=<p>
+      (spec 0003 §8: every page's primary nav lists each app in APPS, in APPS order, linking
+      to the app's home — the hand-copied header is the drift risk of a third app)
   SITE_THEME_OK tokens=<n> blocks=<b>
   SITE_CONTRAST_OK pairs=<n> min=<ratio>
   SITE_JSONLD_OK nodes=<n>
@@ -266,7 +270,11 @@ PAIRS = [("text", "bg"), ("text", "surface"), ("text", "surface-2"),
          ("muted", "bg"), ("muted", "surface"), ("muted", "surface-2"),
          ("accent", "bg"), ("accent", "surface"), ("accent", "surface-2"),
          ("accent-ink", "accent-bg"), ("accent", "accent-soft"), ("band-text", "band-bg")]
-APPS = {"hub": None, "wmr": '[data-app="wmr"]', "looper": '[data-app="looper"]'}
+APPS = {"hub": None, "wmr": '[data-app="wmr"]', "looper": '[data-app="looper"]',
+        "pic2ink": '[data-app="pic2ink"]'}
+APP_HOME = {"wmr": "/watermark-remover/", "looper": "/seamless-video-looper/", "pic2ink": "/pic2ink/"}
+PRIMARY_NAV_RE = re.compile(r'<nav class="nav wrap" aria-label="Primary">(.*?)</nav>', re.S)
+NAV_APP_RE = re.compile(r'<a class="nav-app" data-app-link="([^"]+)" href="([^"]+)"')
 
 
 def check_theme(css):
@@ -541,6 +549,25 @@ def main():
             if not (text.strip() or a.get("aria-label")):
                 fails.append(f"{rel}: link {a.get('href')} without text")
     report("SITE_A11Y", fails, f"SITE_A11Y_OK pages={len(pages)}")
+
+    # ---- primary nav names every app, in order (spec 0003 §8, AC-4)
+    fails, want = [], [a for a in APPS if APPS[a]]
+    for a in want:
+        if a not in APP_HOME:
+            fails.append(f"APPS has {a} but APP_HOME has no home path for it")
+    for rel in html_files:
+        txt = open(os.path.join(root, rel), encoding="utf-8").read()
+        m = PRIMARY_NAV_RE.search(txt)
+        if not m:
+            fails.append(f"{rel}: no primary nav")
+            continue
+        got = NAV_APP_RE.findall(m.group(1))
+        if [a for a, _ in got] != want:
+            fails.append(f"{rel}: primary nav apps {[a for a, _ in got]} != {want}")
+        for a, href in got:
+            if APP_HOME.get(a) != href:
+                fails.append(f"{rel}: nav link {a} -> {href}, expected {APP_HOME.get(a)}")
+    report("SITE_NAV", fails, f"SITE_NAV_OK apps={len(want)} pages={len(html_files)}")
 
     # ---- theme tokens + contrast
     tfails, results, ntok, nblocks, _ = check_theme(css)
