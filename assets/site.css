@@ -330,7 +330,7 @@ td.empty { color: var(--c-muted); font-style: italic; }
 .steps .card p { margin-bottom: .6rem; }
 .diagram { margin: 0; background: var(--c-surface); border: 1px solid var(--c-edge); border-radius: var(--radius); padding: 14px; box-shadow: 7px 7px 0 var(--c-shadow); }
 .diagram svg { width: 100%; height: auto; }
-.pixelated { image-rendering: pixelated; } /* dithered buffers: shown at an integer multiple, pixels kept square */
+.pixelated { image-rendering: pixelated; height: auto; } /* dithered buffers: shown at an integer multiple, pixels kept square */
 .frames tr.row-tested td { background: var(--c-accent-soft); }
 
 .dg-edge { fill: none; stroke: var(--c-edge); stroke-width: 2; }
