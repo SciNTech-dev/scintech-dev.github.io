@@ -4,4 +4,3 @@
 # path                                  owner chunk
 # UNLINKED: the page exists but no page may link to it yet, and it must be noindex (it is then
 # not required in sitemap.xml). Delete the line when the page is linked.
-/pic2ink/beta/                          UNLINKED  # until the Pic2Ink closed test is live in Play Console (spec 0003 §4.6, AC-9)
