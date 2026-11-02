@@ -251,6 +251,7 @@ h3 { font-size: 1.18rem; letter-spacing: -.01em; }
 .app-card-head img { width: 64px; height: 64px; border-radius: 15px; }
 .app-card h3 { margin: 0; font-size: clamp(1.3rem, 2.4vw, 1.6rem); }
 .app-card .hero-actions { margin-top: auto; padding-top: 16px; }
+.apps-all { margin: 28px 0 0; }
 
 .value h3 { margin-top: 0; }
 .value .per-app { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }

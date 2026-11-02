@@ -20,6 +20,11 @@ Exit code is 1 if any check fails, but grep the tokens: exit 0 is not a pass.
   SITE_CONTRAST_OK pairs=<n> min=<ratio>
   SITE_JSONLD_OK nodes=<n>
   SITE_DISCOVERY_OK sitemap=<n> llms_urls=<n>
+  SITE_APPS_OK apps=<n> production=<p> pages=<k>
+      (apps.json is the list the apps copy at build time: its schema and byte format; each app
+      has a hub card, a link in every footer (an app's own section may omit itself), an
+      llms.txt entry and an existing site_url page; every footer links developer_page; no
+      Play details URL of an app that is not in production appears anywhere — spec AC-5)
   SITE_BUDGET_OK pages=<n> max_kb=<k> lcp_ms=<t> cls=<c> a11y_min=<s>
       (or SITE_BUDGET_SKIPPED when Lighthouse is not run: the chunk is then not green)
   SITE_CHECK_OK | SITE_CHECK_FAIL
@@ -339,6 +344,119 @@ def check_theme(css):
     return fails, results, ntok, nblocks, notes
 
 
+# ---------------------------------------------------------------- apps.json
+
+APPS_JSON_KEYS = ["studio", "website", "developer_page", "apps"]
+APP_KEYS = ["id", "name", "package", "status", "site_url", "play_url", "tagline"]
+APP_STATUS = {"production", "closed-test"}
+PLAY_DETAILS = "https://play.google.com/store/apps/" + "details?id="  # split: tools/ is scanned
+FOOTER_RE = re.compile(r'<footer class="site-footer">(.*?)</footer>', re.S)
+HUB_CARD_RE = re.compile(r'<article class="card app-card" data-app="([^"]+)">(.*?)</article>', re.S)
+
+
+def check_apps_schema(raw):
+    """apps.json text -> (parsed or None, fails). Pure, so it can be tried on bad input."""
+    fails = []
+    try:
+        cfg = json.loads(raw)
+    except ValueError as e:
+        return None, [f"apps.json does not parse: {e}"]
+    if raw != json.dumps(cfg, indent=2, ensure_ascii=False) + "\n":
+        fails.append("apps.json is not 2-space-indented JSON with a trailing newline (the apps copy it byte for byte)")
+    if not isinstance(cfg, dict) or list(cfg) != APPS_JSON_KEYS:
+        return None, fails + [f"apps.json top-level keys must be {APPS_JSON_KEYS}"]
+    for k in ("website", "developer_page"):
+        if not str(cfg[k]).startswith("https://"):
+            fails.append(f"apps.json {k} is not https: {cfg[k]!r}")
+    if cfg["website"] != HOST + "/":
+        fails.append(f"apps.json website {cfg['website']!r} != {HOST + '/'}")
+    ids = []
+    for i, a in enumerate(cfg["apps"] if isinstance(cfg["apps"], list) else []):
+        where = f"apps.json apps[{i}]"
+        if not isinstance(a, dict) or list(a) != APP_KEYS:
+            fails.append(f"{where}: keys must be {APP_KEYS}")
+            continue
+        where += f" ({a['id']})"
+        ids.append(a["id"])
+        if a["status"] not in APP_STATUS:
+            fails.append(f"{where}: status {a['status']!r} not in {sorted(APP_STATUS)}")
+        if (a["play_url"] is None) != (a["status"] != "production"):
+            fails.append(f"{where}: play_url must be null if and only if status is not production")
+        if a["play_url"] is not None and a["play_url"] != PLAY_DETAILS + a["package"]:
+            fails.append(f"{where}: play_url {a['play_url']!r} != {PLAY_DETAILS + a['package']}")
+        for k in ("site_url", "play_url"):
+            if a[k] is not None and not str(a[k]).startswith("https://"):
+                fails.append(f"{where}: {k} is not https: {a[k]!r}")
+        if not str(a["site_url"]).startswith(HOST + "/") or not str(a["site_url"]).endswith("/"):
+            fails.append(f"{where}: site_url must be a page of {HOST}/ ending in '/'")
+        if not (0 < len(a["tagline"]) <= 60):
+            fails.append(f"{where}: tagline must be 1..60 chars, is {len(a['tagline'])}")
+    if not ids:
+        fails.append("apps.json lists no apps")
+    if len(set(ids)) != len(ids):
+        fails.append(f"apps.json: duplicate ids {ids}")
+    return cfg, fails
+
+
+def check_apps(root, html_files):
+    """SITE_APPS: apps.json against the hub, every footer, llms.txt and the whole repo."""
+    path = os.path.join(root, "apps.json")
+    if not os.path.isfile(path):
+        return ["no apps.json at the site root"], 0, 0
+    cfg, fails = check_apps_schema(open(path, encoding="utf-8").read())
+    if cfg is None:
+        return fails, 0, 0
+    apps = [a for a in cfg["apps"] if isinstance(a, dict) and list(a) == APP_KEYS]
+    home = {a["id"]: a["site_url"][len(HOST):] for a in apps}
+    dev = cfg["developer_page"]
+    for a in apps:
+        r = resolve(root, "index.html", a["site_url"])
+        if not r or not os.path.isfile(os.path.join(root, r[0])):
+            fails.append(f"{a['id']}: site_url {a['site_url']} is not a page on this site")
+    # hub cards
+    hub = open(os.path.join(root, "index.html"), encoding="utf-8").read()
+    cards = dict(HUB_CARD_RE.findall(hub.split("<footer", 1)[0]))
+    for a in apps:
+        c = cards.get(a["id"])
+        if c is None:
+            fails.append(f"index.html: no hub card data-app=\"{a['id']}\"")
+            continue
+        if f'href="{home[a["id"]]}"' not in c:
+            fails.append(f"index.html: {a['id']} card does not link {home[a['id']]}")
+        if a["play_url"] and f'href="{a["play_url"]}' not in c:
+            fails.append(f"index.html: {a['id']} card has no Google Play link")
+    if f'href="{dev}"' not in hub.split("<footer", 1)[0]:
+        fails.append("index.html: the hub does not link developer_page outside the footer")
+    # footers
+    for rel in html_files:
+        txt = open(os.path.join(root, rel), encoding="utf-8").read()
+        m = FOOTER_RE.search(txt)
+        if not m:
+            fails.append(f"{rel}: no site footer")
+            continue
+        foot, own = m.group(1), url_path(rel)
+        if f'href="{dev}"' not in foot:
+            fails.append(f"{rel}: footer lacks the developer_page link")
+        for a in apps:
+            if not own.startswith(home[a["id"]]) and f'href="{home[a["id"]]}"' not in foot:
+                fails.append(f"{rel}: footer does not link {a['name']} ({home[a['id']]})")
+    # llms.txt
+    llms = open(os.path.join(root, "llms.txt"), encoding="utf-8").read()
+    for a in apps:
+        if not re.search(re.escape(a["site_url"]) + r"(?=[\s)]|$)", llms):  # the home itself, not a subpage
+            fails.append(f"llms.txt: no entry for {a['id']} ({a['site_url']})")
+    # no Play details URL for an app that is not live (spec AC-5)
+    banned = [PLAY_DETAILS.split("/apps/")[1] + a["package"] for a in apps if a["status"] != "production"]
+    for rel in walk(root, SKIP_DIRS - {"tools"}):
+        if os.path.splitext(rel)[1] not in TEXT_EXT:
+            continue
+        txt = open(os.path.join(root, rel), encoding="utf-8", errors="replace").read()
+        for b in banned:
+            if b in txt:
+                fails.append(f"{rel}: contains {b}, but that app is not in production")
+    return fails, len(apps), sum(a["status"] == "production" for a in apps)
+
+
 # ---------------------------------------------------------------- Lighthouse
 
 class QuietHandler(http.server.SimpleHTTPRequestHandler):
@@ -653,6 +771,10 @@ def main():
         if r and r[2] not in pending and not os.path.isfile(os.path.join(root, r[0])):
             fails.append(f"llms.txt: {u} does not resolve")
     report("SITE_DISCOVERY", fails, f"SITE_DISCOVERY_OK sitemap={len(locs)} llms_urls={len(llms_urls)}")
+
+    # ---- apps.json: the app list the apps copy, and the links that must follow it
+    fails, napps, nprod = check_apps(root, html_files)
+    report("SITE_APPS", fails, f"SITE_APPS_OK apps={napps} production={nprod} pages={len(html_files)}")
 
     # ---- budgets (static bytes) + Lighthouse
     fails = []
