@@ -2,6 +2,8 @@
 
 SciNTech uses science to make useful Android tools that work offline. Its apps do their core work on the phone, without a connection, and their core features are free. Current apps: Watermark Remover, which learns a repeating, tiled watermark from two or more photos carrying the same mark and lifts it off, Seamless Video Looper, which finds a loop point in a video and renders a forward-playing seamless loop, and Pic2Ink, which prepares a photo for an NFC e-ink frame and sends it from the phone (closed test, not yet on Google Play). Photos and videos are not uploaded to be processed.
 
+All apps on Google Play: https://play.google.com/store/apps/developer?id=SciNTech (Pic2Ink is not listed there until it leaves its closed test). Machine-readable list of the apps: https://scintech-dev.github.io/apps.json
+
 Support: each app's Settings → Send feedback. Privacy and data-deletion requests: the contact or data-removal section of each app's privacy policy.
 
 ## Pages
