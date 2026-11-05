@@ -68,25 +68,30 @@
       <div class="wrap">
         <h2 id="glance-title">At a glance</h2>
         <div class="grid-2" style="margin-top:28px">
-          <article class="card"><h3>Stays on the phone</h3><ul class="checklist"><li>Your pictures and the image prepared from them. A picture goes only to the frame you tap, over NFC.</li><li>Measured bezels and settings, in the app’s own storage.</li><li>A photo taken to measure a bezel is read in memory, and the camera’s file is deleted.</li></ul></article>
-          <article class="card"><h3>May be sent</h3><ul class="checklist"><li>Only feedback you send, when you press Send.</li><li>Its screenshot is ticked by default and shows your picture if it is on screen. Picture details, app logs and current settings go with it while they stay ticked.</li></ul></article>
-          <article class="card"><h3>Not in the app</h3><ul class="checklist"><li>No account, advertising, usage-analytics or crash-analytics software.</li><li>No automatic reports: the app sends nothing at start-up or on a schedule, only the feedback you send.</li><li>Reports carry anonymous identifiers so reports from one phone can be grouped; the policy names each one.</li></ul></article>
-          <article class="card"><h3>Yours to choose</h3><ul class="checklist"><li>Before sending feedback you can review it and untick the screenshot, picture details, app logs or current settings.</li><li>Uninstalling the app or clearing its storage deletes everything it kept on the phone. How to have sent reports deleted: <a href="#delete">Removing your data</a>.</li></ul></article>
+          <article class="card"><h3>Stays on the phone</h3><ul class="checklist"><li>Your pictures and the image prepared from them. A picture goes only to the frame you tap, over NFC or your own Wi-Fi.</li><li>Measured bezels and settings, in the app’s own storage.</li><li>A photo taken to measure a bezel is read in memory, and the camera’s file is deleted.</li></ul></article>
+          <article class="card"><h3>May be sent</h3><ul class="checklist"><li>Crash and failure reports: the kind of error and where in the app’s code, the step that failed and the phone’s model. On by default, with a switch in Settings.</li><li>A self-test and device report, from a check the app runs on a sample picture built into it: once per install and again after app, Android or WebView updates, not daily. It has its own switch.</li><li>Feedback you send, when you press Send. Its screenshot is ticked by default and shows your picture if it is on screen.</li></ul></article>
+          <article class="card"><h3>Not in the app</h3><ul class="checklist"><li>No account, advertising, usage-analytics or crash-analytics software.</li><li>Nothing at startup: opening the app makes no network connection of its own. It connects, and signs in anonymously, only when a report is about to be sent.</li><li>Reports carry anonymous identifiers so reports from one phone can be grouped; the policy names each one.</li></ul></article>
+          <article class="card"><h3>Yours to choose</h3><ul class="checklist"><li>Two switches in Settings (Diagnostics reports): one for crash and failure reports, one for the self-test. Turning one off also deletes reports of that kind still waiting on the phone.</li><li>Before sending feedback you can review it and untick the screenshot, picture details, app logs or current settings.</li><li>Uninstalling the app or clearing its storage deletes everything it kept on the phone. How to have sent reports deleted: <a href="#delete">Removing your data</a>.</li></ul></article>
         </div>
       </div>
     </section>
 
     <section class="section panel">
       <div class="narrow prose policy">
-<!-- policy:begin source=di2g/einksend docs/privacy/index.html @ 6fb6fe2, last updated 2026-10-30 (copied verbatim; headings h2→h3, summary box → .callout) -->
+<!-- policy:begin source=di2g/einksend docs/privacy/index.html @ feat/auto-reports, last updated 2026-11-05 (copied verbatim; headings h2→h3, summary box → .callout) -->
     <h2 id="policy">Privacy policy</h2>
-  <p class="fine">Pic2Ink for Android (<code>com.scintech.pic2ink</code>) by SciNTech. Last updated 2026-10-30.</p>
+  <p class="fine">Pic2Ink for Android (<code>com.scintech.pic2ink</code>) by SciNTech. Last updated 2026-11-05.</p>
 
   <div class="callout">
-    <p><strong>In short.</strong> Pic2Ink prepares and sends pictures on your phone. Nothing is
-    uploaded unless you send feedback. There are no accounts, no ads and no analytics.</p>
+    <p><strong>In short.</strong> Pic2Ink prepares and sends pictures on your phone. A picture goes only to your frame,
+    unless it is on screen in a feedback screenshot you send. The app sends automatic diagnostic reports (crashes, failures and a self-test)
+    unless you turn them off in Settings, and feedback only when you send it. There are no accounts,
+    no ads and no analytics.</p>
     <ul>
-      <li>Your pictures go only to the frame you tap, over NFC.</li>
+      <li>Your pictures go only to the frame you tap, over NFC or your own Wi-Fi.</li>
+      <li>Crash, failure and self-test reports are on by default, under two switches in
+      Settings, Diagnostics reports (crash and failure; self-test). They carry error types, code locations and phone facts, never a picture,
+      a file name, a Wi-Fi name or a frame's identifier.</li>
       <li>Feedback is sent only when you press Send, and you choose what goes with it.</li>
       <li>The screenshot option is ticked by default and shows what is on your screen, including your
       picture if it is on screen. Untick it to leave it out.</li>
@@ -98,7 +103,7 @@
     <li>Pictures you choose are decoded in memory and sent only to the frame you tap, over NFC. A
     picture shared to Pic2Ink from another app is copied into the app's private cache, where the
     next shared picture replaces it.</li>
-    <li>With a Wi-Fi frame (Bigme F7 Pro), the app looks for the frame only on your own home network: it sends requests to private addresses on that network, never outside it, and sends the picture to the frame it finds. Nothing goes through the internet or to us.</li>
+    <li>With a Wi-Fi frame (Bigme F7 Pro), the app looks for the frame only on your own home network: it sends requests to private addresses on that network, never outside it, and sends the picture to the frame it finds. Nothing goes through the internet or to us. After a send, the app keeps a fingerprint of the picture sent (its MD5) and a hashed form of the frame's serial number on the phone, to notice when the frame later shows another picture.</li>
     <li>Photos taken to measure a bezel are read in memory; the camera's temporary file is deleted.</li>
     <li>Settings (mode, device, rotation, fit and dithering) and bezel measurements are stored in the
     app's own storage.</li>
@@ -108,6 +113,41 @@
     file, or tick App logs when you send feedback.</li>
     <li>Pictures and logs you export are saved to Documents/Pic2Ink on your phone.</li>
   </ul>
+
+  <h3 id="automatic">Automatic reports</h3>
+  <p>Two switches in Settings, under Diagnostics reports, control the automatic reports. Both are on
+  by default. Turning one off stops that kind of report and deletes any report of that kind still
+  waiting on the phone.</p>
+  <ul>
+    <li><strong>Crash reports</strong>: when the app stops because of an error, or the page inside it
+    fails, the app records the kind of error and the places in its own code where it happened, and
+    sends that at once or, if the app closed, the next time it starts. Never the error's text, which
+    could contain a file name.</li>
+    <li><strong>Failure reports</strong>: when sending to a frame over NFC or Wi-Fi, finding a Wi-Fi
+    frame, opening or preparing a picture, auto-detecting a frame or exporting a file fails, the app
+    sends which step failed, the device profile, the connection type, the kind of error and where in
+    the app's code, how long the step took, the picture's size in pixels and bytes, and the step's
+    own counts (for a Wi-Fi search, how many addresses answered, refused or did not answer). When a Wi-Fi frame goes back to an older picture by itself after a send, the app sends how long after the send it noticed, and the frame's model and firmware version. Never
+    the picture, its name, a Wi-Fi network's name or any address, a frame's NFC identifier, or a
+    Wi-Fi frame's serial number (only its model).</li>
+    <li>Crash and failure reports also carry the app version, your phone's manufacturer and model,
+    Android version, the version of Android System WebView, the phone's language and its memory
+    state (total and free memory, and the app's own use). When the same crash or failure repeats
+    within a few hours, only the first is sent and the next one says how many repeats were not sent.
+    Both are controlled by the Crash and failure reports switch.</li>
+    <li><strong>Self-test and device report</strong>: once after the app is installed, and again after
+    an app, Android or WebView update, the app runs a short check in the background: it decodes a
+    sample picture built into the app, prepares it for one frame of each kind the app supports, and
+    sends whether each step worked and how long it took. The report carries the facts above plus the
+    phone's screen size and density, processor type, whether it has NFC and whether NFC is on, and
+    whether it has Wi-Fi and is connected to Wi-Fi (yes or no only, never the network's name or
+    address). Nothing is sent to a frame. It has its own switch, Self-test and device report.</li>
+  </ul>
+  <p>Automatic reports carry the same anonymous identifiers as feedback (below), so that reports from
+  one phone can be grouped, and are stored and kept like feedback. They go through the same
+  Firebase service; the app contains no crash-analytics or analytics software. Opening the app
+  makes no network connection of its own: the app connects, and signs in anonymously, only when a
+  report is about to be sent.</p>
 
   <h3 id="feedback">Feedback you choose to send</h3>
   <p>Feedback is sent only when you press Send in the feedback dialog. A report always contains what
@@ -132,8 +172,8 @@
   before sending. Do not type personal details you do not want to send.</p>
 
   <h3 id="storage">Where reports are stored</h3>
-  <p>Reports are stored in Google Firebase (Cloud Firestore for the text, Cloud Storage for a
-  screenshot), reached through Firebase Anonymous Authentication and App Check. If the phone is
+  <p>Reports, feedback and automatic ones alike, are stored in Google Firebase (Cloud Firestore for
+  the text, Cloud Storage for a screenshot), reached through Firebase Anonymous Authentication and App Check. If the phone is
   offline, the report waits in the app's private storage and is sent later; an unsent report is
   dropped after 14 days, and a waiting screenshot after 30 days.</p>
   <p>Reports are sent encrypted (HTTPS/TLS). Google processes them for SciNTech as a service
@@ -143,20 +183,23 @@
   else and not used for advertising.</p>
 
   <h3 id="identifiers">Identifiers</h3>
-  <p>No account is needed. Each report carries three identifiers of the installation: the random
+  <p>No account is needed. Each report, feedback or automatic, carries three identifiers of the installation: the random
   install identifier the app creates, Android ID (an identifier Android gives each app on each
   phone), and the anonymous sign-in identifier Firebase creates. They are used only to group
   reports from the same phone. None of them is an advertising identifier or tied to your name or
   email.</p>
 
   <h3 id="ads">Advertising and analytics</h3>
-  <p>Pic2Ink includes no advertising, usage-analytics or crash-analytics software. Google Play may
-  separately process store-level data under Google's own privacy policy.</p>
+  <p>Pic2Ink includes no advertising, usage-analytics or crash-analytics software. The automatic
+  crash, failure and self-test reports are made by the app's own code and sent through the same
+  Firebase service as feedback, as described above. Google Play may separately process store-level
+  data under Google's own privacy policy.</p>
 
   <h3 id="permissions">Permissions</h3>
   <ul>
     <li><strong>NFC</strong>: to send a picture to the frame you tap.</li>
-    <li><strong>Internet</strong>: to send feedback you submit, and to talk to a Wi-Fi frame on your own
+    <li><strong>Internet</strong>: to send reports (feedback you submit and the automatic reports you
+    can turn off in Settings), and to talk to a Wi-Fi frame on your own
     home network (private addresses only; Android uses this permission for local connections too).</li>
     <li><strong>Network and Wi-Fi state</strong>: to learn which home-network addresses to search for a
     Wi-Fi frame (Bigme F7 Pro). No location is read.</li>
@@ -171,9 +214,9 @@
 
   <h3 id="delete">Removing your data</h3>
   <p>Uninstalling the app, or clearing its storage in Android settings, deletes everything it stored
-  on the phone, including unsent feedback. To have reports you sent deleted, write to the contact
-  address on the app's store listing and quote the report id (Diagnostics, in Advanced mode, shows
-  it as "feedback: report …") or the date you sent it and your phone's model.</p>
+  on the phone, including unsent reports. To have reports deleted, write to the contact address on
+  the app's store listing and quote the report id (Diagnostics, in Advanced mode, shows it as
+  "feedback: report …" or "diagnostics: … report …") or the date and your phone's model.</p>
   <p>The contact address is the developer email in the "App support" section of Pic2Ink's Google
   Play listing. The reports, and any screenshot attached to them, are deleted within 30 days of
   your request.</p>
