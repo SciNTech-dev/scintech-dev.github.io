@@ -98,6 +98,7 @@
     <li>Pictures you choose are decoded in memory and sent only to the frame you tap, over NFC. A
     picture shared to Pic2Ink from another app is copied into the app's private cache, where the
     next shared picture replaces it.</li>
+    <li>With a Wi-Fi frame (Bigme F7 Pro), the app looks for the frame only on your own home network: it sends requests to private addresses on that network, never outside it, and sends the picture to the frame it finds. Nothing goes through the internet or to us.</li>
     <li>Photos taken to measure a bezel are read in memory; the camera's temporary file is deleted.</li>
     <li>Settings (mode, device, rotation, fit and dithering) and bezel measurements are stored in the
     app's own storage.</li>
@@ -156,6 +157,8 @@
   <ul>
     <li><strong>NFC</strong>: to send a picture to the frame you tap.</li>
     <li><strong>Internet</strong>: only to send feedback you submit.</li>
+    <li><strong>Network and Wi-Fi state</strong>: to find a Wi-Fi frame (Bigme F7 Pro) on your own
+    home network and send it a picture. No location is read.</li>
     <li><strong>Storage</strong> (Android 12 and older only): to save exported pictures and logs to
     Documents/Pic2Ink.</li>
   </ul>
