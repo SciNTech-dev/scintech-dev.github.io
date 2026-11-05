@@ -92,7 +92,7 @@ Facts:
 - Auto-detect (experimental): a read-only scan identifies an unknown frame's protocol family from its reply.
 - Free; no account. Not affiliated with or endorsed by any frame maker.
 - Pictures are prepared on the phone and sent only to the frame the user taps, over NFC.
-- Pictures are never uploaded. Automatic crash, failure and self-test reports (error types, code locations, phone facts; never a picture, file name, Wi-Fi name or frame identifier) are on by default, each kind with a switch in Settings; feedback is sent only when the user presses Send. There are no accounts, no advertising and no analytics software.
+- A picture goes only to the frame, or inside a feedback screenshot the user sends. Automatic crash, failure and self-test reports (error types, code locations, phone facts; never a picture, file name, Wi-Fi name or frame identifier) are on by default, each kind with a switch in Settings; feedback is sent only when the user presses Send. There are no accounts, no advertising and no analytics software.
 - A feedback report's screenshot is ticked by default and can show the user's picture if it is on screen; it can be unticked before sending.
 - Reports carry three anonymous identifiers (a random install identifier, Android ID, and a Firebase anonymous sign-in identifier), used only to group reports from one phone.
 - Sent reports are deleted within 30 days of a request; the policy's "Removing your data" section says how to ask.
