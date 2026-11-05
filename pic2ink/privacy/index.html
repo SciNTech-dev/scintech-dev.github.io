@@ -103,7 +103,7 @@
     <li>Pictures you choose are decoded in memory and sent only to the frame you tap, over NFC. A
     picture shared to Pic2Ink from another app is copied into the app's private cache, where the
     next shared picture replaces it.</li>
-    <li>With a Wi-Fi frame (Bigme F7 Pro), the app looks for the frame only on your own home network: it sends requests to private addresses on that network, never outside it, and sends the picture to the frame it finds. Nothing goes through the internet or to us.</li>
+    <li>With a Wi-Fi frame (Bigme F7 Pro), the app looks for the frame only on your own home network: it sends requests to private addresses on that network, never outside it, and sends the picture to the frame it finds. Nothing goes through the internet or to us. After a send, the app keeps a fingerprint of the picture sent (its MD5) and a hashed form of the frame's serial number on the phone, to notice when the frame later shows another picture.</li>
     <li>Photos taken to measure a bezel are read in memory; the camera's temporary file is deleted.</li>
     <li>Settings (mode, device, rotation, fit and dithering) and bezel measurements are stored in the
     app's own storage.</li>
@@ -127,7 +127,7 @@
     frame, opening or preparing a picture, auto-detecting a frame or exporting a file fails, the app
     sends which step failed, the device profile, the connection type, the kind of error and where in
     the app's code, how long the step took, the picture's size in pixels and bytes, and the step's
-    own counts (for a Wi-Fi search, how many addresses answered, refused or did not answer). Never
+    own counts (for a Wi-Fi search, how many addresses answered, refused or did not answer). When a Wi-Fi frame goes back to an older picture by itself after a send, the app sends how long after the send it noticed, and the frame's model and firmware version. Never
     the picture, its name, a Wi-Fi network's name or any address, a frame's NFC identifier, or a
     Wi-Fi frame's serial number (only its model).</li>
     <li>Crash and failure reports also carry the app version, your phone's manufacturer and model,
