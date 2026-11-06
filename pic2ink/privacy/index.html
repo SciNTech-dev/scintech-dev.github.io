@@ -59,7 +59,7 @@
       <div class="wrap">
         <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">SciNTech</a></li><li><a href="/pic2ink/">Pic2Ink</a></li><li aria-current="page">Privacy</li></ol></nav>
         <span class="eyebrow">Privacy</span>
-        <h1>Your picture goes to your frame, and nowhere else.</h1>
+        <h1>Your picture goes to your frame or screen, and nowhere else.</h1>
         <p class="lede">Pic2Ink prepares and sends pictures on the phone. This page gives the short version first; the full policy follows below.</p>
       </div>
     </section>
@@ -68,9 +68,9 @@
       <div class="wrap">
         <h2 id="glance-title">At a glance</h2>
         <div class="grid-2" style="margin-top:28px">
-          <article class="card"><h3>Stays on the phone</h3><ul class="checklist"><li>Your pictures and the image prepared from them. A picture goes only to the frame you tap, over NFC or your own Wi-Fi.</li><li>Measured bezels and settings, in the app’s own storage.</li><li>A photo taken to measure a bezel is read in memory, and the camera’s file is deleted.</li></ul></article>
-          <article class="card"><h3>May be sent</h3><ul class="checklist"><li>Crash and failure reports: the kind of error and where in the app’s code, the step that failed and the phone’s model. On by default, with a switch in Settings.</li><li>A self-test and device report, from a check the app runs on a sample picture built into it: once per install and again after app, Android or WebView updates, not daily. It has its own switch.</li><li>Feedback you send, when you press Send. Its screenshot is ticked by default and shows your picture if it is on screen.</li></ul></article>
-          <article class="card"><h3>Not in the app</h3><ul class="checklist"><li>No account, advertising, usage-analytics or crash-analytics software.</li><li>Nothing at startup: opening the app makes no network connection of its own. It connects, and signs in anonymously, only when a report is about to be sent.</li><li>Reports carry anonymous identifiers so reports from one phone can be grouped; the policy names each one.</li></ul></article>
+          <article class="card"><h3>Stays on the phone</h3><ul class="checklist"><li>Your pictures and the image prepared from them. A picture goes only to the frame you tap, over NFC or your own Wi-Fi, or to the TV or display you cast to over your own Wi-Fi.</li><li>Measured bezels and settings, in the app’s own storage.</li><li>A photo taken to measure a bezel is read in memory, and the camera’s file is deleted.</li></ul></article>
+          <article class="card"><h3>May be sent</h3><ul class="checklist"><li>Crash and failure reports: the kind of error and where in the app’s code, the step that failed and the phone’s model. On by default, with a switch in Settings.</li><li>A self-test and device report, from a check the app runs on a sample picture built into it: once per install and again after app, Android or WebView updates, not daily. It has its own switch.</li><li>Feedback you send, when you press Send. Its screenshot is ticked by default and shows your picture if it is on screen.</li><li>When you choose TVs and displays, Google’s Cast software (for Chromecast, Google TV and Nest Hub) sends Google technical events about the search and the cast, with no picture and no identifier of you. It cannot be switched off.</li></ul></article>
+          <article class="card"><h3>Not in the app</h3><ul class="checklist"><li>No account or advertising, and no usage-analytics or crash-analytics software of its own (Google’s Cast software is used only for casting).</li><li>Nothing at startup: apart from Google’s Cast software while TVs and displays is chosen, opening the app makes no internet connection. It connects, and signs in anonymously, only when a report is about to be sent.</li><li>Reports carry anonymous identifiers so reports from one phone can be grouped; the policy names each one.</li></ul></article>
           <article class="card"><h3>Yours to choose</h3><ul class="checklist"><li>Two switches in Settings (Diagnostics reports): one for crash and failure reports, one for the self-test. Turning one off also deletes reports of that kind still waiting on the phone.</li><li>Before sending feedback you can review it and untick the screenshot, picture details, app logs or current settings.</li><li>Uninstalling the app or clearing its storage deletes everything it kept on the phone. How to have sent reports deleted: <a href="#delete">Removing your data</a>.</li></ul></article>
         </div>
       </div>
@@ -78,17 +78,18 @@
 
     <section class="section panel">
       <div class="narrow prose policy">
-<!-- policy:begin source=di2g/einksend docs/privacy/index.html @ feat/auto-reports, last updated 2026-11-05 (copied verbatim; headings h2→h3, summary box → .callout) -->
+<!-- policy:begin source=di2g/einksend docs/privacy/index.html @ docs/cast-disclosures, last updated 2026-11-06 (copied verbatim; headings h2→h3, summary box → .callout) -->
     <h2 id="policy">Privacy policy</h2>
-  <p class="fine">Pic2Ink for Android (<code>com.scintech.pic2ink</code>) by SciNTech. Last updated 2026-11-05.</p>
+  <p class="fine">Pic2Ink for Android (<code>com.scintech.pic2ink</code>) by SciNTech. Last updated 2026-11-06.</p>
 
   <div class="callout">
-    <p><strong>In short.</strong> Pic2Ink prepares and sends pictures on your phone. A picture goes only to your frame,
-    unless it is on screen in a feedback screenshot you send. The app sends automatic diagnostic reports (crashes, failures and a self-test)
-    unless you turn them off in Settings, and feedback only when you send it. There are no accounts,
-    no ads and no analytics.</p>
+    <p><strong>In short.</strong> Pic2Ink prepares and sends pictures on your phone. A picture goes only to your frame or the screen you cast to, unless it is on screen in a feedback screenshot you send. The app sends automatic diagnostic reports (crashes, failures and a self-test)
+    unless you turn them off in Settings, and feedback only when you send it. There are no accounts and no ads, and the app has no analytics of its own. Google's Cast software, used only when you choose TVs and displays, sends Google technical events about finding and casting to Google Cast devices.</p>
     <ul>
-      <li>Your pictures go only to the frame you tap, over NFC or your own Wi-Fi.</li>
+      <li>Your pictures go only to the frame you tap, over NFC or your own Wi-Fi, or to the TV or display you cast to over your own Wi-Fi.</li>
+      <li>Casting to Google Cast devices (Chromecast, Google TV, Nest Hub) uses Google's Cast software,
+      which sends Google technical events about the search and the cast, with no picture and no
+      identifier of you. It cannot be switched off, and starts only when you choose TVs and displays.</li>
       <li>Crash, failure and self-test reports are on by default, under two switches in
       Settings, Diagnostics reports (crash and failure; self-test). They carry error types, code locations and phone facts, never a picture,
       a file name, a Wi-Fi name or a frame's identifier.</li>
@@ -104,6 +105,8 @@
     picture shared to Pic2Ink from another app is copied into the app's private cache, where the
     next shared picture replaces it.</li>
     <li>With a Wi-Fi frame (Bigme F7 Pro), the app looks for the frame only on your own home network: it sends requests to private addresses on that network, never outside it, and sends the picture to the frame it finds. Nothing goes through the internet or to us. After a send, the app keeps a fingerprint of the picture sent (its MD5) and a hashed form of the frame's serial number on the phone, to notice when the frame later shows another picture.</li>
+    <li>To cast to a TV or smart display (TVs and displays in the Device card), the app asks devices on your own Wi-Fi to announce themselves and reads their name, model and screen size; it sends requests only to private addresses on that network. When you cast, the phone serves the prepared picture over your Wi-Fi to that screen only, until you stop. The picture never goes through the internet or to us. The chosen screen's name is remembered on the phone and never sent to us.</li>
+    <li>Google Cast devices (Chromecast, Google TV, Nest Hub) are found and cast to with Google's Cast software, which the app starts only when you choose TVs and displays, and again each time the app opens while TVs and displays is still chosen. If you never choose it, the Cast software is not started. Google states that this software sends Google, encrypted, technical events about the search and the cast session and facts about the phone and the app: no picture and no identifier that can be traced back to you. Google keeps them for a short time, uses them only in aggregate to improve its Cast software and does not share them. Neither the app nor you can switch this off or have them deleted; Google handles them under its own privacy policy.</li>
     <li>Photos taken to measure a bezel are read in memory; the camera's temporary file is deleted.</li>
     <li>Settings (mode, device, rotation, fit and dithering) and bezel measurements are stored in the
     app's own storage.</li>
@@ -123,13 +126,11 @@
     fails, the app records the kind of error and the places in its own code where it happened, and
     sends that at once or, if the app closed, the next time it starts. Never the error's text, which
     could contain a file name.</li>
-    <li><strong>Failure reports</strong>: when sending to a frame over NFC or Wi-Fi, finding a Wi-Fi
-    frame, opening or preparing a picture, auto-detecting a frame or exporting a file fails, the app
+    <li><strong>Failure reports</strong>: when sending to a frame over NFC or Wi-Fi, finding a Wi-Fi frame, finding or casting to a TV or smart display, opening or preparing a picture, auto-detecting a frame or exporting a file fails, the app
     sends which step failed, the device profile, the connection type, the kind of error and where in
     the app's code, how long the step took, the picture's size in pixels and bytes, and the step's
     own counts (for a Wi-Fi search, how many addresses answered, refused or did not answer). When a Wi-Fi frame goes back to an older picture by itself after a send, the app sends how long after the send it noticed, and the frame's model and firmware version. Never
-    the picture, its name, a Wi-Fi network's name or any address, a frame's NFC identifier, or a
-    Wi-Fi frame's serial number (only its model).</li>
+    the picture, its name, a Wi-Fi network's name or any address, a frame's NFC identifier, a Wi-Fi frame's serial number (only its model), or a screen's name or address (only its kind of connection and model).</li>
     <li>Crash and failure reports also carry the app version, your phone's manufacturer and model,
     Android version, the version of Android System WebView, the phone's language and its memory
     state (total and free memory, and the app's own use). When the same crash or failure repeats
@@ -145,9 +146,7 @@
   </ul>
   <p>Automatic reports carry the same anonymous identifiers as feedback (below), so that reports from
   one phone can be grouped, and are stored and kept like feedback. They go through the same
-  Firebase service; the app contains no crash-analytics or analytics software. Opening the app
-  makes no network connection of its own: the app connects, and signs in anonymously, only when a
-  report is about to be sent.</p>
+  Firebase service; the app contains no crash-analytics or analytics software of its own (Google's Cast software, above, is used only for TVs and displays). Apart from that Cast software while TVs and displays is chosen, opening the app makes no internet connection: the app connects, and signs in anonymously, only when a report is about to be sent.</p>
 
   <h3 id="feedback">Feedback you choose to send</h3>
   <p>Feedback is sent only when you press Send in the feedback dialog. A report always contains what
@@ -190,7 +189,8 @@
   email.</p>
 
   <h3 id="ads">Advertising and analytics</h3>
-  <p>Pic2Ink includes no advertising, usage-analytics or crash-analytics software. The automatic
+  <p>Pic2Ink includes no advertising, usage-analytics or crash-analytics software of its own. Google's
+  Cast software, used only to find and cast to Google Cast devices, sends Google its own technical events, as described under "What stays on the phone". Google uses them in aggregate to improve the Cast software, not for advertising and not to follow what you do. The automatic
   crash, failure and self-test reports are made by the app's own code and sent through the same
   Firebase service as feedback, as described above. Google Play may separately process store-level
   data under Google's own privacy policy.</p>
@@ -199,10 +199,11 @@
   <ul>
     <li><strong>NFC</strong>: to send a picture to the frame you tap.</li>
     <li><strong>Internet</strong>: to send reports (feedback you submit and the automatic reports you
-    can turn off in Settings), and to talk to a Wi-Fi frame on your own
-    home network (private addresses only; Android uses this permission for local connections too).</li>
+    can turn off in Settings), to talk to a Wi-Fi frame or a TV on your own home network (private addresses only; Android uses this permission for local connections too), and for Google's Cast software to reach Google when you choose TVs and displays.</li>
     <li><strong>Network and Wi-Fi state</strong>: to learn which home-network addresses to search for a
-    Wi-Fi frame (Bigme F7 Pro). No location is read.</li>
+    Wi-Fi frame (Bigme F7 Pro) and which network to serve a cast picture on. No location is read.</li>
+    <li><strong>Wi-Fi multicast</strong>: to hear TVs and displays announce themselves on your own
+    Wi-Fi when you search for screens.</li>
     <li><strong>Storage</strong> (Android 12 and older only): to save exported pictures and logs to
     Documents/Pic2Ink.</li>
   </ul>
