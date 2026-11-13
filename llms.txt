@@ -1,6 +1,6 @@
 # SciNTech
 
-SciNTech uses science to make useful Android tools that work offline. Its apps do their core work on the phone, without a connection, and their core features are free. Current apps: Watermark Remover, which learns a repeating, tiled watermark from two or more photos carrying the same mark and lifts it off, Seamless Video Looper, which finds a loop point in a video and renders a forward-playing seamless loop, and Pic2Ink, which prepares a photo for an NFC e-ink frame and sends it from the phone (closed test, not yet on Google Play). Photos and videos are not uploaded to be processed.
+SciNTech uses science to make useful Android tools that work offline. Its apps do their core work on the phone, without a connection, and their core features are free. Current apps: Watermark Remover, which learns a repeating, tiled watermark from two or more photos carrying the same mark and lifts it off, Seamless Video Looper, which finds a loop point in a video and renders a forward-playing seamless loop, and Pic2Ink, which prepares a photo for an e-ink frame and sends it from the phone over NFC or Wi-Fi (closed test, not yet on Google Play). Photos and videos are not uploaded to be processed.
 
 All apps on Google Play: https://play.google.com/store/apps/developer?id=SciNTech (Pic2Ink is not listed there until it leaves its closed test). Machine-readable list of the apps: https://scintech-dev.github.io/apps.json
 
@@ -73,26 +73,30 @@ Status: on Google Play, https://play.google.com/store/apps/details?id=com.seamle
 
 ## Pic2Ink
 
-Status: closed test, not yet on Google Play (package com.scintech.pic2ink, version 0.1.0). Based on DITHR by redphx (MIT licence).
+Status: closed test, not yet on Google Play (package com.scintech.pic2ink, version 0.6.0, build 8). Based on DITHR by redphx (MIT licence).
 
 Pages:
 - https://scintech-dev.github.io/pic2ink/ — What the app does in three steps, what it handles and does not.
-- https://scintech-dev.github.io/pic2ink/how-it-works/ — Dithering to a panel's few inks, the exact buffer, the NFC send, measuring the bezel from a photo.
-- https://scintech-dev.github.io/pic2ink/compatibility/ — Requirements, the frames table generated from the app's catalogue (tested / not tested), FAQ.
+- https://scintech-dev.github.io/pic2ink/how-it-works/ — Dithering to a panel's few inks, the exact buffer and placement, the NFC and Wi-Fi send, casting, calibrating the screen from photos of a chart.
+- https://scintech-dev.github.io/pic2ink/compatibility/ — Requirements, the frames table generated from the app's catalogue (tested / not tested), TVs and displays, FAQ.
+- https://scintech-dev.github.io/changelog/#pic2ink — Release notes of each version, unedited.
 - https://scintech-dev.github.io/pic2ink/privacy/ — Privacy at a glance, and the full policy at #policy.
 
 Facts:
 
-- Requires Android 7.0 (API 24) or later. NFC is needed for NFC frames, not for devices that take a picture file (PNG export).
-- Three steps: choose the device (brand and model), choose the picture (photo picker or Share; crop by dragging, rotate 90°), send via NFC.
-- Catalogue (from DITHR, generated from the app's own list at einksend 6fb6fe2): 31 NFC entries (27 profiles and 4 variants) and 21 file-export devices. Tested with Pic2Ink: TapMora Spectra 6 photo frame only (2026-10-28); every other entry is "in catalogue, not tested with Pic2Ink".
-- The picture is prepared at the panel's exact resolution (TapMora 304×400) in the panel's inks only, using DITHR's error diffusion: Floyd–Steinberg, Atkinson, Jarvis, Ostromoukhov or none; the default is DITHR's Atkinson/Jarvis hybrid.
-- A send is reported as "confirmed" (the frame reported its refresh finished) or "sent, not confirmed"; nothing is retried automatically.
-- Measure bezel: sends an edge ruler, reads from one photo of the frame how many pixels each edge hides (about ±1 px), and saves the values for that frame after the user checks them.
+- Requires Android 7.0 (API 24) or later. NFC is needed for NFC frames, not for Wi-Fi frames, TVs or devices that take a picture file (PNG export).
+- Three steps: choose the device (brand and model, or a TV or display found on the Wi-Fi), choose the picture (photo picker or Share; crop by dragging or Fit, rotate 90°), send (via NFC, via Wi-Fi, or Cast).
+- Bigme F7 Pro over Wi-Fi: the app finds the frame on the phone's own Wi-Fi network by itself (2.4 GHz, set up once with Bigme's app) and contacts only private addresses; on Android 10 and later it can also send through the frame's own hotspot. The Bigme F7 (not Pro) is not supported.
+- Casting to TVs and smart displays on the same Wi-Fi: Google Cast (Chromecast, Google TV, Nest Hub) and DLNA; Roku and AirPlay are experimental. Tried on hardware: a Google Nest Hub and a Samsung TV over Google Cast; DLNA only against a test receiver; Roku and AirPlay not on real devices. A Google Cast screen ends the cast by itself after a while.
+- Catalogue (from DITHR plus the Bigme F7 Pro, generated from the app's own list at einksend be3f643): 31 NFC entries (27 profiles and 4 variants), 1 Wi-Fi frame and 21 file-export devices. Tested with Pic2Ink: TapMora Spectra 6 photo frame over NFC (2026-10-28) and Bigme F7 Pro over home Wi-Fi (2026-11-04); the Bigme hotspot route is not yet recorded as tested; every other entry is "in catalogue, not tested with Pic2Ink".
+- The picture is prepared at the panel's exact resolution (TapMora 304×400) in the panel's inks only, using DITHR's error diffusion: Floyd–Steinberg, Atkinson, Jarvis, Ostromoukhov or none; the default is DITHR's Atkinson/Jarvis hybrid. Advanced mode has a full Dithering screen with a zoomable preview, and brightness, contrast, colour and gamma.
+- Placement: Crop (default), Fit (white or black padding), Stretch, or 1:1 (one picture pixel per panel pixel, never rescaled). Easy mode has Crop and a Fit button. "Use visible area only" (formerly "Fit to visible area") places the picture in the part of a calibrated frame the bezel leaves visible.
+- An NFC send is reported as "confirmed" (the frame reported its refresh finished) or "sent, not confirmed"; it is not retried automatically.
+- Calibrate screen: sends a calibration chart (edge ruler, colour patches, labelled grey scale, the frame's name); from one or more photos (up to six) the app keeps the best reading of how many pixels each edge hides and how the panel's inks look, says when an edge is uncertain, and refuses a photo of a different chart. A bezel check image sent to the frame lets the user confirm the numbers, which are saved for that frame. "Match this frame" then uses the measured inks to keep detail in dark and bright areas.
 - Auto-detect (experimental): a read-only scan identifies an unknown frame's protocol family from its reply.
 - Free; no account. Not affiliated with or endorsed by any frame maker.
-- Pictures are prepared on the phone and sent only to the frame the user taps, over NFC.
-- A picture goes only to the frame, or inside a feedback screenshot the user sends. Automatic crash, failure and self-test reports (error types, code locations, phone facts; never a picture, file name, Wi-Fi name or frame identifier) are on by default, under two switches in Settings (crash and failure; self-test); feedback is sent only when the user presses Send. There are no accounts, no advertising and no analytics software.
+- Pictures are prepared on the phone and sent only to the frame or screen the user sends to, over NFC or the local Wi-Fi. Casting to a Google Cast device uses Google's Cast software, which sends Google technical events.
+- A picture goes only to the frame or screen, or inside a feedback screenshot the user sends. Automatic crash, failure and self-test reports (error types, code locations, phone facts; never a picture, file name, Wi-Fi name or frame identifier) are on by default, under two switches in Settings (crash and failure; self-test); feedback is sent only when the user presses Send. There are no accounts, no advertising and no analytics software of the app's own.
 - A feedback report's screenshot is ticked by default and can show the user's picture if it is on screen; it can be unticked before sending.
 - Reports carry three anonymous identifiers (a random install identifier, Android ID, and a Firebase anonymous sign-in identifier), used only to group reports from one phone.
 - Sent reports are deleted within 30 days of a request; the policy's "Removing your data" section says how to ask.

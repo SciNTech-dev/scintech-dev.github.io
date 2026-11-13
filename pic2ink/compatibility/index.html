@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Pic2Ink compatibility — frames, requirements and FAQ</title>
-  <meta name="description" content="Which e-ink frames are in Pic2Ink's catalogue and which one has been tested, what the app needs (Android 7.0+, NFC for NFC frames), and answers to common questions.">
+  <meta name="description" content="Which e-ink frames are in Pic2Ink's catalogue and which have been tested, which TVs it casts to, what it needs (Android 7.0+, NFC or Wi-Fi), and common questions.">
   <link rel="canonical" href="https://scintech-dev.github.io/pic2ink/compatibility/">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f4ef">
@@ -12,7 +12,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="SciNTech">
   <meta property="og:title" content="Pic2Ink compatibility — frames, requirements and FAQ">
-  <meta property="og:description" content="Which e-ink frames are in Pic2Ink's catalogue and which one has been tested, what the app needs (Android 7.0+, NFC for NFC frames), and answers to common questions.">
+  <meta property="og:description" content="Which e-ink frames are in Pic2Ink's catalogue and which have been tested, which TVs it casts to, what it needs (Android 7.0+, NFC or Wi-Fi), and common questions.">
   <meta property="og:url" content="https://scintech-dev.github.io/pic2ink/compatibility/">
   <meta property="og:image" content="https://scintech-dev.github.io/assets/img/pic2ink/og-pic2ink.jpg">
   <meta property="og:image:width" content="1200">
@@ -60,7 +60,7 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">SciNTech</a></li><li><a href="/pic2ink/">Pic2Ink</a></li><li aria-current="page">Compatibility</li></ol></nav>
         <span class="eyebrow">Compatibility &amp; FAQ</span>
         <h1>Which frames, tested or not.</h1>
-        <p class="lede">An Android phone with NFC, a frame from the catalogue, and a photo. Which frames are in the catalogue, and the one that has been tested, are below.</p>
+        <p class="lede">An Android phone, a frame from the catalogue or a TV on your Wi-Fi, and a photo. Which frames are in the catalogue, and the two that have been tested, are below.</p>
       </div>
     </section>
 
@@ -69,15 +69,16 @@
         <h2 id="facts-title">Quick facts</h2>
         <div class="table-wrap" style="margin-top:28px">
           <table>
-            <caption>Read from the app’s source code for version 0.1.0.</caption>
+            <caption>Read from the app’s source code for version 0.6.0.</caption>
             <thead><tr><th scope="col">Topic</th><th scope="col">What holds</th></tr></thead>
             <tbody>
               <tr><th scope="row">Android version</th><td>Android 7.0 (API 24) or later.</td></tr>
-              <tr><th scope="row">NFC</th><td>Needed to send to an NFC frame. Not needed to prepare a picture and export it for a device that takes a file.</td></tr>
+              <tr><th scope="row">NFC</th><td>Needed to send to an NFC frame. Not needed for Wi-Fi frames, TVs, or a PNG export for a device that takes a file.</td></tr>
+              <tr><th scope="row">Wi-Fi</th><td>Bigme F7 Pro: set up once with Bigme’s app, on the same 2.4 GHz Wi-Fi as the phone; or, on Android 10 and later, through the frame’s own hotspot. TVs and displays: on the same Wi-Fi as the phone.</td></tr>
               <tr><th scope="row">Pictures in</th><td>Chosen in Android’s photo picker, or shared to Pic2Ink from another app.</td></tr>
-              <tr><th scope="row">Pictures out</th><td>To the frame over NFC, or saved as a PNG at the device’s exact size, in Documents/Pic2Ink.</td></tr>
-              <tr><th scope="row">Permissions</th><td>NFC; internet, to send feedback you submit and the automatic crash, failure and self-test reports (two switches in Settings: crash and failure; self-test), and to reach a Wi-Fi frame on your home network; storage on Android 12 and older, only to save exports. No access to the rest of your photo library.</td></tr>
-              <tr><th scope="row">Connection</th><td>None needed: preparing and sending work offline.</td></tr>
+              <tr><th scope="row">Pictures out</th><td>To the frame over NFC or Wi-Fi, to a TV or display over Wi-Fi, or saved as a PNG at the device’s exact size, in Documents/Pic2Ink.</td></tr>
+              <tr><th scope="row">Permissions</th><td>NFC; internet, to send feedback you submit and the automatic crash, failure and self-test reports (two switches in Settings: crash and failure; self-test), and to reach a Wi-Fi frame or a TV on your home network; Wi-Fi permissions to find them and to join a Bigme frame’s own hotspot (on Android 10 to 12 Android counts this as a location permission; the app does not read your location); storage on Android 12 and older, only to save exports. No access to the rest of your photo library.</td></tr>
+              <tr><th scope="row">Connection</th><td>No internet needed to prepare a picture or send it to a frame. NFC frames need no network at all; Wi-Fi frames and TVs need your Wi-Fi, and only addresses on it are contacted. Casting to a Google Cast device uses Google’s Cast software, which sends Google technical events.</td></tr>
               <tr><th scope="row">Account and price</th><td>No account. Free.</td></tr>
             </tbody>
           </table>
@@ -89,15 +90,16 @@
       <div class="wrap">
         <div class="section-head">
           <div><span class="eyebrow">Frames</span><h2 id="frames">Tested, and in the catalogue.</h2></div>
-          <p class="section-intro">The catalogue comes from DITHR and is generated here from the app’s own list, so this table and the app’s device picker match. <strong>Tested</strong> means sent to and confirmed on a real frame with Pic2Ink. A frame moves to Tested only with a dated confirmation from the owner or a tester.</p>
+          <p class="section-intro">The catalogue comes from DITHR, plus the Bigme F7 Pro, and is generated here from the app’s own list, so this table and the app’s device picker match. <strong>Tested</strong> means sent to and confirmed on a real frame with Pic2Ink. A frame moves to Tested only with a dated confirmation from the owner or a tester. TVs and displays are found on your Wi-Fi rather than listed; they are in <a href="#faq-tv">the questions</a> below.</p>
         </div>
-        <!-- frames:begin generated by tools/pic2ink_frames.ts from di2g/einksend src/lib/devices.ts @ 6fb6fe2: nfc=31 file=21 tested=1 — do not edit by hand -->
+        <!-- frames:begin generated by tools/pic2ink_frames.ts from di2g/einksend src/lib/devices.ts @ be3f643: nfc=31 wifi=1 file=21 tested=2 — do not edit by hand -->
         <div class="table-wrap">
           <table class="frames">
-            <caption class="sr-only">Frames and displays in Pic2Ink's catalogue: 31 NFC entries and 21 file-export devices; 1 tested with Pic2Ink.</caption>
+            <caption class="sr-only">Frames and displays in Pic2Ink's catalogue: 31 NFC entries, 1 Wi-Fi frame and 21 file-export devices; 2 tested with Pic2Ink.</caption>
             <thead><tr><th scope="col">Brand</th><th scope="col">Model</th><th scope="col">Inks</th><th scope="col">Pixels</th><th scope="col">Connection</th><th scope="col">Status</th></tr></thead>
             <tbody>
             <tr class="row-tested"><td>TapMora</td><td>2.8&quot; Photoframe</td><td>Spectra 6 (six inks)</td><td>304&#215;400</td><td>NFC</td><td><strong>Tested</strong></td></tr>
+            <tr class="row-tested"><td>Bigme</td><td>F7 Pro 7.5&quot; Photoframe</td><td>Spectra 6 (six inks)</td><td>600&#215;1024</td><td>Wi-Fi</td><td><strong>Tested</strong></td></tr>
             <tr><td>DIY</td><td>Magnetic Eink 3.97&quot; Display</td><td>Black, white, red, yellow</td><td>528&#215;768</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
             <tr><td>EZ Sign</td><td>2.13&quot; Display</td><td>Black, white, red, yellow</td><td>250&#215;122</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
             <tr><td>EZ Sign</td><td>2.9&quot; Display</td><td>Black, white</td><td>296&#215;128</td><td>NFC</td><td>In catalogue, not tested with Pic2Ink</td></tr>
@@ -160,12 +162,14 @@
       <div class="narrow">
         <h2 id="faq">Questions</h2>
         <div class="faq" style="margin-top:28px">
-          <details id="faq-frame"><summary>Does my frame work?</summary><p>Look it up in the table above. Only a TapMora Spectra 6 frame has been tested with Pic2Ink. Every other entry uses the profile and protocol DITHR has for it, and has not been tried with Pic2Ink. A frame that is not in the table may still be recognised by Auto-detect, which is experimental.</p></details>
-          <details id="faq-preview"><summary>Why does the frame look different from the preview?</summary><p>The preview shows exactly the pixels and inks that are sent. If the picture on the frame is shifted, cut off at the edges or garbled, the bezel may hide some pixels (measure it), or the frame may need a different profile. Send feedback with App logs ticked, and the log shows each NFC step.</p></details>
-          <details id="faq-confirmed"><summary>Why “sent, not confirmed”?</summary><p>The app sent the image but did not receive the frame’s report that its refresh had finished. Look at the frame: the picture may still have arrived. Nothing is retried automatically, so send again if it did not.</p></details>
-          <details id="faq-bezel"><summary>What is Measure bezel for?</summary><p>Many frames hide a few edge pixels under the bezel, and units differ. Measure bezel sends an edge ruler, reads from one photo how many pixels each edge hides, and after you check the numbers saves them for that frame. Pictures are then placed in the part you can see.</p></details>
-          <details id="faq-offline"><summary>Does it work without internet?</summary><p>Yes. Preparing a picture and sending it over NFC need no connection. Only reports use the internet: feedback you send and the automatic crash, failure and self-test reports, which you can switch off in Settings (crash and failure; self-test). If the phone is offline, a report waits on the phone and is sent later.</p></details>
-          <details id="faq-sends"><summary>What leaves the phone?</summary><p>Your picture goes only to the frame you tap, over NFC. Crash, failure and self-test reports (no pictures or file names) are on by default, under two switches in Settings (crash and failure; self-test); feedback goes only when you send it, and its screenshot, ticked by default, shows your picture if it is on screen; untick it to leave it out. Details are on <a href="/pic2ink/privacy/">the privacy page</a>.</p></details>
+          <details id="faq-frame"><summary>Does my frame work?</summary><p>Look it up in the table above. Two frames have been tested with Pic2Ink: a TapMora Spectra 6 over NFC, and a Bigme F7 Pro over home Wi-Fi. Sending to the Bigme through its own hotspot is built, but not yet recorded as tested. Every other entry uses the profile and protocol DITHR has for it, and has not been tried with Pic2Ink. The Bigme F7 (not Pro) is not supported. A frame that is not in the table may still be recognised by Auto-detect, which is experimental.</p></details>
+          <details id="faq-preview"><summary>Why does the frame look different from the preview?</summary><p>The preview shows exactly the pixels and inks that are sent. If the picture on the frame is shifted, cut off at the edges or garbled, the bezel may hide some pixels (measure it), or the frame may need a different profile. Calibrate screen measures both the bezel and the inks. Send feedback with App logs ticked, and the log shows each NFC step.</p></details>
+          <details id="faq-confirmed"><summary>Why “sent, not confirmed”?</summary><p>With an NFC frame, it means the app sent the image but did not receive the frame’s report that its refresh had finished. Look at the frame: the picture may still have arrived. Nothing is retried automatically, so send again if it did not.</p></details>
+          <details id="faq-bezel"><summary>What is Calibrate screen for?</summary><p>Many frames hide a few edge pixels under the bezel, and units differ; inks also look different from panel to panel. Calibrate screen sends a chart to the frame. You take one or more photos of it, and the app keeps the best reading of how many pixels each edge hides and how the inks look. A bezel check image on the frame confirms the numbers before they are saved for that frame. With Use visible area only (on by default), pictures are then placed in the part you can see; Match this frame uses the measured inks.</p></details>
+          <details id="faq-tv"><summary>Can it show a picture on my TV?</summary><p>Yes, on a TV or smart display on the same Wi-Fi: choose it under “TVs and displays” in the device list. Google Cast (Chromecast, Google TV, Nest Hub) and DLNA TVs are supported; Roku and AirPlay are experimental. Tried so far: a Google Nest Hub and a Samsung TV over Google Cast. DLNA has been tried only against a test receiver, and Roku and AirPlay not on real devices. The picture is sent in the screen’s shape, as a photo or with an e-ink look. A Google Cast screen ends the cast by itself after a while.</p></details>
+          <details id="faq-bigme"><summary>My Bigme frame went back to an older picture.</summary><p>This happens on the frame’s side: it comes from Bigme’s app or cloud, not from Pic2Ink. The app checks the frame after a send and shows a notice when it sees the picture change back.</p></details>
+          <details id="faq-offline"><summary>Does it work without internet?</summary><p>Yes. Preparing a picture and sending it over NFC need no connection; Wi-Fi frames and TVs need your Wi-Fi, but not the internet. Casting to a Google Cast device also uses Google’s Cast software, which sends Google technical events. Reports use the internet: feedback you send and the automatic crash, failure and self-test reports, which you can switch off in Settings (crash and failure; self-test). If the phone is offline, a report waits on the phone and is sent later.</p></details>
+          <details id="faq-sends"><summary>What leaves the phone?</summary><p>Your picture goes only to the frame or screen you send it to. Crash, failure and self-test reports (no pictures or file names) are on by default, under two switches in Settings (crash and failure; self-test); feedback goes only when you send it, and its screenshot, ticked by default, shows your picture if it is on screen; untick it to leave it out. Details are on <a href="/pic2ink/privacy/">the privacy page</a>.</p></details>
           <details id="faq-free"><summary>Is it free?</summary><p>Yes, Pic2Ink is free. It is in a closed test and not yet on Google Play.</p></details>
           <details id="faq-maker"><summary>Is Pic2Ink made by the frame’s maker?</summary><p>No. Pic2Ink is made by SciNTech and based on DITHR by redphx (MIT licence). Brand names belong to their owners; Pic2Ink is not affiliated with or endorsed by any frame maker.</p></details>
         </div>
