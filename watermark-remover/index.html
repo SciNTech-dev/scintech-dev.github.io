@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Watermark Remover — see the photo, not the stamp</title>
+  <meta name="description" content="Remove repeating tiled watermarks or a single-photo watermark offline on Android. Photos stay on your device — free, no ads, no accounts.">
+  <link rel="canonical" href="https://scintech-dev.github.io/watermark-remover/">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f4ef">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#15161a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SciNTech">
+  <meta property="og:title" content="Watermark Remover — see the photo, not the stamp">
+  <meta property="og:description" content="Remove repeating tiled watermarks or a single-photo watermark offline on Android. Photos stay on your device — free, no ads, no accounts.">
+  <meta property="og:url" content="https://scintech-dev.github.io/watermark-remover/">
+  <meta property="og:image" content="https://scintech-dev.github.io/assets/img/wmr/og-wmr.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Watermark Remover: See the photo, not the stamp — repeated and single-photo watermark removal offline.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/scintech-mark-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/scintech-mark-180.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/examples.css">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <script src="/assets/site.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://scintech-dev.github.io/#organization","name":"SciNTech","url":"https://scintech-dev.github.io/","logo":"https://scintech-dev.github.io/assets/img/scintech-mark-512.png","sameAs":["https://play.google.com/store/apps/developer?id=SciNTech","https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android","https://play.google.com/store/apps/details?id=com.watermarkremover.android","https://play.google.com/store/apps/details?id=com.scintech.pic2ink"]},{"@type":"WebSite","@id":"https://scintech-dev.github.io/#website","name":"SciNTech","url":"https://scintech-dev.github.io/","inLanguage":"en","publisher":{"@id":"https://scintech-dev.github.io/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SciNTech","item":"https://scintech-dev.github.io/"},{"@type":"ListItem","position":2,"name":"Watermark Remover","item":"https://scintech-dev.github.io/watermark-remover/"}]},{"@type":"MobileApplication","@id":"https://scintech-dev.github.io/watermark-remover/#app","name":"Watermark Remover","alternateName":"Watermark Remover (Offline)","softwareVersion":"0.8.0","url":"https://scintech-dev.github.io/watermark-remover/","description":"Removes repeating, tiled watermarks from a batch of photos or removes a watermark from a single photo using an on-device neural model — offline on Android, photos never uploaded.","operatingSystem":"Android 8.0 and later","applicationCategory":"MultimediaApplication","isAccessibleForFree":true,"downloadUrl":"https://play.google.com/store/apps/details?id=com.watermarkremover.android","image":"https://scintech-dev.github.io/assets/img/wmr/og-wmr.jpg","screenshot":["https://scintech-dev.github.io/assets/img/wmr/shot-0610-02-ask.jpg","https://scintech-dev.github.io/assets/img/wmr/shot-0610-03-progress.jpg","https://scintech-dev.github.io/assets/img/wmr/shot-0610-04-results.jpg","https://scintech-dev.github.io/assets/img/wmr/shot-0610-05-refine.jpg","https://scintech-dev.github.io/assets/img/wmr/shot-0610-06-saved.jpg","https://scintech-dev.github.io/assets/img/wmr/shot-0610-10-one-photo.jpg","https://scintech-dev.github.io/assets/img/wmr/shot-0610-09-compare.jpg"],"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@id":"https://scintech-dev.github.io/#organization"},"publisher":{"@id":"https://scintech-dev.github.io/#organization"}},{"@type":"HowTo","name":"Remove a repeating or single-photo watermark with Watermark Remover","step":[{"@type":"HowToStep","position":1,"name":"Add","text":"Tap Add for pictures that carry the same mark — and clean originals or a watermark file if you have them. The app sorts them itself and asks only when unsure; Skip is always safe. A single photo goes straight to the on-device neural model.","image":"https://scintech-dev.github.io/assets/img/wmr/shot-0610-02-ask.jpg"},{"@type":"HowToStep","position":2,"name":"Remove","text":"Tap Remove the watermark. Learning and removal run on the phone, with progress on screen and a Cancel button. Time depends on the phone, the picture size, and the mark.","image":"https://scintech-dev.github.io/assets/img/wmr/shot-0610-03-progress.jpg"},{"@type":"HowToStep","position":3,"name":"Check","text":"Drag the wipe across each result to compare before and after. \"Mark remaining\" is an estimate relative to the input, not proof of a clean result.","image":"https://scintech-dev.github.io/assets/img/wmr/shot-0610-04-results.jpg"},{"@type":"HowToStep","position":4,"name":"Refine if needed","text":"Tap Not perfect to touch up the learned mark with Paint, Erase, and Pick color, then apply it to all the pictures again.","image":"https://scintech-dev.github.io/assets/img/wmr/shot-0610-05-refine.jpg"},{"@type":"HowToStep","position":5,"name":"Save","text":"Save the results to Pictures/WatermarkRemover or share them — after you have looked at each one.","image":"https://scintech-dev.github.io/assets/img/wmr/shot-0610-06-saved.jpg"}]}]}</script>
+</head>
+<body data-app="wmr">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="/"><img src="/assets/img/scintech-mark-64.png" width="32" height="32" alt="" decoding="async"><span>SciNTech</span></a>
+      <div class="nav-links">
+        <a class="nav-app" data-app-link="wmr" href="/watermark-remover/" aria-current="page">Watermark Remover</a>
+        <a class="nav-app" data-app-link="looper" href="/seamless-video-looper/">Seamless Video Looper</a>
+        <a class="nav-app" data-app-link="pic2ink" href="/pic2ink/">Pic2Ink</a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a href="/about/">About</a>
+        <a href="/changelog/">Changelog</a>
+        <a href="/compatibility/">Compatibility</a>
+        <a href="/privacy/">Privacy</a>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" hidden><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M5.3 18.7 7 17M17 7l1.7-1.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">Dark theme</span></button>
+    </nav>
+  </header>
+  <nav class="app-nav" aria-label="Watermark Remover">
+    <div class="wrap">
+        <a href="/watermark-remover/" aria-current="page">Home</a>
+        <a href="/watermark-remover/how-it-works/">How it works</a>
+        <a href="/watermark-remover/examples/">Examples</a>
+        <a href="/watermark-remover/how-to-remove-watermark-from-photos/">Guide</a>
+        <a href="/watermark-remover/compatibility/">Compatibility</a>
+        <a href="/watermark-remover/privacy/">Privacy</a>
+        <a class="button primary" data-cta="wmr" href="https://play.google.com/store/apps/details?id=com.watermarkremover.android&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dweb%26utm_campaign%3Dsite-cta">Get it on Google Play <span aria-hidden="true">&#8599;</span></a>
+    </div>
+  </nav>
+  <main id="main">
+
+    <section class="hero wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">SciNTech</a></li><li aria-current="page">Watermark Remover</li></ol></nav>
+      <span class="eyebrow">Photo restoration, on your phone</span>
+      <h1>See the photo, not the stamp.</h1>
+      <p class="lede">Remove repeating watermarks learned from a batch of your photos — or remove a watermark from a single photo with an on-device neural model — right on your phone, offline, without uploading your pictures anywhere.</p>
+      <ul class="proof-line"><li>On-device</li><li>Works offline</li><li>Free, no ads</li><li>Android 8.0+</li><li>Photos only</li></ul>
+      <div class="hero-actions">
+        <a class="button primary" data-cta="wmr" href="https://play.google.com/store/apps/details?id=com.watermarkremover.android&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dweb%26utm_campaign%3Dsite-cta">Get it on Google Play <span aria-hidden="true">&#8599;</span></a>
+        <a class="button secondary" href="/watermark-remover/examples/">See measured examples</a>
+      </div>
+      <p class="fine">Listed on Google Play as Watermark Remover (Offline).</p>
+      <div class="facet-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </section>
+
+    <section class="section panel" aria-labelledby="steps-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Five steps</span><h2 id="steps-title">Add, remove, check, refine, save.</h2></div>
+          <p class="section-intro">Screens from Easy mode on original drawn test pictures (no real photos). The ideas behind both multi-photo learning and single-photo removal are on <a href="/watermark-remover/how-it-works/">How it works</a>. New to the app? The <a href="/watermark-remover/how-to-remove-watermark-from-photos/">step-by-step guide</a> walks through a first removal.</p>
+        </div>
+        <ol class="shots">
+          <li><figure><span class="step-num" aria-hidden="true">1</span><picture><source srcset="/assets/img/wmr/shot-0610-02-ask.webp" type="image/webp"><img src="/assets/img/wmr/shot-0610-02-ask.jpg" width="540" height="1170" alt="Three added pictures with the plan &quot;Will learn the mark from your 3 pictures, then clean them&quot;, a Change link, and the Remove the watermark button."></picture><figcaption><strong>Add.</strong> Tap Add for pictures that carry the same mark — and clean originals or a watermark file if you have them. The app sorts them itself and asks only when unsure; Skip is always safe. A single photo goes straight to the on-device neural model.</figcaption></figure></li>
+          <li><figure><span class="step-num" aria-hidden="true">2</span><picture><source srcset="/assets/img/wmr/shot-0610-03-progress.webp" type="image/webp"><img src="/assets/img/wmr/shot-0610-03-progress.jpg" width="540" height="1170" alt="The progress screen while the mark is learned from the pictures, with the elapsed time and a Cancel button." loading="lazy" decoding="async"></picture><figcaption><strong>Remove.</strong> Tap Remove the watermark. Learning and removal run on the phone, with progress on screen and a Cancel button. Time depends on the phone, the picture size, and the mark.</figcaption></figure></li>
+          <li><figure><span class="step-num" aria-hidden="true">3</span><picture><source srcset="/assets/img/wmr/shot-0610-04-results.webp" type="image/webp"><img src="/assets/img/wmr/shot-0610-04-results.jpg" width="540" height="1170" alt="The results screen: the Mark remaining estimate, relative to the input, and Picture 1 with a before-and-after wipe line, Looks good and Not perfect buttons." loading="lazy" decoding="async"></picture><figcaption><strong>Check.</strong> Drag the wipe across each result to compare before and after. “Mark remaining” is an estimate relative to the input, not proof of a clean result.</figcaption></figure></li>
+          <li><figure><span class="step-num" aria-hidden="true">4</span><picture><source srcset="/assets/img/wmr/shot-0610-05-refine.webp" type="image/webp"><img src="/assets/img/wmr/shot-0610-05-refine.jpg" width="540" height="1170" alt="The Refine the watermark screen: the learned DEMO mark on a checkerboard, Paint, Erase, and Pick color tools, and an Apply to all pictures button." loading="lazy" decoding="async"></picture><figcaption><strong>Refine if needed.</strong> Tap Not perfect to touch up the learned mark with Paint, Erase, and Pick color, then apply it to all the pictures again.</figcaption></figure></li>
+          <li><figure><span class="step-num" aria-hidden="true">5</span><picture><source srcset="/assets/img/wmr/shot-0610-06-saved.webp" type="image/webp"><img src="/assets/img/wmr/shot-0610-06-saved.jpg" width="540" height="1170" alt="The results screen after saving to Pictures: the mark-remaining estimate, a wipe comparison of Picture 1, and Save all and Share buttons." loading="lazy" decoding="async"></picture><figcaption><strong>Save.</strong> Save the results to <code>Pictures/WatermarkRemover</code> or share them — after you have looked at each one.</figcaption></figure></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="example-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Measured, not claimed</span><h2 id="example-title">Before and after, with the score.</h2></div>
+          <p class="section-intro">Synthetic examples use test images whose clean original is known, so every result can be scored over the whole picture. Real-photo one-photo examples are shown without scores on the examples page.</p>
+        </div>
+<p class="ex-summary-line">Have the watermark file? Open it and remove the mark from any photo. Measured on 21 kinds of mark, two pictures each: 41 of 42 ended closer to the true picture, 1 further, 0 declined. It works when the file matches how the mark was applied, such as a mark the app learned and saved. One of them:</p>
+<div class="heat-legend" id="heat-legend">
+  <span class="heat-bar" aria-hidden="true"></span>
+  <p>Heat map: brighter = further from the true image; same scale on every example. Dark means
+  the pixel matches the true picture; full amber means it is off by 32 or more of 255 levels in
+  some color channel.</p>
+</div>
+<article class="ex-card" id="ex-home"><h3>Tiled embossed text</h3><div class="ex-file"><img class="ex-wm" src="/assets/ex/wc09m-512.webp" width="1024" height="972" alt="The watermark file: tiled embossed text, shown over a checkerboard" loading="lazy" decoding="async"><p class="fine">The watermark file, opened in the app.</p></div><div class="cmp-wrap"><div class="cmp-sets"><fieldset class="cmp-layer" aria-describedby="heat-legend"><legend>Show</legend><label><input type="radio" name="lex-home" value="output" checked> Output</label><label><input type="radio" name="lex-home" value="clean"> Clean</label><label><input type="radio" name="lex-home" value="heat"> Heat map</label></fieldset></div><figure class="cmp" data-cmp><div class="cmp-frame"><div class="cmp-stage"><div class="cmp-before"><span class="cmp-tag">Input</span><div class="p1"><picture><source type="image/avif" srcset="/assets/ex/c091i-512.avif 512w,/assets/ex/c091i-1024.avif 1024w"><img src="/assets/ex/c091i-512.webp" width="1024" height="1024" alt="Marked train picture" loading="lazy"></picture></div></div><div class="cmp-after"><span class="cmp-tag">Restored</span><div class="p1"><picture class="l-output"><source type="image/avif" srcset="/assets/ex/wc091o-512.avif 512w,/assets/ex/wc091o-1024.avif 1024w"><img src="/assets/ex/wc091o-512.webp" width="1024" height="1024" alt="Restored train picture" loading="lazy"></picture><picture class="l-clean"><source type="image/avif" srcset="/assets/ex/k1-512.avif 512w,/assets/ex/k1-1024.avif 1024w"><img src="/assets/ex/k1-512.webp" width="1024" height="1024" alt="Clean train picture" loading="lazy"></picture><picture class="l-heat"><source type="image/avif" srcset="/assets/ex/wc091h-512.avif"><img src="/assets/ex/wc091h-512.webp" width="1024" height="1024" alt="Heat map, train picture" loading="lazy"></picture></div></div></div></div><figcaption><p class="fine">Change against the true picture: 24.58 → 44.65 dB (+20.07).</p></figcaption></figure></div></article>
+<p class="ex-more"><a class="button secondary" href="/watermark-remover/examples/">See every example and every method, failures included</a></p>
+      </div>
+    </section>
+
+    <section class="section panel" aria-labelledby="scope-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Honest about what won’t work</span><h2 id="scope-title">What it handles, and what it does not.</h2></div>
+          <p class="section-intro">Multi-photo mathematical un-blending is the most reliable route when you have several photos carrying the same mark (or a watermark file). For a single photo, an on-device neural model estimates and lifts the mark — convenient, though it may leave faint outlines or occasional damaged patches.</p>
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <h3>Handles</h3>
+            <ul class="checklist">
+              <li>Repeating or tiled semi-transparent watermarks spread across the photo, including batches of mixed-size photos sharing a repeating or corner mark.</li>
+              <li>A mark learned once from several of your photos that carry it (5–8 work best), saved as a watermark file, and removed from new photos — one at a time or many.</li>
+              <li>A single photo (or up to 6 photos when no shared mark is found): the on-device neural model estimates the mark and removes it (median +6.5 dB on our 300-image test set; <a href="/watermark-remover/examples/#one-photo">examples</a>). In Easy mode, a single photo goes straight to this model; tap Not perfect to touch it up by hand.</li>
+              <li>Results that are not right yet: tap Not perfect to refine the learned mark with paint and erase tools, or compare multi-photo and one-photo AI results side by side in Advanced mode.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Does not</h3>
+            <ul class="checklist">
+              <li>Photos only — no video. Pick photos rather than video clips.</li>
+              <li>Guarantee a clean result from one photo: the one-photo model improved the picture in most of our tests, but can leave a faint outline and about 1 in 150 test pictures ended with a damaged patch (<a href="/watermark-remover/examples/#one-photo">examples</a>). Learned from 8 photos and saved, single marks did better.</li>
+              <li>Recover what a fully opaque mark hid: that area is filled in by on-device AI (MI-GAN), and the fill is a reconstruction, not the original.</li>
+              <li>Promise results on every kind of mark. Check each result with the wipe before you save it.</li>
+            </ul>
+          </article>
+        </div>
+        <ol class="shots mt-40">
+          <li><figure><picture><source srcset="/assets/img/wmr/shot-0610-10-one-photo.webp" type="image/webp"><img src="/assets/img/wmr/shot-0610-10-one-photo.jpg" width="540" height="1170" alt="One-photo AI full-screen wipe view showing before and after on a single test picture with a DEMO mark and a Keep B action." loading="lazy" decoding="async"></picture><figcaption><strong>One-photo AI wipe.</strong> Inspect a single-photo neural result with the before-and-after slider before keeping or saving it.</figcaption></figure></li>
+          <li><figure><picture><source srcset="/assets/img/wmr/shot-0610-09-compare.webp" type="image/webp"><img src="/assets/img/wmr/shot-0610-09-compare.jpg" width="540" height="1170" alt="Advanced mode Compare screen showing multi-photo removal (A) beside one-photo AI (B) with Keep A and Keep B selectors for each photo." loading="lazy" decoding="async"></picture><figcaption><strong>Advanced mode Compare.</strong> View multi-photo removal (A) side by side with one-photo AI (B) and pick the better result for each photo.</figcaption></figure></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="privacy-title">
+      <div class="wrap">
+        <div class="callout">
+          <span class="eyebrow">Privacy</span>
+          <h2 id="privacy-title">The photo stays on the phone.</h2>
+          <ul class="checklist">
+            <li>Photos and results are processed on the device and never uploaded.</li>
+            <li>Learning and removal need no connection, and the app contains no advertising, analytics, or crash-analytics SDK.</li>
+            <li>Diagnostic and technical reports — crash/out-of-memory/ANR, removal-failure, Hardware Test, self-test, result ratings, comparison choices, and save/share actions — carry no photos and are gated under broad category switches in Settings. Opening the app makes no network connection of its own.</li>
+            <li>Feedback is sent only when you press Send; its attachment checkboxes (including Screenshot) are ticked by default and can show your picture/video if on screen — untick before sending to leave them out.</li>
+          </ul>
+          <div class="hero-actions">
+            <a class="button secondary" href="/watermark-remover/privacy/">Privacy at a glance and full policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section panel" aria-labelledby="more-apps-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Our apps</span><h2 id="more-apps-title">Also from SciNTech.</h2></div>
+          <p class="section-intro">Each one runs its core work on the phone, offline — free, with no ads and no accounts.</p>
+        </div>
+        <div class="grid-2">
+          <article class="card app-card" data-app="looper">
+            <div class="app-card-head"><picture><source srcset="/assets/img/looper/icon-128.webp" type="image/webp"><img src="/assets/img/looper/icon-128.png" width="64" height="64" alt="" loading="lazy" decoding="async"></picture><div><span class="chip">On Google Play</span><h3>Seamless Video Looper</h3></div></div>
+            <p>Turns a clip into a seamless loop that plays forward.</p>
+            <div class="hero-actions">
+              <a class="button primary" data-cta="looper" href="https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dweb%26utm_campaign%3Dsite-cta">Get it on Google Play <span aria-hidden="true">&#8599;</span></a>
+              <a class="button secondary" href="/seamless-video-looper/">About the app</a>
+            </div>
+          </article>
+          <article class="card app-card" data-app="pic2ink">
+            <div class="app-card-head"><picture><source srcset="/assets/img/pic2ink/icon-128.webp" type="image/webp"><img src="/assets/img/pic2ink/icon-128.png" width="64" height="64" alt="" loading="lazy" decoding="async"></picture><div><span class="chip">On Google Play</span><h3>Pic2Ink</h3></div></div>
+            <p>Prepares a photo for an e-ink frame’s exact pixels and inks, and sends it over NFC or Wi-Fi.</p>
+            <div class="hero-actions">
+              <a class="button primary" data-cta="pic2ink" href="https://play.google.com/store/apps/details?id=com.scintech.pic2ink&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dweb%26utm_campaign%3Dsite-cta">Get it on Google Play <span aria-hidden="true">&#8599;</span></a>
+              <a class="button secondary" href="/pic2ink/">About the app</a>
+            </div>
+          </article>
+        </div>
+        <p class="apps-all"><a class="button secondary" href="https://play.google.com/store/apps/developer?id=SciNTech">All SciNTech apps on Google Play <span aria-hidden="true">&#8599;</span></a></p>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">SciNTech</p>
+          <p class="fine">Useful Android tools, built on science, that work offline — and say plainly where they fall short.</p>
+          <div class="facet-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">Watermark Remover</p>
+          <a href="/watermark-remover/how-it-works/">How it works</a>
+          <a href="/watermark-remover/examples/">Examples</a>
+          <a href="/watermark-remover/how-to-remove-watermark-from-photos/">Guide</a>
+          <a href="/watermark-remover/compatibility/">Compatibility &amp; FAQ</a>
+          <a href="/watermark-remover/privacy/">Privacy</a>
+          <a data-cta="wmr" href="https://play.google.com/store/apps/details?id=com.watermarkremover.android&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dweb%26utm_campaign%3Dsite-cta">Get it on Google Play <span aria-hidden="true">&#8599;</span></a>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">SciNTech</p>
+          <a href="/about/">About &amp; values</a>
+          <a href="/changelog/#watermark-remover">Changelog</a>
+          <a href="/compatibility/">Compatibility</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/seamless-video-looper/">Seamless Video Looper</a>
+          <a href="/pic2ink/">Pic2Ink</a>
+          <a href="https://play.google.com/store/apps/developer?id=SciNTech">All SciNTech apps on Google Play <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+      <div class="footer-base">
+        <p class="footer-rights">Restore photos you have the right to restore — respect photographers’ and other owners’ rights.</p>
+        <p class="fine">Questions and reports go through the app’s feedback button (also in the ⋮ menu → Send feedback). This site sets no cookies and loads no analytics.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

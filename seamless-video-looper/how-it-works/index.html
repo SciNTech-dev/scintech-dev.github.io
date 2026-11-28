@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>How Seamless Video Looper Finds and Blends a Loop Point</title>
+  <meta name="description" content="How Seamless Video Looper searches for a better loop point, aligns camera shift or zoom, blends with five seam methods, and saves an MP4.">
+  <link rel="canonical" href="https://scintech-dev.github.io/seamless-video-looper/how-it-works/">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f4ef">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#15161a">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="SciNTech">
+  <meta property="og:title" content="How Seamless Video Looper Finds and Blends a Loop Point">
+  <meta property="og:description" content="How Seamless Video Looper searches for a better loop point, aligns camera shift or zoom, blends with five seam methods, and saves an MP4.">
+  <meta property="og:url" content="https://scintech-dev.github.io/seamless-video-looper/how-it-works/">
+  <meta property="og:image" content="https://scintech-dev.github.io/assets/img/looper/og-looper.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Seamless Video Looper: Turn a clip into a seamless forward loop, offline on Android.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/scintech-mark-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/scintech-mark-180.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <script src="/assets/site.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"HowTo","name":"How to make a video loop seamlessly.","description":"Find a better endpoint pair, align camera movement, blend the end back into the beginning with five seam methods, handle audio, and save an MP4.","step":[{"@type":"HowToStep","position":1,"name":"Search the clip for a better loop point.","text":"The app compares possible start and end frames, ranks the strongest pairs, and lets you preview them as repeating loops.","url":"https://scintech-dev.github.io/seamless-video-looper/how-it-works/#find-the-loop-point"},{"@type":"HowToStep","position":2,"name":"Reconcile camera movement.","text":"When the camera drifts or slowly zooms, seam stabilization can bring the two endpoints closer before they are blended.","url":"https://scintech-dev.github.io/seamless-video-looper/how-it-works/#align-the-view"},{"@type":"HowToStep","position":3,"name":"Blend the beginning and end of the video.","text":"Choose from five seam methods: Hard Cut, Crossfade, Flow Warp, Motion Blend, or AI Interpolation.","url":"https://scintech-dev.github.io/seamless-video-looper/how-it-works/#blend-video-beginning-and-end"},{"@type":"HowToStep","position":4,"name":"Audio has its own seam.","text":"Mute the result, Crossfade the sound around the loop, or use Clean Cut (zero-crossing) to reduce clicks.","url":"https://scintech-dev.github.io/seamless-video-looper/how-it-works/#carry-the-sound"},{"@type":"HowToStep","position":5,"name":"Create a new MP4.","text":"The result is encoded on the phone as H.264 video in an MP4 container, with AAC audio when sound is retained, ready to Save to gallery or share.","url":"https://scintech-dev.github.io/seamless-video-looper/how-it-works/#render"}],"author":{"@id":"https://scintech-dev.github.io/#organization"},"publisher":{"@id":"https://scintech-dev.github.io/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SciNTech","item":"https://scintech-dev.github.io/"},{"@type":"ListItem","position":2,"name":"Seamless Video Looper","item":"https://scintech-dev.github.io/seamless-video-looper/"},{"@type":"ListItem","position":3,"name":"How it works","item":"https://scintech-dev.github.io/seamless-video-looper/how-it-works/"}]},{"@type":"Organization","@id":"https://scintech-dev.github.io/#organization","name":"SciNTech","url":"https://scintech-dev.github.io/","logo":"https://scintech-dev.github.io/assets/img/scintech-mark-512.png","sameAs":["https://play.google.com/store/apps/developer?id=SciNTech","https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android","https://play.google.com/store/apps/details?id=com.watermarkremover.android","https://play.google.com/store/apps/details?id=com.scintech.pic2ink"]},{"@type":"WebSite","@id":"https://scintech-dev.github.io/#website","name":"SciNTech","url":"https://scintech-dev.github.io/","inLanguage":"en","publisher":{"@id":"https://scintech-dev.github.io/#organization"}}]}</script>
+</head>
+<body data-app="looper">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="/"><img src="/assets/img/scintech-mark-64.png" width="32" height="32" alt="" decoding="async"><span>SciNTech</span></a>
+      <div class="nav-links">
+        <a class="nav-app" data-app-link="wmr" href="/watermark-remover/">Watermark Remover</a>
+        <a class="nav-app" data-app-link="looper" href="/seamless-video-looper/">Seamless Video Looper</a>
+        <a class="nav-app" data-app-link="pic2ink" href="/pic2ink/">Pic2Ink</a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a href="/about/">About</a>
+        <a href="/changelog/">Changelog</a>
+        <a href="/compatibility/">Compatibility</a>
+        <a href="/privacy/">Privacy</a>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" hidden><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M5.3 18.7 7 17M17 7l1.7-1.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">Dark theme</span></button>
+    </nav>
+  </header>
+  <nav class="app-nav" aria-label="Seamless Video Looper" data-app="looper">
+    <div class="wrap">
+      <a href="/seamless-video-looper/">Home</a>
+      <a href="/seamless-video-looper/how-it-works/" aria-current="page">How it works</a>
+      <a href="/seamless-video-looper/examples/">Examples</a>
+      <a href="/seamless-video-looper/compatibility/">Compatibility</a>
+      <a href="/seamless-video-looper/privacy/">Privacy</a>
+      <a class="button primary" data-cta="looper" href="https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dweb%26utm_campaign%3Dsite-cta">Get it on Google Play <span aria-hidden="true">&#8599;</span></a>
+    </div>
+  </nav>
+  <main id="main">
+
+    <header class="page-hero">
+      <div class="wrap">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">SciNTech</a></li><li><a href="/seamless-video-looper/">Seamless Video Looper</a></li><li aria-current="page">How it works</li></ol></nav>
+        <span class="eyebrow">A loop point is a seam in time</span>
+        <h1>How to make a video loop seamlessly.</h1>
+        <p class="lede">Find a better endpoint pair, align camera movement, and blend the end back into the beginning.</p>
+        <div class="facet-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      </div>
+    </header>
+
+    <section class="section" id="find-the-loop-point">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">01 / Find the handoff</span><h2>Search the clip for a better loop point.</h2></div>
+          <p class="section-intro">The app compares possible start and end frames, ranks the strongest pairs, and lets you preview them as repeating loops.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><span class="kicker">APPEARANCE</span><h3>Do the frames look alike?</h3><p>Color, texture, exposure, edges, and object placement all influence the visible jump.</p></article>
+          <article class="card"><span class="kicker">MOTION</span><h3>Does movement continue?</h3><p>Dynamic search also considers motion direction and speed across the boundary.</p></article>
+          <article class="card"><span class="kicker">PREVIEW</span><h3>Does it feel right?</h3><p>Easy mode renders up to four scored loop options (including Longest loop); Advanced mode lets you preview candidates or set a custom cut before rendering.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section panel" id="align-the-view">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">02 / Align the view</span><h2>Reconcile camera movement.</h2></div>
+          <p class="section-intro">When the camera drifts or slowly zooms, seam stabilization can bring the two endpoints closer before they are blended.</p>
+        </div>
+        <div class="grid-2">
+          <article class="card"><span class="kicker">SEAM ALIGNMENT</span><h3>Shift, zoom, or both</h3><p>Compensate horizontal and vertical movement, scale change, or let Auto decide when correction helps.</p></article>
+          <article class="card"><span class="kicker">CAMERA DRIFT</span><h3>Dance or Lock</h3><p>Dance preserves natural camera movement around the seam. Lock steadies the background across the clip.</p></article>
+          <article class="card"><span class="kicker">TRACKING</span><h3>Feature or optical flow</h3><p>Track textured points or use dense motion estimation, depending on the scene and processing available on the phone.</p></article>
+          <article class="card"><span class="kicker">EDGES</span><h3>Choose the border treatment</h3><p>Fill exposed edges from a middle frame, build a panorama, show gray borders, or crop them with a gentle zoom.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="blend-video-beginning-and-end">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">03 / Build the seam</span><h2>Five ways to blend the beginning and end.</h2></div>
+          <p class="section-intro">Advanced mode offers five seam methods. Choose the simplest method that removes the jump while keeping the motion natural.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><span class="chip">Hard Cut</span><h3>Leave matched frames alone</h3><p>For endpoints that already meet cleanly. Any remaining mismatch stays sharp.</p></article>
+          <article class="card"><span class="chip">Crossfade</span><h3>Fade tail into head</h3><p>Fast and widely available. Moving objects may briefly appear doubled or translucent.</p></article>
+          <article class="card"><span class="chip">Flow Warp</span><h3>Warp endpoints along motion</h3><p>Optical flow warps the boundary frames so moving textures meet smoothly across the seam.</p></article>
+          <article class="card"><span class="chip">Motion Blend</span><h3>Warp and blend across the seam</h3><p>Combines optical-flow warping with multi-frame blending to soften transitions where motion continues. Complex occlusion can still bend.</p></article>
+          <article class="card"><span class="chip">AI Interpolation</span><h3>Create in-between frames</h3><p>On supported phones, neural frame interpolation (RIFE) synthesizes in-between frames for a smoother temporal bridge.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sand" id="carry-the-sound">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">04 / Carry the sound</span><h2>Audio has its own seam.</h2></div>
+          <p class="section-intro">Mute the result, Crossfade the sound around the loop, or use Clean Cut (zero-crossing) to reduce clicks.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><span class="kicker">MUTE</span><h3>Visual loop only</h3><p>Remove audio when the loop is intended as a silent background or visual element.</p></article>
+          <article class="card"><span class="kicker">CROSSFADE</span><h3>Blend the ends</h3><p>Equal-power crossfade overlaps the tail and head audio to soften a continuous ambient transition.</p></article>
+          <article class="card"><span class="kicker">CLEAN CUT</span><h3>Cut at waveform zero-crossing</h3><p>Clean Cut places the audio seam where the waveform crosses zero to avoid an abrupt click.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section panel" id="render">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">05 / Render</span><h2>Create a new MP4.</h2></div>
+          <p class="section-intro">The result is encoded on the phone as H.264 video in an MP4 container, with AAC audio when sound is retained.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><span class="kicker">QUALITY</span><h3>Re-encoded output</h3><p>Rendering applies compression again, even when the output keeps the source dimensions.</p></article>
+          <article class="card"><span class="kicker">BACKGROUND</span><h3>Keep working</h3><p>A progress notification lets rendering continue while you leave the app screen.</p></article>
+          <article class="card"><span class="kicker">SAVE OR SHARE</span><h3>Save to gallery or share</h3><p>Tap Save to gallery to save directly to <code>Movies/Seamless Video Looper/</code>, or send through Android’s share sheet without overwriting the source clip.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="narrow">
+        <span class="eyebrow">The practical rule</span>
+        <h2>Better source motion makes a better loop.</h2>
+        <p class="lede">Alignment and blending can repair a seam; they cannot reconstruct a scene hidden by a large viewpoint change or a foreground object. Preview several cuts and use the simplest method that looks natural.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="/seamless-video-looper/examples/">See the app workflow</a>
+          <a class="button secondary" data-cta="looper" href="https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dweb%26utm_campaign%3Dsite-cta">Get it on Google Play <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">SciNTech</p>
+          <p class="fine">Useful Android tools, built on science, that work offline — and say plainly where they fall short.</p>
+          <div class="facet-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">Apps</p>
+          <a href="/watermark-remover/">Watermark Remover</a>
+          <a href="/seamless-video-looper/">Seamless Video Looper</a>
+          <a href="/pic2ink/">Pic2Ink</a>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">SciNTech</p>
+          <a href="/about/">About &amp; values</a>
+          <a href="/changelog/">Changelog</a>
+          <a href="/compatibility/">Compatibility</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="https://play.google.com/store/apps/developer?id=SciNTech">All SciNTech apps on Google Play <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+      <div class="footer-base">
+        <p class="fine">Questions and reports go through the app’s Send Feedback button at the bottom right of the screen. This site sets no cookies and loads no analytics.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,96 @@
+# SciNTech
+
+SciNTech is a small Canadian software studio that uses science to make useful Android tools that work offline. Each app runs its core work on the phone without an internet connection, and is free with no ads and no accounts. Current apps: Watermark Remover (removes repeated or single-photo watermarks offline), Seamless Video Looper (finds loop points and renders forward-playing seamless loops offline), and Pic2Ink (prepares photos for NFC and Wi-Fi e-ink frames, TV casting, or PNG export). Photos and videos are never uploaded to be processed.
+
+All apps on Google Play: https://play.google.com/store/apps/developer?id=SciNTech. Machine-readable list of the apps: https://scintech-dev.github.io/apps.json
+
+Support: each app's Send feedback button (in the corner of the screen or the ⋮ menu). A human reads every report and acts on it. Privacy and data-deletion requests: the contact or data-removal section of each app's privacy policy (reports are retained indefinitely and deleted within 30 days of an email request).
+
+## Studio Pages
+
+- https://scintech-dev.github.io/ — SciNTech home: the three apps and the values they share.
+- https://scintech-dev.github.io/about/ — About SciNTech (a small Canadian software studio) and the five values, with an example from each app.
+- https://scintech-dev.github.io/changelog/ — Release notes for Watermark Remover, Seamless Video Looper, and Pic2Ink, newest first, as shipped.
+- https://scintech-dev.github.io/compatibility/ — Per-app requirements summary (Android 8.0+ for Watermark Remover and Seamless Video Looper; Android 7.0+ for Pic2Ink) and links to each app's compatibility page.
+- https://scintech-dev.github.io/privacy/ — The website's own privacy statement and links to each app's privacy page.
+
+## Values
+
+- Real technique, not decoration: each app aims established methods at one practical problem and names them.
+- Offline, and free: each app runs its core work on the phone without a connection, and is free with no ads and no accounts.
+- Awareness through measurement: each app measures the hardware it works with and the result it produces, setting defaults from the first and showing you the second.
+- Honest about what won't work: each app states the cases it handles badly.
+- Predictable, and yours to adjust: what leaves the phone is stated on each app's privacy page, and every automatic report type is gated under broad category switches in Settings.
+
+## Watermark Remover
+
+Status: on Google Play for everyone since 2026-10-15, listed as "Watermark Remover (Offline)": https://play.google.com/store/apps/details?id=com.watermarkremover.android (package com.watermarkremover.android). Current release: <!--app-version:wmr-->0.8.0<!--/app-version--> (build 90).
+
+Pages:
+- https://scintech-dev.github.io/watermark-remover/ — What the app handles and does not handle (repeated and single-photo watermarks), in five steps.
+- https://scintech-dev.github.io/watermark-remover/how-it-works/ — The four multi-photo ideas (find the repeat, learn the mark from many copies, lift it off, fill what was lost) plus the on-device neural one-photo model with mirrored-pass self-check.
+- https://scintech-dev.github.io/watermark-remover/examples/ — Synthetic scored gallery (21 mark kinds across watermark file, saved 8-photo mark, and two-photo learn) plus 7 real-photo one-photo before/after pairs.
+- https://scintech-dev.github.io/watermark-remover/compatibility/ — Requirements, inputs/outputs, permissions, and FAQ.
+- https://scintech-dev.github.io/watermark-remover/privacy/ — Privacy at a glance and full policy at #policy.
+
+Facts:
+- Requires Android 8.0 (API 26) or later on a 64-bit ARM (arm64-v8a) device. Photos only — no video.
+- Free, with no ads, no accounts, and nothing to buy. Works offline: learning and removing watermarks run on the phone and need no connection.
+- Input: photos chosen in Android's picker, shared to the app, or opened via "Open with" (including `.png`/`.cmt` watermark files). Output: saved at full resolution to `Pictures/WatermarkRemover` on Android 8.0+ (PNG for Easy mode and Workbench "Save all"; JPEG or PNG for single-photo saves in Quick Remove and Workbench viewer), or shared as PNG.
+- Permissions: no broad photo-library read access; uses legacy `WRITE_EXTERNAL_STORAGE` on Android 8.0–9 to save to `Pictures/WatermarkRemover`, and `POST_NOTIFICATIONS` on Android 13+ for long-job progress notifications.
+- Easy mode: one Add button for photos, clean originals, and watermark files; the app sorts them and asks only when unsure, and Skip is always safe. A single photo goes straight to the on-device one-photo neural model, with "Not perfect" to refine by hand. Bursts of one scene count once. Photos of different sizes can be cleaned together when they share a repeating or corner watermark.
+- Multi-photo learning: learns a watermark from two or more photos carrying the same mark (5–8 work best) and can save it as a watermark file for reuse. Expected time: a few minutes per image on most phones (longer for large photos).
+- On-device one-photo neural model: handles single photos and serves as a fallback for batches of up to 6 photos when the multi-photo learner cannot find a shared mark. Needs ~1.2 GB free memory and the Full build (Google Play distributes only the Full build). Measured on the developers' 300-image test set: median +6.5 dB whole-picture improvement, 0 of 100 clean photos altered, visibly damaged patches on 2 of 300 marked photos (vs 9 of 300 without the mirrored-pass self-check); about 20 s per 12 MP photo on a 2025 flagship and about 100 s on a 2020 mid-range phone.
+- Synthetic gallery (scored against true clean originals): watermark file 41/42 closer, 1 further, 0 declined, mean +15.50 dB; mark learned from 8 photos and saved 41/42 closer, 1 further, 0 declined, mean +11.12 dB; learned from two photos 36/42 closer, 0 further, 6 declined, mean +6.93 dB (+5.15 dB repeating, +8.54 dB single).
+- Opaque areas hidden completely by a mark are reconstructed by MI-GAN on-device (Full build on Google Play) or classical fill (Lite build), not recovered originals.
+- Hardware Test (first item in the ⋮ menu on every screen) measures thread counts, learn memory budget, and MI-GAN repair execution providers.
+- Privacy: photos and learned templates never leave the phone. Opening the app makes no network connection of its own; Firebase anonymous sign-in happens only when sending a report. No ads or analytics SDK. Reports include crash/OOM/interrupted-job/ANR main-thread stack, removal-failure, Hardware Test, self-test (once per install and after some updates), result ratings (`rating`), Advanced comparison choices (`compare_pick`), and save/share actions (`result_action`) — every automatic/technical report type is gated under broad category switches in Settings. Reports carry three anonymous identifiers (`uid`, `Android ID`, `install_id`). Feedback (via corner button or ⋮ menu → Send feedback) has all 4 attachment checkboxes ticked by default, and its screenshot option is ticked by default and can show your picture/video if on screen (untick before sending). Reports are retained indefinitely, a human reads every report and acts on it, and all report types are deleted within 30 days of an email request. Local screenshot cache on the device expires after 30 days.
+- Respect photographers' and owners' rights: use the app only on photos you have the right to restore.
+
+## Seamless Video Looper
+
+Status: on Google Play as "Seamless Video Looper: Offline": https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android (package com.seamlessvideolooper.android). Current release: <!--app-version:looper-->1.10.0<!--/app-version--> (build 35).
+
+Pages:
+- https://scintech-dev.github.io/seamless-video-looper/ — Product overview, Easy vs Advanced workflows, and honest limits.
+- https://scintech-dev.github.io/seamless-video-looper/how-it-works/ — Loop-point search, camera alignment, 5 seam methods, audio seam modes, and MP4 rendering.
+- https://scintech-dev.github.io/seamless-video-looper/examples/ — App workflow screens and footage guide.
+- https://scintech-dev.github.io/seamless-video-looper/compatibility/ — Requirements, media/output behavior, and FAQ.
+- https://scintech-dev.github.io/seamless-video-looper/privacy/ — Privacy at a glance and full policy at #policy.
+
+Facts:
+- Requires Android 8.0 (API 26) or later. Free, with no ads, no accounts, and nothing to buy. Works offline for all video processing; video files are never uploaded.
+- Creates forward-playing seamless video loops (not boomerangs). Output is MP4 with H.264/AVC video and AAC-LC audio when sound is kept, with no app watermark.
+- Saving: one-tap "Save to gallery" saves directly to `Movies/Seamless Video Looper/` (uses `WRITE_EXTERNAL_STORAGE` on Android 8.0–9), or export via Android's share sheet.
+- Easy mode searches the clip automatically and renders up to 4 loop options (default 3, including a "Longest loop" option covering at least half the clip) with seamlessness scores to preview and pick from. Advanced mode lets you inspect and customize cuts, choose blend/alignment/audio settings, save presets, and preview before rendering.
+- Five Advanced seam methods: Hard Cut, Crossfade, Flow Warp, Motion Blend, and AI Interpolation.
+- Three audio seam modes: Mute, Crossfade (equal-power crossfade), and Clean Cut (zero-crossing cut to reduce clicks).
+- Camera movement alignment: shift, zoom, or both, with Dance (keep natural drift) or Lock (steady background), plus edge border treatments.
+- Built on named methods: NeuFlow v2 optical flow, RIFE frame interpolation, and OpenCV ORB feature matching. A Hardware Test checks memory, decoding, and ML backends and configures practical defaults.
+- Ships in 26 languages (English plus 25 translations, including right-to-left layouts).
+- Honest limits: fast foreground crossings, occlusion, abrupt lighting changes, and large camera shifts can leave a visible seam; HDR preservation is not guaranteed.
+- Privacy: initializes Firebase, Firebase App Check (Play Integrity), and Firebase Anonymous Authentication on startup, and uses Google Play In-App Review. No ads or general usage-analytics SDK. Reports include feedback (via the bottom-right Send Feedback button; always includes app/device/Android version/tier/step/metrics/identifiers, while attachments under "Include app data" including Screenshot are ticked by default and can show your picture/video if on screen), crash/OOM/ANR/non-crash exit reports, Hardware Test reports, render-failure and quality-failure reports, and rating/shared-result records (when you share a render or tap an inline star rating). Automatic reports start on by default and are gated under broad category switches in Settings. Reports carry Firebase anonymous `uid` and `Android ID`, are retained indefinitely, read by a human who acts on them, and deleted within 30 days of an email request. Local screenshot cache expires after 30 days.
+
+## Pic2Ink
+
+Status: on Google Play as "Pic2Ink: Photo to E-Ink Frame": https://play.google.com/store/apps/details?id=com.scintech.pic2ink (package com.scintech.pic2ink). Current release: <!--app-version:pic2ink-->0.6.1<!--/app-version--> (build 9). Based on DITHR by redphx (MIT license).
+
+Pages:
+- https://scintech-dev.github.io/pic2ink/ — What Pic2Ink does in three steps, Easy and Advanced modes, and what it handles and does not.
+- https://scintech-dev.github.io/pic2ink/how-it-works/ — Dithering to a panel's few inks, exact pixel buffers, NFC/Wi-Fi/Cast protocols, and screen calibration from photos.
+- https://scintech-dev.github.io/pic2ink/compatibility/ — Requirements, full 53-device catalog table (tested vs untested), TV casting, and FAQ.
+- https://scintech-dev.github.io/pic2ink/privacy/ — Privacy at a glance and full policy at #policy.
+
+Facts:
+- Requires Android 7.0 (API 24) or later. Free, with no ads, no accounts, and nothing to buy. Not affiliated with or endorsed by any frame maker.
+- NFC is needed for NFC frames, not for Wi-Fi frames, TVs, or PNG file export. Not for Kindle, Kobo, or other general e-readers.
+- Three steps: choose the device (brand and model, or a TV/display under "TVs and displays (Wi-Fi)"), choose the picture (photo picker or Share; auto-rotates 90° on landscape/portrait mismatch, drag/pinch-to-zoom crop or Fit, manual 90° rotation), and send ("Send via NFC", "Send via Wi-Fi", "Cast to <screen>", or "Export PNG" for file devices in both Easy and Advanced modes).
+- Bigme F7 Pro over Wi-Fi: discovers the frame automatically on your local 2.4 GHz Wi-Fi (private addresses only; set up once with Bigme's app), or joins the frame's own hotspot on Android 10+. The Bigme F7 (non-Pro) is not supported.
+- Casting to TVs and displays (Wi-Fi): Google Cast (Chromecast, Google TV, Nest Hub) and DLNA; Roku and AirPlay are experimental. Tested on hardware: Google Nest Hub and Samsung TV over Google Cast; DLNA only against a test receiver; Roku and AirPlay untested on real devices. A Google Cast screen ends the cast by itself after a while.
+- Device catalog (53 entries total): 31 NFC entries (1 tested: TapMora Spectra 6 photo frame; 30 untested), 1 Wi-Fi frame (tested: Bigme F7 Pro over home Wi-Fi; hotspot route not yet recorded as tested), and 21 file-export devices (PNG export only, all marked untested).
+- Dithering and image preparation: exact panel resolution and panel inks only, using DITHR's error diffusion (Floyd–Steinberg, Atkinson, Jarvis, Ostromoukhov, or none; default Natural hybrid of Atkinson and Jarvis) with styles Natural, Soft, Crisp, Vivid, Flat, and Custom. Advanced Dithering screen includes a zoom/pan preview, Sharpen, Dithering strength, Dot size (Fine/Coarse), Brightness, Contrast, Color, and Gamma.
+- Placement: Crop (default, with drag and pinch-to-zoom), Fit (white or black padding), Stretch, or 1:1 (exact pixel mapping). "Use visible area only" places the photo inside a calibrated frame's visible bezel area.
+- NFC sends are reported as "confirmed" or "sent, not confirmed" and are never retried automatically.
+- Calibrate screen: sends a calibration chart to the frame, reads up to 6 photos (with Take photo or gallery picker) to measure bezel margins and panel ink colors, confirms with a bezel check image, and enables "Use visible area only" and "Match this frame".
+- Auto-detect (experimental): read-only NFC scan identifies an unknown frame's protocol family from its reply.
+- Privacy: pictures are prepared on the phone and go only to the chosen frame/screen or exported PNG file. Google Cast SDK starts only when "TVs and displays (Wi-Fi)" is chosen and sends Google technical events (no picture, no user ID). A one-off self-test runs ~4 seconds after first install or an app/Android/WebView update. Automatic crash, failure, and self-test reports (never a picture, file name, Wi-Fi name, or frame ID) start on by default and are gated under broad category switches in Settings. Feedback (via the Send feedback button) has all 4 attachment checkboxes ticked by default, and its screenshot option is ticked by default and can show your picture/video if on screen (untick before sending). Reports carry three anonymous identifiers (`install_id`, `Android ID`, Firebase `uid`), are retained indefinitely, read by a human who acts on them, and deleted within 30 days of an email request to the developer email on Google Play. Hotspot permissions include `NEARBY_WIFI_DEVICES` (Android 13+, `neverForLocation`), `ACCESS_FINE_LOCATION`/`ACCESS_COARSE_LOCATION` (Android 10–12 only, used solely to join the Bigme hotspot), `CHANGE_NETWORK_STATE`, and `CHANGE_WIFI_STATE`.

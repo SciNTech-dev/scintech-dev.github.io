@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Inside Seamless Video Looper — Android App Workflow</title>
+  <meta name="description" content="Screens from Seamless Video Looper: selecting a clip, comparing candidate loop points, shaping the seam, checking the phone, and rendering an MP4.">
+  <link rel="canonical" href="https://scintech-dev.github.io/seamless-video-looper/examples/">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f4ef">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#15161a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SciNTech">
+  <meta property="og:title" content="Inside Seamless Video Looper — Android App Workflow">
+  <meta property="og:description" content="Screens from Seamless Video Looper: selecting a clip, comparing candidate loop points, shaping the seam, checking the phone, and rendering an MP4.">
+  <meta property="og:url" content="https://scintech-dev.github.io/seamless-video-looper/examples/">
+  <meta property="og:image" content="https://scintech-dev.github.io/assets/img/looper/og-looper.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Seamless Video Looper: Turn a clip into a seamless forward loop, offline on Android.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/scintech-mark-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/scintech-mark-180.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <script src="/assets/site.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://scintech-dev.github.io/seamless-video-looper/examples/#webpage","url":"https://scintech-dev.github.io/seamless-video-looper/examples/","name":"Inside Seamless Video Looper — Android App Workflow","description":"Screens from Seamless Video Looper: selecting a clip, comparing candidate loop points, shaping the seam, checking the phone, and rendering an MP4.","isPartOf":{"@id":"https://scintech-dev.github.io/#website"},"about":{"@id":"https://scintech-dev.github.io/seamless-video-looper/#app"},"publisher":{"@id":"https://scintech-dev.github.io/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SciNTech","item":"https://scintech-dev.github.io/"},{"@type":"ListItem","position":2,"name":"Seamless Video Looper","item":"https://scintech-dev.github.io/seamless-video-looper/"},{"@type":"ListItem","position":3,"name":"Examples","item":"https://scintech-dev.github.io/seamless-video-looper/examples/"}]},{"@type":"Organization","@id":"https://scintech-dev.github.io/#organization","name":"SciNTech","url":"https://scintech-dev.github.io/","logo":"https://scintech-dev.github.io/assets/img/scintech-mark-512.png","sameAs":["https://play.google.com/store/apps/developer?id=SciNTech","https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android","https://play.google.com/store/apps/details?id=com.watermarkremover.android","https://play.google.com/store/apps/details?id=com.scintech.pic2ink"]},{"@type":"WebSite","@id":"https://scintech-dev.github.io/#website","name":"SciNTech","url":"https://scintech-dev.github.io/","inLanguage":"en","publisher":{"@id":"https://scintech-dev.github.io/#organization"}}]}</script>
+</head>
+<body data-app="looper">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="/"><img src="/assets/img/scintech-mark-64.png" width="32" height="32" alt="" decoding="async"><span>SciNTech</span></a>
+      <div class="nav-links">
+        <a class="nav-app" data-app-link="wmr" href="/watermark-remover/">Watermark Remover</a>
+        <a class="nav-app" data-app-link="looper" href="/seamless-video-looper/">Seamless Video Looper</a>
+        <a class="nav-app" data-app-link="pic2ink" href="/pic2ink/">Pic2Ink</a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a href="/about/">About</a>
+        <a href="/changelog/">Changelog</a>
+        <a href="/compatibility/">Compatibility</a>
+        <a href="/privacy/">Privacy</a>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" hidden><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M5.3 18.7 7 17M17 7l1.7-1.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">Dark theme</span></button>
+    </nav>
+  </header>
+  <nav class="app-nav" aria-label="Seamless Video Looper" data-app="looper">
+    <div class="wrap">
+      <a href="/seamless-video-looper/">Home</a>
+      <a href="/seamless-video-looper/how-it-works/">How it works</a>
+      <a href="/seamless-video-looper/examples/" aria-current="page">Examples</a>
+      <a href="/seamless-video-looper/compatibility/">Compatibility</a>
+      <a href="/seamless-video-looper/privacy/">Privacy</a>
+      <a class="button primary" data-cta="looper" href="https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dweb%26utm_campaign%3Dsite-cta">Get it on Google Play <span aria-hidden="true">&#8599;</span></a>
+    </div>
+  </nav>
+  <main id="main">
+
+    <header class="page-hero">
+      <div class="wrap">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">SciNTech</a></li><li><a href="/seamless-video-looper/">Seamless Video Looper</a></li><li aria-current="page">Examples</li></ol></nav>
+        <span class="eyebrow">A closer look</span>
+        <h1>From clip to continuous moment.</h1>
+        <p class="lede">Real screens from the current app: Easy mode&#8217;s two-step flow, Advanced mode&#8217;s cut, seam, and render controls, the Hardware Test report, and a side-by-side video of a raw repeat against the app&#8217;s seamless export.</p>
+        <div class="facet-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Easy mode</span><h2>Pick a clip. Get a scored loop.</h2></div>
+          <p class="section-intro">Easy mode searches and renders scored loop options automatically. Its results screen rates the best loop &mdash; here, Loop quality Good at 87%, AI-smoothed &mdash; and offers Save to gallery and Share, with a star rating for the result.</p>
+        </div>
+        <div class="shot-grid">
+          <figure class="shot"><img src="/assets/img/looper/shot-easy-entry.webp" width="540" height="1200" alt="Easy mode entry screen: &#8216;Select a video to create a seamless loop&#8217; with a Select Video button." decoding="async"><figcaption><strong>Select a video.</strong> Easy mode starts from a single pick &mdash; no settings to configure first.</figcaption></figure>
+          <figure class="shot"><img src="/assets/img/looper/shot-easy-results.webp" width="540" height="1200" alt="Easy mode results screen: a &#8216;Best overall&#8217; loop rated Loop quality Good, 87%, 5.0 seconds and AI-smoothed, with a star rating row and Save to gallery and Share buttons." loading="lazy" decoding="async"><figcaption><strong>Save the best loop.</strong> The top result is scored and ready to save to your gallery or share, and you can rate it with the star row.</figcaption></figure>
+        </div>
+        <figure class="loop-demo">
+          <video autoplay loop muted playsinline preload="metadata" width="640" height="320" poster="/assets/img/looper/loop-demo-2-compare-poster.jpg" aria-label="Side-by-side video: on the left, the source clip simply repeated, with a hard cut at the join; on the right, the seamless loop the app exported from the same clip.">
+            <source src="/assets/img/looper/loop-demo-2-compare.webm" type="video/webm">
+            <source src="/assets/img/looper/loop-demo-2-compare.mp4" type="video/mp4">
+          </video>
+          <figcaption><strong>Raw repeat vs. seamless loop.</strong> Left: the source clip simply repeated &mdash; watch for the hard cut at the join. Right: the loop the app exported from the same clip. Both halves are real footage: the source, and the app&#8217;s own rendered output.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section panel">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Advanced controls</span><h2>Shape the seam yourself.</h2></div>
+          <p class="section-intro">Advanced mode exposes the full workflow: pick a clip and a preset, search for loop points, compare the scored candidates or set a custom cut, choose among five seam methods and the stabilization options, then render.</p>
+        </div>
+        <div class="shot-grid">
+          <figure class="shot"><img src="/assets/img/looper/shot-advanced-entry.webp" width="540" height="1200" alt="Advanced mode entry screen showing a selected clip&#8217;s metadata card &mdash; 5.0 seconds, 1280 by 1280, 24 frames per second &mdash; with a Preset dropdown and Change Video and Next buttons." loading="lazy" decoding="async"><figcaption><strong>Choose a clip.</strong> Review its duration, resolution, and frame rate, and pick a preset before starting.</figcaption></figure>
+          <figure class="shot"><img src="/assets/img/looper/shot-advanced-cut.webp" width="540" height="1200" alt="Advanced mode Find Loop Points settings: Search Mode set to At Edges, a quality metric selector, a Start window control, and a Start Search button." loading="lazy" decoding="async"><figcaption><strong>Set the search.</strong> Choose where and how the app hunts for loop points.</figcaption></figure>
+          <figure class="shot"><img src="/assets/img/looper/shot-advanced-candidates.webp" width="540" height="1200" alt="Advanced mode candidate loop points: &#8216;3 candidates found&#8217;, each with a seamlessness score and A/B frame ranges, plus a Custom cut option." loading="lazy" decoding="async"><figcaption><strong>Compare candidates.</strong> Preview the scored cuts or define a custom cut of your own.</figcaption></figure>
+          <figure class="shot"><img src="/assets/img/looper/shot-advanced-synthesis.webp" width="540" height="1200" alt="Advanced mode Synthesis settings: Blend method set to AI Interpolation, Blend Frames 14, and seam stabilization options for mode, borders, and motion tracking." loading="lazy" decoding="async"><figcaption><strong>Blend and align.</strong> Adjust the blend method and frames, and how the seam is stabilized.</figcaption></figure>
+          <figure class="shot"><img src="/assets/img/looper/shot-advanced-render.webp" width="540" height="1200" alt="Advanced mode render-complete screen scrolled to its actions: Share, Save to gallery, New Loop, and Save as Preset, with a star rating row." loading="lazy" decoding="async"><figcaption><strong>Watch the result.</strong> Inspect the finished loop, then save it to your gallery, share it, or store the settings as a preset.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Hardware Test</span><h2>Fit the work to the device.</h2></div>
+          <p class="section-intro">Hardware Test scores the device and lists which motion and interpolation backends work on it, so the app can pick settings the hardware can actually run.</p>
+        </div>
+        <div class="shot-grid">
+          <figure class="shot"><img src="/assets/img/looper/shot-hardware-test.webp" width="540" height="1200" alt="Hardware Test results screen from app version 1.10.0 (build 35): Performance Tier Amber, Score 75 of 100, with scaling, decode, and encode timings. The device model shown is sdk_gphone64_x86_64, an Android emulator." loading="lazy" decoding="async"><figcaption><strong>The summary.</strong> A performance tier and score, with per-component timings.</figcaption></figure>
+          <figure class="shot"><img src="/assets/img/looper/shot-hardware-test-backends.webp" width="540" height="1200" alt="Hardware Test screen scrolled to the ML Backends table: RIFE and NeuFlow rows with ncnn GPU, NNAPI, ORT CPU, and MNN CPU entries, initialization and inference timings, and Skipped markers." loading="lazy" decoding="async"><figcaption><strong>The backends.</strong> Which interpolation backends initialized, how fast they run, and which were skipped.</figcaption></figure>
+        </div>
+        <p class="section-intro mt-24">These two captures come from an Android emulator &mdash; the report names the emulator model, sdk_gphone64_x86_64 &mdash; so read them as illustrations of the screen. On your phone, the same report names your own device.</p>
+      </div>
+    </section>
+
+    <section class="section sand">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Footage guide</span><h2>Start where motion can continue.</h2></div>
+          <p class="section-intro">A good loop is already latent in the scene. The app helps you find and finish it.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><span class="kicker">GOOD START</span><h3>Water, fire, clouds, foliage</h3><p>Continuous organic motion gives the seam room to disappear.</p></article>
+          <article class="card"><span class="kicker">TRY A FEW CUTS</span><h3>Drift and slow zoom</h3><p>Alignment can help when the camera moves gently through the shot.</p></article>
+          <article class="card"><span class="kicker">MORE DIFFICULT</span><h3>Crossings and occlusion</h3><p>A person or object crossing the seam can double, bend, or reveal the transition.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="narrow">
+        <span class="eyebrow">A useful rhythm</span>
+        <h2>Preview more than one answer.</h2>
+        <p class="lede">A high score is a strong starting point, but the right loop depends on the scene. Watch the motion, listen to the sound, and choose the candidate that feels natural.</p>
+        <p class="mt-24"><a class="button primary" data-cta="looper" href="https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dweb%26utm_campaign%3Dsite-cta">Get it on Google Play <span aria-hidden="true">&#8599;</span></a></p>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">SciNTech</p>
+          <p class="fine">Useful Android tools, built on science, that work offline — and say plainly where they fall short.</p>
+          <div class="facet-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">Apps</p>
+          <a href="/watermark-remover/">Watermark Remover</a>
+          <a href="/seamless-video-looper/">Seamless Video Looper</a>
+          <a href="/pic2ink/">Pic2Ink</a>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">SciNTech</p>
+          <a href="/about/">About &amp; values</a>
+          <a href="/changelog/">Changelog</a>
+          <a href="/compatibility/">Compatibility</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="https://play.google.com/store/apps/developer?id=SciNTech">All SciNTech apps on Google Play <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+      <div class="footer-base">
+        <p class="fine">Questions and reports go through the app’s Send Feedback button at the bottom right of the screen. This site sets no cookies and loads no analytics.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

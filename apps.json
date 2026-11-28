@@ -1,0 +1,37 @@
+{
+  "studio": "SciNTech",
+  "website": "https://scintech-dev.github.io/",
+  "developer_page": "https://play.google.com/store/apps/developer?id=SciNTech",
+  "apps": [
+    {
+      "id": "looper",
+      "name": "Seamless Video Looper",
+      "package": "com.seamlessvideolooper.android",
+      "status": "production",
+      "site_url": "https://scintech-dev.github.io/seamless-video-looper/",
+      "play_url": "https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android",
+      "tagline": "Turns a clip into a seamless loop that plays forward.",
+      "version": "1.10.0"
+    },
+    {
+      "id": "wmr",
+      "name": "Watermark Remover",
+      "package": "com.watermarkremover.android",
+      "status": "production",
+      "site_url": "https://scintech-dev.github.io/watermark-remover/",
+      "play_url": "https://play.google.com/store/apps/details?id=com.watermarkremover.android",
+      "tagline": "Removes repeated or single-photo watermarks offline.",
+      "version": "0.8.0"
+    },
+    {
+      "id": "pic2ink",
+      "name": "Pic2Ink",
+      "package": "com.scintech.pic2ink",
+      "status": "production",
+      "site_url": "https://scintech-dev.github.io/pic2ink/",
+      "play_url": "https://play.google.com/store/apps/details?id=com.scintech.pic2ink",
+      "tagline": "Photos to NFC & Wi-Fi e-ink frames, pixel-exact and offline.",
+      "version": "0.6.1"
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Watermark Remover compatibility and FAQ</title>
+  <meta name="description" content="Watermark Remover needs Android 8.0+ (arm64-v8a). Photos only — no video. Inputs, save paths, permissions, timing, and privacy FAQ.">
+  <link rel="canonical" href="https://scintech-dev.github.io/watermark-remover/compatibility/">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f4ef">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#15161a">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SciNTech">
+  <meta property="og:title" content="Watermark Remover compatibility and FAQ">
+  <meta property="og:description" content="Watermark Remover needs Android 8.0+ (arm64-v8a). Photos only — no video. Inputs, save paths, permissions, timing, and privacy FAQ.">
+  <meta property="og:url" content="https://scintech-dev.github.io/watermark-remover/compatibility/">
+  <meta property="og:image" content="https://scintech-dev.github.io/assets/img/wmr/og-wmr.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Watermark Remover: See the photo, not the stamp — repeated and single-photo watermark removal offline.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/scintech-mark-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/scintech-mark-180.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <script src="/assets/site.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://scintech-dev.github.io/#organization","name":"SciNTech","url":"https://scintech-dev.github.io/","logo":"https://scintech-dev.github.io/assets/img/scintech-mark-512.png","sameAs":["https://play.google.com/store/apps/developer?id=SciNTech","https://play.google.com/store/apps/details?id=com.seamlessvideolooper.android","https://play.google.com/store/apps/details?id=com.watermarkremover.android","https://play.google.com/store/apps/details?id=com.scintech.pic2ink"]},{"@type":"WebSite","@id":"https://scintech-dev.github.io/#website","name":"SciNTech","url":"https://scintech-dev.github.io/","inLanguage":"en","publisher":{"@id":"https://scintech-dev.github.io/#organization"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SciNTech","item":"https://scintech-dev.github.io/"},{"@type":"ListItem","position":2,"name":"Watermark Remover","item":"https://scintech-dev.github.io/watermark-remover/"},{"@type":"ListItem","position":3,"name":"Compatibility","item":"https://scintech-dev.github.io/watermark-remover/compatibility/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does it work offline?","acceptedAnswer":{"@type":"Answer","text":"Yes. Learning and removing the mark run on the phone and need no connection. A report you send while offline waits on the phone and is sent later."}},{"@type":"Question","name":"Does it work on video?","acceptedAnswer":{"@type":"Answer","text":"No. Watermark Remover handles photos only — no video. If you pick a video file, Easy mode tells you to add photos instead."}},{"@type":"Question","name":"Can it remove a single logo?","acceptedAnswer":{"@type":"Answer","text":"Yes, with limits. The on-device one-photo neural model estimates the mark and undoes it (and serves as a fallback for batches of up to 6 photos when no shared mark is found). On our 300-image test set the median improvement was +6.5 dB, with some modest results (examples). It needs about 1.2 GB of free memory and the Full build (Google Play distributes only the Full build). When you have several photos carrying the same logo, learning from 8 photos and saving the mark ended closer in 10 of 11 synthetic single-mark cases (two photos in 8 of 11), so check the preview before saving (why)."}},{"@type":"Question","name":"Why does the first analysis take a while?","acceptedAnswer":{"@type":"Answer","text":"Learning and reconstruction run arithmetic over every pixel under the mark on your phone. Expect a few minutes per image on most phones, and longer for large photographs — you can cancel and keep whatever has finished. The one-photo neural model takes about 20 seconds per 12-megapixel photo on a 2025 flagship phone and about 100 seconds on a 2020 mid-range phone."}},{"@type":"Question","name":"Why does fine detail under the mark look painted?","acceptedAnswer":{"@type":"Answer","text":"Where the mark hid the picture completely, nothing of the original is left to recover, so that area is filled in from its surroundings: by the on-device MI-GAN model in the Full build distributed on Google Play (or by a classical fill in a Lite build). That area is a reconstruction, not the original."}},{"@type":"Question","name":"What leaves the phone?","acceptedAnswer":{"@type":"Answer","text":"No photo and no result. Automatic and technical reports — crash, out-of-memory, ANR stack, interrupted-job, removal-failure, Hardware Test, self-test, result ratings, Advanced comparison choices, and save/share actions — carry no photos and are gated under broad category switches in Settings. Feedback is sent only when you press Send; its four attachment checkboxes (including Screenshot) are ticked by default and can show your picture/video if on screen — untick before sending to leave them out. Opening the app makes no network connection of its own. Reports carry Firebase uid, Android ID, and a random install_id, are retained indefinitely, read by a human who acts on them, and deleted within 30 days of an email request. The privacy policy lists every field."}},{"@type":"Question","name":"Is it free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Watermark Remover is free — no ads, no accounts, and nothing to buy — and works offline."}},{"@type":"Question","name":"How do I send feedback?","acceptedAnswer":{"@type":"Answer","text":"Tap the feedback button in the corner of the screen, or choose Send feedback in the ⋮ menu on any screen. Its four attachment checkboxes (Image details, App logs, Screenshot, and Current settings) are ticked by default, and Screenshot can show your picture/video if on screen — untick any item you want to leave out before sending. A human reads every report and acts on it."}},{"@type":"Question","name":"Where do I get it?","acceptedAnswer":{"@type":"Answer","text":"On Google Play, where it is listed as Watermark Remover (Offline). It has been available to everyone there since October 15, 2026; before that it was a closed test."}},{"@type":"Question","name":"Can I remove any watermark?","acceptedAnswer":{"@type":"Answer","text":"The app restores photos. Whether you may alter a particular photo is a question of the photographer’s or owner’s rights, which the app cannot judge for you. Use it on photos you have the right to restore."}}]}]}</script>
+</head>
+<body data-app="wmr">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="/"><img src="/assets/img/scintech-mark-64.png" width="32" height="32" alt="" decoding="async"><span>SciNTech</span></a>
+      <div class="nav-links">
+        <a class="nav-app" data-app-link="wmr" href="/watermark-remover/">Watermark Remover</a>
+        <a class="nav-app" data-app-link="looper" href="/seamless-video-looper/">Seamless Video Looper</a>
+        <a class="nav-app" data-app-link="pic2ink" href="/pic2ink/">Pic2Ink</a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a href="/about/">About</a>
+        <a href="/changelog/">Changelog</a>
+        <a href="/compatibility/">Compatibility</a>
+        <a href="/privacy/">Privacy</a>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" hidden><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M5.3 18.7 7 17M17 7l1.7-1.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span class="sr-only">Dark theme</span></button>
+    </nav>
+  </header>
+  <nav class="app-nav" aria-label="Watermark Remover">
+    <div class="wrap">
+        <a href="/watermark-remover/">Home</a>
+        <a href="/watermark-remover/how-it-works/">How it works</a>
+        <a href="/watermark-remover/examples/">Examples</a>
+        <a href="/watermark-remover/compatibility/" aria-current="page">Compatibility</a>
+        <a href="/watermark-remover/privacy/">Privacy</a>
+        <a class="button primary" data-cta="wmr" href="https://play.google.com/store/apps/details?id=com.watermarkremover.android&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dweb%26utm_campaign%3Dsite-cta">Get it on Google Play <span aria-hidden="true">&#8599;</span></a>
+    </div>
+  </nav>
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="wrap">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">SciNTech</a></li><li><a href="/watermark-remover/">Watermark Remover</a></li><li aria-current="page">Compatibility</li></ol></nav>
+        <span class="eyebrow">Compatibility &amp; FAQ</span>
+        <h1>What it needs, and what it asks.</h1>
+        <p class="lede">A 64-bit Android phone (8.0+), photos only (no video), and a little patience for high-resolution jobs. The rest is below.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="facts-title">
+      <div class="wrap">
+        <h2 id="facts-title">Quick facts</h2>
+        <div class="table-wrap mt-28">
+          <table>
+            <caption>Read from the app’s source code; current for version <!--app-version:wmr-->0.8.0<!--/app-version-->.</caption>
+            <thead><tr><th scope="col">Topic</th><th scope="col">What holds</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Android &amp; CPU</th><td>Android 8.0 (API 26) or later on a 64-bit ARM (<code>arm64-v8a</code>) device.</td></tr>
+              <tr><th scope="row">Photos in</th><td>Photos only — no video. Images chosen in the Android picker, shared from another app, or opened via “Open with” (including <code>.png</code> and <code>.cmt</code> watermark files).</td></tr>
+              <tr><th scope="row">Photos out</th><td>Saved at full resolution to <code>Pictures/WatermarkRemover</code> on Android 8.0 and later (PNG for Easy mode and Workbench “Save all”; JPEG or PNG for single-photo saves in Quick Remove and the Workbench viewer), or shared as PNG.</td></tr>
+              <tr><th scope="row">Permissions</th><td>No broad access to your photo library: the app sees only the images you pick or share. On Android 8.0–9 it requests legacy storage write permission (<code>WRITE_EXTERNAL_STORAGE</code>) to save to <code>Pictures/WatermarkRemover</code>; on Android 13+ it requests <code>POST_NOTIFICATIONS</code> for long-job progress notifications. Uses the network only to send reports, with no connection at startup.</td></tr>
+              <tr><th scope="row">Where it runs</th><td>On the phone. Learning and removal need no connection.</td></tr>
+              <tr><th scope="row">Hardware Test</th><td>Measures band thread counts, learn memory budget, and MI-GAN repair execution providers on your phone. It is the first item in the ⋮ menu on every screen.</td></tr>
+              <tr><th scope="row">Fill &amp; AI models</th><td>Google Play distributes only the Full build, which includes the on-device MI-GAN fill model and the one-photo neural model. A Lite build uses a classical fill instead and does not include the one-photo model.</td></tr>
+              <tr><th scope="row">One-photo removal</th><td>Handles a single photo and acts as a fallback for batches of up to 6 photos when no shared mark is found. Needs about 1.2 GB of free memory and the Full build. About 20 s per 12-megapixel photo on a 2025 flagship phone and about 100 s on a 2020 mid-range phone (timed on one 12-megapixel test picture).</td></tr>
+              <tr><th scope="row">Long jobs</th><td>A long removal keeps running with a notification while you use other apps, and you can cancel and keep finished images.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="section-intro mt-24">See requirements across all three SciNTech apps on the <a href="/compatibility/">compatibility overview</a>.</p>
+      </div>
+    </section>
+
+    <section class="section panel" aria-labelledby="faq">
+      <div class="narrow">
+        <h2 id="faq">Questions</h2>
+        <div class="faq mt-28">
+          <details id="faq-offline"><summary>Does it work offline?</summary><p>Yes. Learning and removing the mark run on the phone and need no connection. A report you send while offline waits on the phone and is sent later.</p></details>
+          <details id="faq-video"><summary>Does it work on video?</summary><p>No. Watermark Remover handles photos only — no video. If you pick a video file, Easy mode tells you to add photos instead.</p></details>
+          <details id="faq-logo"><summary>Can it remove a single logo?</summary><p>Yes, with limits. The on-device one-photo neural model estimates the mark and undoes it (and serves as a fallback for batches of up to 6 photos when no shared mark is found). On our 300-image test set the median improvement was +6.5 dB, with some modest results (<a href="/watermark-remover/examples/#one-photo">examples</a>). It needs about 1.2 GB of free memory and the Full build (Google Play distributes only the Full build). When you have several photos carrying the same logo, learning from 8 photos and saving the mark ended closer in 10 of 11 synthetic single-mark cases (two photos in 8 of 11), so check the preview before saving (<a href="/watermark-remover/how-it-works/">why</a>).</p></details>
+          <details id="faq-slow"><summary>Why does the first analysis take a while?</summary><p>Learning and reconstruction run arithmetic over every pixel under the mark on your phone. Expect a few minutes per image on most phones, and longer for large photographs — you can cancel and keep whatever has finished. The one-photo neural model takes about 20 seconds per 12-megapixel photo on a 2025 flagship phone and about 100 seconds on a 2020 mid-range phone.</p></details>
+          <details id="faq-detail"><summary>Why does fine detail under the mark look painted?</summary><p>Where the mark hid the picture completely, nothing of the original is left to recover, so that area is filled in from its surroundings: by the on-device MI-GAN model in the Full build distributed on Google Play (or by a classical fill in a Lite build). That area is a reconstruction, not the original.</p></details>
+          <details id="faq-data"><summary>What leaves the phone?</summary><p>No photo and no result. Automatic and technical reports — crash, out-of-memory, ANR stack, interrupted-job, removal-failure, Hardware Test, self-test, result ratings, Advanced comparison choices, and save/share actions — carry no photos and are gated under broad category switches in Settings. Feedback is sent only when you press Send; its four attachment checkboxes (including Screenshot) are ticked by default and can show your picture/video if on screen — untick before sending to leave them out. Opening the app makes no network connection of its own. Reports carry Firebase uid, Android ID, and a random install_id, are retained indefinitely, read by a human who acts on them, and deleted within 30 days of an email request. The <a href="/watermark-remover/privacy/#policy">privacy policy</a> lists every field.</p></details>
+          <details id="faq-free"><summary>Is it free?</summary><p>Yes. Watermark Remover is free — no ads, no accounts, and nothing to buy — and works offline.</p></details>
+          <details id="faq-feedback"><summary>How do I send feedback?</summary><p>Tap the feedback button in the corner of the screen, or choose Send feedback in the ⋮ menu on any screen. Its four attachment checkboxes (Image details, App logs, Screenshot, and Current settings) are ticked by default, and Screenshot can show your picture/video if on screen — untick any item you want to leave out before sending. A human reads every report and acts on it.</p></details>
+          <details id="faq-install"><summary>Where do I get it?</summary><p>On <a href="https://play.google.com/store/apps/details?id=com.watermarkremover.android&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dweb%26utm_campaign%3Dsite-cta">Google Play</a>, where it is listed as Watermark Remover (Offline). It has been available to everyone there since October 15, 2026; before that it was a closed test.</p></details>
+          <details id="faq-rights"><summary>Can I remove any watermark?</summary><p>The app restores photos. Whether you may alter a particular photo is a question of the photographer’s or owner’s rights, which the app cannot judge for you. Use it on photos you have the right to restore.</p></details>
+        </div>
+        <div class="hero-actions mt-40">
+          <a class="button primary" data-cta="wmr" href="https://play.google.com/store/apps/details?id=com.watermarkremover.android&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dweb%26utm_campaign%3Dsite-cta">Get it on Google Play <span aria-hidden="true">&#8599;</span></a>
+          <a class="button secondary" href="/watermark-remover/privacy/">Privacy details</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">SciNTech</p>
+          <p class="fine">Useful Android tools, built on science, that work offline — and say plainly where they fall short.</p>
+          <div class="facet-strip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">Watermark Remover</p>
+          <a href="/watermark-remover/how-it-works/">How it works</a>
+          <a href="/watermark-remover/examples/">Examples</a>
+          <a href="/watermark-remover/compatibility/">Compatibility &amp; FAQ</a>
+          <a href="/watermark-remover/privacy/">Privacy</a>
+          <a data-cta="wmr" href="https://play.google.com/store/apps/details?id=com.watermarkremover.android&amp;referrer=utm_source%3Dwebsite%26utm_medium%3Dweb%26utm_campaign%3Dsite-cta">Get it on Google Play <span aria-hidden="true">&#8599;</span></a>
+        </div>
+        <div class="footer-links">
+          <p class="footer-head">SciNTech</p>
+          <a href="/about/">About &amp; values</a>
+          <a href="/changelog/#watermark-remover">Changelog</a>
+          <a href="/compatibility/">Compatibility</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/seamless-video-looper/">Seamless Video Looper</a>
+          <a href="/pic2ink/">Pic2Ink</a>
+          <a href="https://play.google.com/store/apps/developer?id=SciNTech">All SciNTech apps on Google Play <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+      <div class="footer-base">
+        <p class="footer-rights">Restore photos you have the right to restore — respect photographers’ and other owners’ rights.</p>
+        <p class="fine">Questions and reports go through the app’s feedback button (also in the ⋮ menu → Send feedback). This site sets no cookies and loads no analytics.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

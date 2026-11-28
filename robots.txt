@@ -1,0 +1,41 @@
+User-agent: GPTBot
+Allow: /
+Disallow: /docs/
+Disallow: /tools/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /docs/
+Disallow: /tools/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /docs/
+Disallow: /tools/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /docs/
+Disallow: /tools/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /docs/
+Disallow: /tools/
+
+User-agent: CCBot
+Allow: /
+Disallow: /docs/
+Disallow: /tools/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /docs/
+Disallow: /tools/
+
+User-agent: *
+Allow: /
+Disallow: /docs/
+Disallow: /tools/
+
+Sitemap: https://scintech-dev.github.io/sitemap.xml
